@@ -2,26 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>SCHKIT — Scholarships. Applications. Your Future.</title>
-
-<meta name="description"
-content="SCHKIT helps students discover scholarships, check eligibility, prepare applications and track opportunities.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#635bff">
+<title>SCHKIT — Scholarships Made Simpler</title>
 
 <style>
 :root{
---p:#635bff;
---p2:#5148e8;
---ink:#101828;
---muted:#667085;
---bg:#f6f7fb;
---card:#fff;
---border:#e4e7ec;
---green:#12b76a;
---red:#f04438;
---amber:#f79009;
---dark:#0b1220;
+  --primary:#635bff;
+  --primary-dark:#5148e8;
+  --ink:#101828;
+  --muted:#667085;
+  --bg:#f6f7fb;
+  --card:#fff;
+  --border:#e4e7ec;
+  --success:#12b76a;
+  --danger:#f04438;
+  --shadow:0 20px 60px rgba(16,24,40,.09);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,723 +25,722 @@ content="SCHKIT helps students discover scholarships, check eligibility, prepare
 html{scroll-behavior:smooth}
 
 body{
-font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-background:var(--bg);
-color:var(--ink);
-line-height:1.55;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
 }
 
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 
-a{text-decoration:none;color:inherit}
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* NAV */
 
 nav{
-height:72px;
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 6%;
-background:rgba(255,255,255,.9);
-backdrop-filter:blur(18px);
-border-bottom:1px solid var(--border);
+  height:72px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-font-size:28px;
-font-weight:950;
-letter-spacing:-2px;
+  font-size:26px;
+  font-weight:950;
+  letter-spacing:-1.5px;
 }
 
-.logo span{color:var(--p)}
+.logo span{color:var(--primary)}
 
 .nav-links{
-display:flex;
-align-items:center;
-gap:25px;
+  display:flex;
+  align-items:center;
+  gap:25px;
 }
 
 .nav-links a{
-font-size:14px;
-font-weight:750;
-color:#475467;
+  text-decoration:none;
+  color:#475467;
+  font-size:14px;
+  font-weight:750;
 }
 
-.nav-links a:hover{color:var(--p)}
+.nav-links a:hover{color:var(--primary)}
 
 .nav-cta{
-background:var(--ink);
-color:white!important;
-padding:10px 16px;
-border-radius:10px;
+  background:var(--ink);
+  color:#fff!important;
+  padding:10px 16px;
+  border-radius:10px;
 }
 
-.mobile-menu{
-display:none;
-border:0;
-background:none;
-font-size:25px;
+.theme-btn{
+  border:1px solid var(--border);
+  background:white;
+  width:38px;
+  height:38px;
+  border-radius:10px;
 }
 
 /* HERO */
 
 .hero{
-min-height:690px;
-padding:85px 6%;
-display:grid;
-grid-template-columns:1.05fr .95fr;
-gap:60px;
-align-items:center;
-background:
-radial-gradient(circle at 85% 10%,#e9e7ff,transparent 35%),
-linear-gradient(135deg,#fff,#f6f7ff);
-overflow:hidden;
+  padding:82px 0 65px;
+  background:
+    radial-gradient(circle at 85% 10%,#e7e4ff 0,transparent 34%),
+    linear-gradient(#fff,#f7f8fc);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
 .eyebrow{
-display:inline-flex;
-padding:8px 13px;
-border-radius:999px;
-background:#eeecff;
-color:#5146b8;
-font-size:11px;
-font-weight:900;
+  display:inline-block;
+  background:#eeecff;
+  color:#5148e8;
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:20px;
 }
 
 .hero h1{
-font-size:clamp(48px,6.5vw,80px);
-line-height:.96;
-letter-spacing:-5px;
-margin-top:20px;
+  font-size:clamp(45px,6vw,76px);
+  line-height:.98;
+  letter-spacing:-4px;
 }
 
-.hero h1 span{color:var(--p)}
+.hero h1 span{color:var(--primary)}
 
-.hero-copy{
-font-size:18px;
-color:var(--muted);
-max-width:620px;
-margin-top:25px;
+.hero-text{
+  max-width:620px;
+  color:var(--muted);
+  font-size:18px;
+  margin:24px 0 30px;
 }
 
 .actions{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-top:30px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-.primary,.secondary{
-padding:14px 20px;
-border-radius:11px;
-font-weight:850;
-transition:.2s;
+.primary,
+.secondary{
+  padding:13px 19px;
+  border-radius:11px;
+  font-weight:850;
+  transition:.2s;
 }
 
 .primary{
-background:var(--p);
-border:1px solid var(--p);
-color:white;
+  background:var(--primary);
+  color:white;
+  border:0;
 }
 
 .primary:hover{
-background:var(--p2);
-transform:translateY(-2px);
+  background:var(--primary-dark);
+  transform:translateY(-2px);
 }
 
 .secondary{
-background:white;
-border:1px solid #d0d5dd;
-color:var(--ink);
+  background:white;
+  color:var(--ink);
+  border:1px solid #d0d5dd;
 }
 
 .secondary:hover{
-border-color:var(--p);
-color:var(--p);
+  border-color:var(--primary);
+  color:var(--primary);
 }
 
-.hero-note{
-font-size:12px;
-color:#98a2b3;
-margin-top:17px;
+.hero-image{
+  height:455px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:var(--shadow);
 }
 
-.hero-visual{position:relative}
-
-.hero-photo{
-width:100%;
-height:480px;
-object-fit:cover;
-border-radius:28px;
-box-shadow:0 30px 80px rgba(16,24,40,.2);
+.hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.live{
-position:absolute;
-right:-15px;
-top:20px;
-padding:12px 15px;
-background:rgba(255,255,255,.95);
-border:1px solid var(--border);
-border-radius:13px;
-box-shadow:0 15px 35px rgba(16,24,40,.12);
-font-size:11px;
-font-weight:850;
+.floating-card{
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  background:white;
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:15px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+  max-width:290px;
 }
 
-.dot{
-display:inline-block;
-width:8px;
-height:8px;
-border-radius:50%;
-background:#22c55e;
-margin-right:6px;
+.floating-card strong{
+  display:block;
+  font-size:13px;
 }
 
-.hero-stat{
-position:absolute;
-bottom:20px;
-left:-25px;
-background:white;
-padding:18px;
-border:1px solid var(--border);
-border-radius:17px;
-box-shadow:0 18px 45px rgba(16,24,40,.15);
-width:235px;
+.floating-card span{
+  color:var(--muted);
+  font-size:11px;
 }
 
-.hero-stat strong{
-font-size:23px;
-display:block;
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:38px;
 }
 
-.hero-stat span{
-font-size:12px;
-color:var(--muted);
+.stat{
+  background:white;
+  border:1px solid var(--border);
+  padding:17px;
+  border-radius:14px;
 }
 
-/* TRUST */
-
-.trust{
-padding:17px 6%;
-background:var(--dark);
-color:white;
-display:flex;
-justify-content:center;
-gap:35px;
-flex-wrap:wrap;
-font-size:12px;
-font-weight:800;
+.stat strong{
+  font-size:24px;
 }
 
-.trust span{color:#c7d2fe}
-
-/* GENERAL */
-
-section{padding:85px 6%}
-
-.heading{
-max-width:720px;
-margin-bottom:38px;
+.stat span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
 }
 
-.heading h2{
-font-size:42px;
-line-height:1.05;
-letter-spacing:-2px;
+/* SECTIONS */
+
+section{padding:85px 0}
+
+.section-heading{
+  max-width:720px;
+  margin-bottom:35px;
 }
 
-.heading p{
-margin-top:12px;
-color:var(--muted);
+.section-heading h2{
+  font-size:41px;
+  line-height:1.08;
+  letter-spacing:-2px;
+  margin-bottom:10px;
 }
 
-/* FEATURES */
-
-.features{background:white}
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:17px;
+.section-heading p{
+  color:var(--muted);
 }
-
-.feature{
-padding:25px;
-border:1px solid var(--border);
-border-radius:18px;
-transition:.2s;
-}
-
-.feature:hover{
-transform:translateY(-5px);
-box-shadow:0 18px 45px rgba(16,24,40,.08);
-}
-
-.icon{
-width:50px;
-height:50px;
-display:grid;
-place-items:center;
-background:#f0efff;
-border-radius:14px;
-font-size:23px;
-margin-bottom:15px;
-}
-
-.feature h3{margin-bottom:7px}
-.feature p{font-size:14px;color:var(--muted)}
 
 /* FINDER */
 
-.finder{background:var(--bg)}
+.finder{background:white}
 
 .finder-box{
-max-width:1150px;
-background:white;
-border:1px solid var(--border);
-border-radius:24px;
-padding:30px;
-box-shadow:0 20px 65px rgba(16,24,40,.06);
+  background:var(--bg);
+  border:1px solid var(--border);
+  padding:27px;
+  border-radius:22px;
 }
 
 .form-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 
-label{
-display:block;
-font-size:12px;
-font-weight:850;
-margin-bottom:7px;
+.field label{
+  display:block;
+  font-size:12px;
+  font-weight:850;
+  margin-bottom:6px;
 }
 
-input,select,textarea{
-width:100%;
-padding:13px;
-border:1px solid #d0d5dd;
-border-radius:10px;
-background:white;
-outline:none;
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d0d5dd;
+  border-radius:10px;
+  background:white;
+  outline:none;
 }
 
-textarea{
-min-height:130px;
-resize:vertical;
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px #635bff18;
 }
 
-input:focus,select:focus,textarea:focus{
-border-color:var(--p);
-box-shadow:0 0 0 3px #635bff18;
+.search-row{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
 }
 
-.finder-btn{margin-top:20px}
+.search-row input{
+  flex:1;
+  padding:13px;
+  border:1px solid #d0d5dd;
+  border-radius:10px;
+}
 
-/* RESULTS */
+/* SCHOLARSHIPS */
+
+.results-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:30px 0 15px;
+}
 
 .results{
-display:none;
-margin-top:35px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
 }
 
-.result-card{
-border:1px solid var(--border);
-border-radius:18px;
-padding:21px;
-margin-bottom:14px;
-background:white;
+.scholarship{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:21px;
+  transition:.2s;
 }
 
-.result-top{
-display:flex;
-justify-content:space-between;
-gap:15px;
+.scholarship:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
 }
 
-.provider{
-font-size:13px;
-color:var(--muted);
-margin-top:3px;
+.sch-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
 }
 
-.match{
-min-width:78px;
-height:max-content;
-text-align:center;
-background:#ecfdf3;
-color:#15803d;
-padding:8px;
-border-radius:11px;
-font-weight:950;
-font-size:15px;
+.scholarship h3{
+  font-size:18px;
+  line-height:1.2;
 }
 
-.match small{
-display:block;
-font-size:9px;
+.organization{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.funding{
+  background:#ecfdf3;
+  color:#087443;
+  padding:5px 8px;
+  border-radius:99px;
+  font-size:10px;
+  font-weight:900;
+  height:max-content;
+  white-space:nowrap;
 }
 
 .tags{
-display:flex;
-gap:7px;
-flex-wrap:wrap;
-margin:14px 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:14px 0;
 }
 
 .tag{
-font-size:11px;
-padding:5px 9px;
-background:#f2f4f7;
-border-radius:7px;
-color:#475467;
+  background:#f2f4f7;
+  padding:5px 8px;
+  border-radius:7px;
+  font-size:10px;
 }
 
 .deadline{
-font-size:12px;
-font-weight:850;
-color:var(--amber);
+  color:#475467;
+  font-size:12px;
+  margin-bottom:15px;
 }
 
-.verified{
-font-size:10px;
-font-weight:900;
-color:var(--green);
+.card-actions{
+  display:flex;
+  gap:8px;
 }
 
-.result-actions{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:15px;
+.card-actions a,
+.card-actions button{
+  text-decoration:none;
+  padding:9px 12px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:800;
 }
 
-.small-btn{
-padding:9px 12px;
-border-radius:9px;
-font-size:12px;
-font-weight:850;
+.view-btn{
+  background:var(--primary);
+  color:white;
 }
 
-.apply{
-background:var(--ink);
-color:white;
-border:0;
+.save-btn{
+  border:0;
+  background:#f2f4f7;
+  color:var(--ink);
 }
 
-.save{
-background:white;
-border:1px solid #d0d5dd;
-}
-
-/* DASHBOARD */
-
-.dashboard{
-background:white;
-}
-
-.dashboard-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-max-width:1000px;
-}
-
-.panel{
-border:1px solid var(--border);
-border-radius:20px;
-padding:24px;
-background:white;
-}
-
-.progress{
-height:10px;
-background:#eaecf0;
-border-radius:999px;
-overflow:hidden;
-margin:14px 0;
-}
-
-.progress div{
-height:100%;
-background:var(--p);
-width:0;
-transition:.5s;
-}
-
-.saved-item{
-display:flex;
-justify-content:space-between;
-gap:10px;
-padding:13px 0;
-border-bottom:1px solid var(--border);
-font-size:13px;
-}
-
-.empty{
-color:var(--muted);
-font-size:13px;
+.save-btn.saved{
+  background:#fff1f3;
+  color:#c01048;
 }
 
 /* TOOLS */
 
 .tools{
-background:var(--dark);
-color:white;
+  background:#0b1020;
+  color:white;
 }
 
-.tools .heading p{color:#98a2b3}
+.tools .section-heading p{
+  color:#98a2b3;
+}
 
 .tool-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:17px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 
-.tool-card{
-background:#172231;
-border:1px solid #2b3748;
-padding:20px;
-border-radius:18px;
-transition:.2s;
+.tool{
+  background:#151e2e;
+  border:1px solid #293548;
+  border-radius:18px;
+  padding:22px;
 }
 
-.tool-card:hover{
-transform:translateY(-4px);
-border-color:#635bff;
+.tool-icon{
+  font-size:27px;
+  margin-bottom:14px;
 }
 
-.tool-card h3{margin-bottom:7px}
-
-.tool-card p{
-color:#98a2b3;
-font-size:13px;
+.tool h3{
+  margin-bottom:7px;
 }
 
-.tool-card button{
-margin-top:16px;
-padding:9px 13px;
-border:0;
-border-radius:8px;
-background:var(--p);
-color:white;
-font-size:12px;
-font-weight:850;
+.tool p{
+  color:#98a2b3;
+  font-size:13px;
+  margin-bottom:17px;
+}
+
+.tool button{
+  border:0;
+  background:var(--primary);
+  color:white;
+  padding:9px 13px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* TRACKER */
+
+.tracker{
+  background:#f9fafb;
+}
+
+.tracker-list{
+  display:grid;
+  gap:10px;
+}
+
+.tracker-item{
+  background:white;
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.tracker-item small{
+  display:block;
+  color:var(--muted);
+}
+
+.tracker-item select{
+  padding:8px;
+  border:1px solid var(--border);
+  border-radius:8px;
+}
+
+/* PRO */
+
+.pro-box{
+  max-width:720px;
+  background:white;
+  border:2px solid var(--primary);
+  padding:30px;
+  border-radius:22px;
+  box-shadow:0 20px 55px #635bff15;
+}
+
+.price{
+  font-size:42px;
+  font-weight:950;
+  margin:10px 0 20px;
+}
+
+.pro-box ul{
+  list-style:none;
+  margin-bottom:25px;
+}
+
+.pro-box li{
+  margin-bottom:9px;
 }
 
 /* MODAL */
 
-.modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:5000;
-background:rgba(16,24,40,.65);
-backdrop-filter:blur(7px);
-align-items:center;
-justify-content:center;
-padding:20px;
+.modal-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(16,24,40,.65);
+  z-index:500;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.modal-box{
-width:min(700px,100%);
-max-height:90vh;
-overflow:auto;
-background:white;
-border-radius:22px;
-padding:25px;
-position:relative;
+.modal{
+  background:white;
+  width:min(650px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:20px;
+  padding:25px;
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:18px;
 }
 
 .close{
-position:absolute;
-right:18px;
-top:15px;
-border:0;
-background:#f2f4f7;
-width:34px;
-height:34px;
-border-radius:50%;
-font-size:18px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:#f2f4f7;
 }
 
-.modal-box h2{
-padding-right:40px;
-margin-bottom:8px;
-}
-
-.tool-form{
-margin-top:20px;
-display:grid;
-gap:14px;
+.modal textarea{
+  min-height:130px;
+  margin-bottom:12px;
 }
 
 .output{
-display:none;
-margin-top:18px;
-padding:17px;
-background:#f8f9fc;
-border:1px solid var(--border);
-border-radius:13px;
-white-space:pre-wrap;
-font-size:13px;
+  margin-top:15px;
+  padding:16px;
+  background:#f8f9fc;
+  border-radius:12px;
+  white-space:pre-wrap;
+  font-size:13px;
 }
 
-/* PRICING */
+/* TOAST */
 
-.pricing{background:white}
-
-.price-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-max-width:850px;
-gap:20px;
-}
-
-.price-card{
-position:relative;
-border:1px solid var(--border);
-border-radius:20px;
-padding:30px;
-}
-
-.price-card.pro{
-border:2px solid var(--p);
-box-shadow:0 20px 55px rgba(99,91,255,.12);
-}
-
-.popular{
-position:absolute;
-right:18px;
-top:-13px;
-background:var(--p);
-color:white;
-padding:5px 11px;
-border-radius:999px;
-font-size:10px;
-font-weight:900;
-}
-
-.price{
-font-size:40px;
-font-weight:950;
-margin:12px 0 20px;
-}
-
-.price span{
-font-size:13px;
-color:var(--muted);
-font-weight:500;
-}
-
-.price-card ul{
-list-style:none;
-margin-bottom:23px;
-}
-
-.price-card li{
-font-size:14px;
-margin-bottom:9px;
+.toast{
+  display:none;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#101828;
+  color:white;
+  padding:13px 17px;
+  border-radius:10px;
+  z-index:1000;
+  font-size:13px;
 }
 
 /* FOOTER */
 
 footer{
-background:#080d18;
-color:#98a2b3;
-padding:38px 6%;
-display:flex;
-justify-content:space-between;
-gap:20px;
-flex-wrap:wrap;
-font-size:12px;
+  background:#080d18;
+  color:#98a2b3;
+  padding:35px 0;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  font-size:12px;
 }
 
 footer strong{color:white}
 
-/* TOAST */
+/* DARK MODE */
 
-#toast{
-display:none;
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:9000;
-background:#101828;
-color:white;
-padding:13px 16px;
-border-radius:10px;
-box-shadow:0 12px 35px rgba(0,0,0,.2);
-font-size:12px;
-max-width:330px;
+body.dark{
+  background:#0b1020;
+  color:white;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:950px){
-.hero{grid-template-columns:1fr}
-.feature-grid{grid-template-columns:repeat(2,1fr)}
-.tool-grid{grid-template-columns:repeat(2,1fr)}
-.form-grid{grid-template-columns:repeat(2,1fr)}
+body.dark nav{
+  background:#0b1020e8;
+  border-color:#273244;
 }
 
-@media(max-width:650px){
-
-nav{padding:0 5%}
-
-.nav-links a:not(.nav-cta){display:none}
-
-.mobile-menu{display:block}
-
-.hero,section{
-padding-left:5%;
-padding-right:5%;
+body.dark .nav-links a{
+  color:#cbd5e1;
 }
 
-.hero{padding-top:55px}
-
-.hero h1{
-font-size:48px;
-letter-spacing:-2.8px;
+body.dark .theme-btn,
+body.dark .secondary,
+body.dark .stat,
+body.dark .scholarship,
+body.dark .tracker-item,
+body.dark .pro-box,
+body.dark .modal{
+  background:#111827;
+  color:white;
+  border-color:#273244;
 }
 
-.hero-photo{height:340px}
-
-.hero-stat{
-left:10px;
-bottom:12px;
+body.dark .finder{
+  background:#0b1020;
 }
 
-.live{
-right:10px;
+body.dark .finder-box{
+  background:#0f172a;
+  border-color:#273244;
 }
 
-.feature-grid,
-.tool-grid,
-.dashboard-grid,
-.price-grid,
-.form-grid{
-grid-template-columns:1fr;
+body.dark .field input,
+body.dark .field select,
+body.dark .field textarea,
+body.dark .search-row input{
+  background:#111827;
+  color:white;
+  border-color:#344054;
 }
 
-.heading h2{font-size:34px}
+body.dark .organization,
+body.dark .deadline,
+body.dark .section-heading p{
+  color:#98a2b3;
+}
 
-.finder-box{padding:20px}
+body.dark .hero{
+  background:#0b1020;
+}
 
-.result-top{flex-direction:column}
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-image{
+    height:350px;
+  }
+
+  .form-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .results{
+    grid-template-columns:1fr;
+  }
+
+  .tool-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  .nav-links a:not(.nav-cta){
+    display:none;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .hero h1{
+    font-size:49px;
+    letter-spacing:-2.5px;
+  }
+
+  .form-grid,
+  .stats,
+  .tool-grid{
+    grid-template-columns:1fr;
+  }
+
+  .search-row{
+    flex-direction:column;
+  }
+
+  .section-heading h2{
+    font-size:33px;
+  }
+
+  .hero-image{
+    height:300px;
+  }
+
+  .results-header{
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .tracker-item{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 
 <nav>
+<div class="container nav-inner">
 
 <div class="logo">
 SCH<span>KIT</span>
@@ -754,22 +749,19 @@ SCH<span>KIT</span>
 <div class="nav-links">
 
 <a href="#finder">Scholarships</a>
-<a href="#dashboard">My SCHKIT</a>
-<a href="#tools">AI Tools</a>
-<a href="#pricing">Pricing</a>
+<a href="#tools">Tools</a>
+<a href="#tracker">Tracker</a>
 
-<a class="nav-cta" href="#finder">
-Get Started
+<a href="#pro" class="nav-cta">
+Go Pro
 </a>
 
-</div>
-
-<button
-class="mobile-menu"
-onclick="scrollToSection('finder')">
-☰
+<button class="theme-btn" onclick="toggleTheme()" id="themeButton">
+☾
 </button>
 
+</div>
+</div>
 </nav>
 
 
@@ -777,63 +769,81 @@ onclick="scrollToSection('finder')">
 
 <header class="hero">
 
+<div class="container hero-grid">
+
 <div>
 
 <div class="eyebrow">
-🌍 SCHOLARSHIPS • APPLICATIONS • AI
+🌍 BUILT FOR STUDENTS
 </div>
 
 <h1>
-Your future shouldn't depend on
-<span>luck.</span>
+Find funding for your
+<span>future.</span>
 </h1>
 
-<p class="hero-copy">
-Find scholarships that fit your profile,
-understand your eligibility, build a stronger
-application and keep your deadlines organized.
+<p class="hero-text">
+SCHKIT helps students discover scholarships,
+understand eligibility and organize their
+university applications — all in one place.
 </p>
 
 <div class="actions">
 
-<button
-class="primary"
-onclick="scrollToSection('finder')">
-Find My Scholarships →
+<button class="primary"
+onclick="goToFinder()">
+Find my scholarships →
 </button>
 
-<button
-class="secondary"
-onclick="scrollToSection('tools')">
-Explore AI Tools
+<button class="secondary"
+onclick="goToTools()">
+Explore tools
 </button>
 
 </div>
 
-<p class="hero-note">
-Built for students searching for their next opportunity.
-</p>
+<div class="stats">
+
+<div class="stat">
+<strong>01</strong>
+<span>Build your profile</span>
+</div>
+
+<div class="stat">
+<strong>02</strong>
+<span>Find opportunities</span>
+</div>
+
+<div class="stat">
+<strong>03</strong>
+<span>Track applications</span>
+</div>
+
+</div>
 
 </div>
 
 
-<div class="hero-visual">
+<div class="hero-image">
 
 <img
-class="hero-photo"
 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85"
-alt="University students">
+alt="University students studying"
+>
 
-<div class="live">
-<span class="dot"></span>
-SCHKIT is live
+<div class="floating-card">
+
+<strong>
+🎓 Your next opportunity could be here.
+</strong>
+
+<span>
+Search scholarships by destination,
+degree and field.
+</span>
+
 </div>
 
-<div class="hero-stat">
-<strong>One profile.</strong>
-<span>
-Discover, prepare and track your opportunities.
-</span>
 </div>
 
 </div>
@@ -841,95 +851,21 @@ Discover, prepare and track your opportunities.
 </header>
 
 
-<!-- TRUST -->
-
-<div class="trust">
-
-<span>🎓 Scholarship Discovery</span>
-<span>🎯 Profile Matching</span>
-<span>🤖 Application Tools</span>
-<span>📅 Deadline Tracking</span>
-
-</div>
-
-
-<!-- FEATURES -->
-
-<section class="features">
-
-<div class="heading">
-
-<h2>
-Everything between
-“I'm looking” and “I applied.”
-</h2>
-
-<p>
-SCHKIT brings the scholarship process into one
-simple workspace.
-</p>
-
-</div>
-
-
-<div class="feature-grid">
-
-<div class="feature">
-<div class="icon">🔎</div>
-<h3>Discover</h3>
-<p>
-Search opportunities based on your profile,
-destination and degree.
-</p>
-</div>
-
-<div class="feature">
-<div class="icon">🎯</div>
-<h3>Match</h3>
-<p>
-See how closely each opportunity matches
-your information.
-</p>
-</div>
-
-<div class="feature">
-<div class="icon">🤖</div>
-<h3>Build</h3>
-<p>
-Prepare essays, CVs and interviews with
-structured tools.
-</p>
-</div>
-
-<div class="feature">
-<div class="icon">📊</div>
-<h3>Track</h3>
-<p>
-Save opportunities and keep your application
-journey organized.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
 <!-- FINDER -->
 
-<section
-class="finder"
-id="finder">
+<section class="finder" id="finder">
 
-<div class="heading">
+<div class="container">
+
+<div class="section-heading">
 
 <h2>
 Find scholarships that fit you.
 </h2>
 
 <p>
-Complete your profile and SCHKIT will rank
-the opportunities in its database.
+Enter your profile and SCHKIT will filter
+the opportunities in its current database.
 </p>
 
 </div>
@@ -939,167 +875,154 @@ the opportunities in its database.
 
 <div class="form-grid">
 
-<div>
-<label>Country of citizenship</label>
+<div class="field">
+
+<label>
+Citizenship
+</label>
+
 <input
-id="country"
-placeholder="e.g. Ghana">
+id="citizenship"
+placeholder="e.g. Ghana"
+>
+
 </div>
 
-<div>
-<label>Destination</label>
+
+<div class="field">
+
+<label>
+Destination
+</label>
 
 <select id="destination">
 
-<option value="">Any destination</option>
+<option value="">
+Any destination
+</option>
+
 <option>United States</option>
 <option>United Kingdom</option>
 <option>Canada</option>
 <option>Australia</option>
 <option>Germany</option>
-<option>Netherlands</option>
 
 </select>
+
 </div>
 
-<div>
-<label>Degree level</label>
+
+<div class="field">
+
+<label>
+Degree
+</label>
 
 <select id="degree">
 
-<option value="">Any level</option>
+<option value="">
+Any degree
+</option>
+
 <option>Bachelor's</option>
 <option>Master's</option>
 <option>PhD</option>
 
 </select>
+
 </div>
 
-<div>
-<label>Field of study</label>
+
+<div class="field">
+
+<label>
+Field of study
+</label>
 
 <input
 id="field"
-placeholder="e.g. Computer Science">
+placeholder="e.g. Computer Science"
+>
+
 </div>
 
-<div>
-<label>Academic results</label>
 
-<input
-id="grades"
-placeholder="e.g. WASSCE / GPA">
-</div>
+<div class="field">
 
-<div>
-<label>Intended intake</label>
+<label>
+Intended intake
+</label>
 
 <select id="intake">
 
-<option value="">Any year</option>
+<option value="">
+Any year
+</option>
+
 <option>2026</option>
 <option>2027</option>
 <option>2028</option>
-<option>2029</option>
 
 </select>
-</div>
 
 </div>
 
+
+<div class="field">
+
+<label>
+Academic results
+</label>
+
+<input
+id="grades"
+placeholder="e.g. WASSCE 8As / GPA"
+>
+
+</div>
+
+</div>
+
+
+<div class="search-row">
+
+<input
+id="search"
+placeholder="Search scholarship or organization..."
+>
 
 <button
-class="primary finder-btn"
-onclick="findScholarships()">
-Find Matching Scholarships
+class="primary"
+onclick="findScholarships()"
+>
+Search scholarships
 </button>
+
+</div>
+
+</div>
+
+
+<div class="results-header">
+
+<h3 id="resultCount">
+Scholarship opportunities
+</h3>
+
+<button
+class="secondary"
+onclick="showSaved()"
+>
+★ Saved
+</button>
+
+</div>
 
 
 <div
 class="results"
-id="results">
-
-<h3>
-Your matches
-</h3>
-
-<p
-id="resultSummary"
-style="color:#667085;font-size:12px;margin:4px 0 18px">
-</p>
-
-<div id="resultList"></div>
-
-<p style="font-size:11px;color:#98a2b3">
-Always confirm eligibility, deadlines and requirements
-on the official scholarship website.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- DASHBOARD -->
-
-<section
-class="dashboard"
-id="dashboard">
-
-<div class="heading">
-
-<h2>
-Your SCHKIT workspace.
-</h2>
-
-<p>
-Your saved opportunities and profile progress
-are stored on this device.
-</p>
-
-</div>
-
-
-<div class="dashboard-grid">
-
-
-<div class="panel">
-
-<h3>
-👤 Profile completion
-</h3>
-
-<div class="progress">
-<div id="profileProgress"></div>
-</div>
-
-<strong id="profilePercent">
-0%
-</strong>
-
-<p
-id="profileMessage"
-class="empty"
-style="margin-top:8px">
-Complete the finder profile to improve your matches.
-</p>
-
-</div>
-
-
-<div class="panel">
-
-<h3>
-❤️ Saved scholarships
-</h3>
-
-<div
-id="savedList"
-style="margin-top:10px">
-</div>
-
+id="results"
+>
 </div>
 
 </div>
@@ -1109,19 +1032,19 @@ style="margin-top:10px">
 
 <!-- TOOLS -->
 
-<section
-class="tools"
-id="tools">
+<section class="tools" id="tools">
 
-<div class="heading">
+<div class="container">
+
+<div class="section-heading">
 
 <h2>
-Your application toolkit.
+Tools that help you apply.
 </h2>
 
 <p>
-These tools work directly in the browser. Your information
-is processed locally in this prototype.
+Useful application workflows instead of a wall
+of unfinished AI buttons.
 </p>
 
 </div>
@@ -1130,98 +1053,71 @@ is processed locally in this prototype.
 <div class="tool-grid">
 
 
-<div class="tool-card">
+<div class="tool">
 
-<h3>✍️ Essay Builder</h3>
+<div class="tool-icon">
+✍️
+</div>
+
+<h3>
+Essay Builder
+</h3>
 
 <p>
-Turn an essay question and your experiences
-into a structured draft plan.
+Turn your real experiences and a scholarship
+question into a strong essay structure.
 </p>
 
-<button onclick="openTool('essay')">
-Open Essay Builder
+<button onclick="openEssay()">
+Open builder
 </button>
 
 </div>
 
 
-<div class="tool-card">
+<div class="tool">
 
-<h3>📄 CV Builder</h3>
+<div class="tool-icon">
+🎤
+</div>
+
+<h3>
+Interview Coach
+</h3>
 
 <p>
-Create a clean application CV from your
-education, activities and achievements.
+Practice common scholarship interview questions
+and review your answer structure.
 </p>
 
-<button onclick="openTool('cv')">
-Open CV Builder
+<button onclick="openInterview()">
+Practice
 </button>
 
 </div>
 
 
-<div class="tool-card">
+<div class="tool">
 
-<h3>🎤 Interview Coach</h3>
+<div class="tool-icon">
+✅
+</div>
+
+<h3>
+Eligibility Checker
+</h3>
 
 <p>
-Practice scholarship interview questions
-and evaluate your responses.
+Compare your degree with the listed scholarship
+requirements before applying.
 </p>
 
-<button onclick="openTool('interview')">
-Start Practice
+<button onclick="openEligibility()">
+Check eligibility
 </button>
 
 </div>
 
-
-<div class="tool-card">
-
-<h3>✅ Eligibility Checker</h3>
-
-<p>
-Compare your basic profile against an
-opportunity's stated requirements.
-</p>
-
-<button onclick="openTool('eligibility')">
-Check Eligibility
-</button>
-
-</div>
-
-
-<div class="tool-card">
-
-<h3>🚨 Scam Detector</h3>
-
-<p>
-Analyze scholarship messages for common
-fraud warning signs.
-</p>
-
-<button onclick="openTool('scam')">
-Check Message
-</button>
-
-</div>
-
-
-<div class="tool-card">
-
-<h3>📋 Application Reviewer</h3>
-
-<p>
-Review your application preparation and
-identify missing areas.
-</p>
-
-<button onclick="openTool('review')">
-Review Application
-</button>
 
 </div>
 
@@ -1230,77 +1126,84 @@ Review Application
 </section>
 
 
-<!-- PRICING -->
+<!-- TRACKER -->
 
-<section
-class="pricing"
-id="pricing">
+<section id="tracker">
 
-<div class="heading">
+<div class="container">
+
+<div class="section-heading">
 
 <h2>
-Start free. Upgrade when you need more.
+Your application tracker.
 </h2>
 
 <p>
-The core SCHKIT experience stays accessible.
+Save opportunities and move them through
+your application journey.
 </p>
 
 </div>
 
 
-<div class="price-grid">
-
-
-<div class="price-card">
-
-<h3>SCHKIT Free</h3>
-
-<div class="price">
-GHS 0
+<div
+class="tracker-list"
+id="trackerList"
+>
 </div>
-
-<ul>
-<li>✓ Scholarship finder</li>
-<li>✓ Basic matching</li>
-<li>✓ Save opportunities</li>
-<li>✓ Basic application tools</li>
-</ul>
-
-<button
-class="secondary"
-onclick="scrollToSection('finder')">
-Get Started
-</button>
 
 </div>
 
+</section>
 
-<div class="price-card pro">
 
-<div class="popular">
-MOST POPULAR
+<!-- PRO -->
+
+<section id="pro">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>
+SCHKIT Pro
+</h2>
+
+<p>
+Unlock the complete application toolkit.
+</p>
+
 </div>
 
-<h3>SCHKIT Pro</h3>
+
+<div class="pro-box">
+
+<h3>
+SCHKIT Pro
+</h3>
 
 <div class="price">
 GHS 99
-<span>/ month</span>
+<small style="font-size:13px;color:#667085">
+/ month
+</small>
 </div>
 
 <ul>
+
 <li>✓ Advanced scholarship research</li>
-<li>✓ Full application toolkit</li>
-<li>✓ Essay & CV tools</li>
+<li>✓ Essay Builder</li>
 <li>✓ Interview Coach</li>
-<li>✓ Application tracking</li>
-<li>✓ Advanced reviews</li>
+<li>✓ Application review tools</li>
+<li>✓ Unlimited application tracking</li>
+
 </ul>
+
 
 <button
 class="primary"
-onclick="startPro()">
+onclick="startPro()"
+>
 Start Pro — GHS 99/month
 </button>
 
@@ -1315,141 +1218,488 @@ Start Pro — GHS 99/month
 
 <footer>
 
+<div class="container footer-inner">
+
 <div>
+
 <strong>SCHKIT</strong>
+
 <br>
-Scholarship & University Application Platform
+
+Scholarships & university applications.
+
 </div>
 
 <div>
-© 2026 SCHKIT
+© 2026 SCHKIT · MVP
+</div>
+
 </div>
 
 </footer>
 
 
-<!-- TOOL MODAL -->
+<!-- MODAL -->
 
 <div
-class="modal"
-id="toolModal"
-onclick="closeModalOutside(event)">
+class="modal-overlay"
+id="modal"
+>
 
-<div class="modal-box">
+<div class="modal">
+
+<div class="modal-header">
+
+<h2 id="modalTitle">
+SCHKIT Tool
+</h2>
 
 <button
 class="close"
-onclick="closeTool()">
+onclick="closeModal()"
+>
 ×
 </button>
 
-<h2 id="modalTitle"></h2>
+</div>
 
-<div id="modalContent"></div>
+<div id="modalBody"></div>
 
 </div>
 
 </div>
 
 
-<!-- TOAST -->
-
-<div id="toast"></div>
+<div
+class="toast"
+id="toast"
+></div>
 
 
 <script>
 
-/* ==========================================
-   SETTINGS
-========================================== */
-
-const PAYSTACK_LINK =
-"https://paystack.shop/pay/ueikofoy33";
-
-
-/* ==========================================
+/* =========================
    SCHOLARSHIP DATABASE
-   Prototype data — verify before launch.
-========================================== */
+========================= */
 
 const scholarships = [
 
 {
-name:"Chevening Scholarships",
-provider:"UK Foreign, Commonwealth & Development Office",
-destination:"United Kingdom",
-levels:["Master's"],
-fields:["Any"],
-countries:["Ghana","International"],
-funding:"Fully funded",
-deadline:"2026-10-06",
-intake:["2027"],
-url:"https://www.chevening.org/"
-},
-
-{
-name:"Gates Cambridge Scholarship",
-provider:"University of Cambridge",
-destination:"United Kingdom",
-levels:["Master's","PhD"],
-fields:["Any"],
-countries:["Ghana","International"],
-funding:"Fully funded",
-deadline:"2026-12-03",
-intake:["2027"],
-url:"https://www.gatescambridge.org/"
-},
-
-{
-name:"Lester B. Pearson International Scholarship",
-provider:"University of Toronto",
-destination:"Canada",
-levels:["Bachelor's"],
-fields:["Any"],
-countries:["Ghana","International"],
-funding:"Major funding",
-deadline:"2026-12-01",
-intake:["2027"],
-url:"https://future.utoronto.ca/pearson/about/"
-},
-
-{
+id:1,
 name:"Mastercard Foundation Scholars Program",
-provider:"Mastercard Foundation",
-destination:"Canada",
-levels:["Bachelor's","Master's"],
-fields:["Any"],
-countries:["Ghana","International"],
-funding:"Major / full support",
-deadline:"2026-11-30",
-intake:["2027"],
-url:"https://mastercardfdn.org/"
+organization:"Mastercard Foundation",
+country:"Multiple",
+degree:["Bachelor's","Master's"],
+field:"All fields",
+funding:"Full / substantial funding",
+deadline:"Varies by partner",
+tags:["International","Leadership","Need-based"],
+link:"https://mastercardfdn.org/all/scholars/become-a-scholar/"
 },
 
 {
-name:"Ghana Scholarships Authority Opportunities",
-provider:"Ghana Scholarships Authority",
-destination:"Ghana",
-levels:["Bachelor's","Master's","PhD"],
-fields:["Any"],
-countries:["Ghana"],
-funding:"Varies",
-deadline:"2026-12-31",
-intake:["2026","2027"],
-url:"https://scholarships.gov.gh/"
+id:2,
+name:"Chevening Scholarships",
+organization:"UK Government",
+country:"United Kingdom",
+degree:["Master's"],
+field:"All fields",
+funding:"Fully funded",
+deadline:"Annual cycle",
+tags:["UK","Fully funded","Leadership"],
+link:"https://www.chevening.org/scholarships/"
+},
+
+{
+id:3,
+name:"Gates Cambridge Scholarship",
+organization:"University of Cambridge",
+country:"United Kingdom",
+degree:["Master's","PhD"],
+field:"All fields",
+funding:"Full funding",
+deadline:"Varies by course",
+tags:["UK","Cambridge","Full funding"],
+link:"https://www.gatescambridge.org/apply/"
+},
+
+{
+id:4,
+name:"Fulbright Foreign Student Program",
+organization:"U.S. Department of State",
+country:"United States",
+degree:["Master's","PhD"],
+field:"All fields",
+funding:"Funding varies",
+deadline:"Varies by country",
+tags:["USA","Graduate","International"],
+link:"https://foreign.fulbrightonline.org/"
+},
+
+{
+id:5,
+name:"Knight-Hennessy Scholars",
+organization:"Stanford University",
+country:"United States",
+degree:["Master's","PhD"],
+field:"All fields",
+funding:"Funding package",
+deadline:"Annual cycle",
+tags:["USA","Stanford","Leadership"],
+link:"https://knight-hennessy.stanford.edu/"
+},
+
+{
+id:6,
+name:"DAAD Scholarships",
+organization:"DAAD",
+country:"Germany",
+degree:["Master's","PhD"],
+field:"All fields",
+funding:"Varies by programme",
+deadline:"Varies by programme",
+tags:["Germany","Graduate","International"],
+link:"https://www.daad.de/en/studying-in-germany/scholarships/"
+},
+
+{
+id:7,
+name:"Lester B. Pearson International Scholarship",
+organization:"University of Toronto",
+country:"Canada",
+degree:["Bachelor's"],
+field:"All fields",
+funding:"Full support",
+deadline:"Annual cycle",
+tags:["Canada","Undergraduate","Full funding"],
+link:"https://future.utoronto.ca/pearson/about/"
+},
+
+{
+id:8,
+name:"UWE Millennium Scholarship",
+organization:"University of the West of England",
+country:"United Kingdom",
+degree:["Master's"],
+field:"All fields",
+funding:"Partial tuition",
+deadline:"Varies",
+tags:["UK","Partial funding"],
+link:"https://www.uwe.ac.uk/courses/funding/scholarships-and-bursaries"
 }
 
 ];
 
 
-/* ==========================================
-   NAVIGATION
-========================================== */
+/* =========================
+   STORAGE
+========================= */
 
-function scrollToSection(id){
+let saved =
+JSON.parse(
+localStorage.getItem("schkitSaved") || "[]"
+);
+
+let statuses =
+JSON.parse(
+localStorage.getItem("schkitStatuses") || "{}"
+);
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+toast.textContent = message;
+toast.style.display = "block";
+
+clearTimeout(window.toastTimer);
+
+window.toastTimer =
+setTimeout(
+()=>{
+toast.style.display="none";
+},
+2800
+);
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderScholarships(list){
+
+const container =
+document.getElementById("results");
+
+document.getElementById("resultCount")
+.textContent =
+`${list.length} opportunit${list.length === 1 ? "y" : "ies"} found`;
+
+
+if(!list.length){
+
+container.innerHTML = `
+
+<div style="
+grid-column:1/-1;
+background:white;
+border:1px solid var(--border);
+padding:30px;
+border-radius:16px;
+text-align:center;
+">
+
+<h3>No matches yet</h3>
+
+<p style="
+color:var(--muted);
+margin:8px 0 18px;
+">
+
+Try changing the destination,
+degree or search term.
+
+</p>
+
+<button
+class="primary"
+onclick="clearFilters()"
+>
+Clear filters
+</button>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+container.innerHTML =
+list.map(s => scholarshipHTML(s)).join("");
+
+}
+
+
+function scholarshipHTML(s){
+
+const isSaved =
+saved.includes(s.id);
+
+return `
+
+<article class="scholarship">
+
+<div class="sch-top">
+
+<div>
+
+<h3>
+${s.name}
+</h3>
+
+<div class="organization">
+${s.organization} · ${s.country}
+</div>
+
+</div>
+
+<span class="funding">
+${s.funding}
+</span>
+
+</div>
+
+
+<div class="tags">
+
+${s.tags.map(
+tag =>
+`<span class="tag">${tag}</span>`
+).join("")}
+
+</div>
+
+
+<div class="deadline">
+
+⏳ Deadline: ${s.deadline}
+
+</div>
+
+
+<div class="card-actions">
+
+<a
+class="view-btn"
+href="${s.link}"
+target="_blank"
+rel="noopener"
+>
+Official site ↗
+</a>
+
+<button
+class="save-btn ${isSaved ? "saved":""}"
+onclick="toggleSave(${s.id})"
+>
+${isSaved ? "★ Saved":"☆ Save"}
+</button>
+
+</div>
+
+</article>
+
+`;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function findScholarships(){
+
+const destination =
+document.getElementById("destination").value;
+
+const degree =
+document.getElementById("degree").value;
+
+const field =
+document.getElementById("field").value
+.toLowerCase()
+.trim();
+
+const search =
+document.getElementById("search").value
+.toLowerCase()
+.trim();
+
+
+const results =
+scholarships.filter(s => {
+
+const destinationMatch =
+!destination ||
+s.country === destination ||
+s.country === "Multiple";
+
+
+const degreeMatch =
+!degree ||
+s.degree.includes(degree);
+
+
+const fieldMatch =
+!field ||
+s.field.toLowerCase().includes(field) ||
+s.field === "All fields";
+
+
+const searchMatch =
+!search ||
+(
+s.name +
+s.organization +
+s.country +
+s.tags.join(" ")
+)
+.toLowerCase()
+.includes(search);
+
+
+return (
+destinationMatch &&
+degreeMatch &&
+fieldMatch &&
+searchMatch
+);
+
+});
+
+
+renderScholarships(results);
 
 document
-.getElementById(id)
+.getElementById("results")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function toggleSave(id){
+
+if(saved.includes(id)){
+
+saved =
+saved.filter(
+item => item !== id
+);
+
+showToast(
+"Removed from saved scholarships."
+);
+
+}else{
+
+saved.push(id);
+
+showToast(
+"Scholarship saved."
+);
+
+}
+
+
+localStorage.setItem(
+"schkitSaved",
+JSON.stringify(saved)
+);
+
+renderScholarships(
+scholarships
+);
+
+renderTracker();
+
+}
+
+
+/* =========================
+   SAVED
+========================= */
+
+function showSaved(){
+
+const list =
+scholarships.filter(
+s => saved.includes(s.id)
+);
+
+renderScholarships(list);
+
+document
+.getElementById("results")
 .scrollIntoView({
 behavior:"smooth"
 });
@@ -1457,206 +1707,38 @@ behavior:"smooth"
 }
 
 
-/* ==========================================
-   SCHOLARSHIP MATCHING
-========================================== */
+/* =========================
+   TRACKER
+========================= */
 
-function normalize(value){
+function renderTracker(){
 
-return String(value || "")
-.toLowerCase()
-.trim();
-
-}
+const tracker =
+document.getElementById("trackerList");
 
 
-function scoreScholarship(s,c,d,g,f,y){
-
-let score=30;
-
-if(
-c &&
-s.countries.some(
-x=>normalize(x)===normalize(c)
-)
-){
-score+=25;
-}
-
-else if(
-s.countries.includes("International")
-){
-score+=10;
-}
-
-if(
-d &&
-normalize(s.destination)===normalize(d)
-){
-score+=18;
-}
-
-if(
-g &&
-s.levels.includes(g)
-){
-score+=15;
-}
-
-if(
-f &&
-(
-s.fields.includes("Any") ||
-s.fields.some(
-x=>normalize(f).includes(normalize(x)) ||
-normalize(x).includes(normalize(f))
-)
-)
-){
-score+=7;
-}
-
-if(
-y &&
-s.intake.includes(y)
-){
-score+=5;
-}
-
-return Math.min(score,99);
-
-}
-
-
-function daysLeft(date){
-
-return Math.max(
-0,
-Math.ceil(
-(
-new Date(date+"T23:59:59") -
-new Date()
-) / 86400000
-)
+const list =
+scholarships.filter(
+s => saved.includes(s.id)
 );
 
-}
 
+if(!list.length){
 
-function findScholarships(){
+tracker.innerHTML = `
 
-const c=document.getElementById("country").value;
-const d=document.getElementById("destination").value;
-const g=document.getElementById("degree").value;
-const f=document.getElementById("field").value;
-const y=document.getElementById("intake").value;
-
-if(!c){
-
-showToast(
-"Enter your country of citizenship first."
-);
-
-return;
-
-}
-
-const ranked=scholarships
-.map(s=>({
-...s,
-score:scoreScholarship(s,c,d,g,f,y)
-}))
-.sort((a,b)=>b.score-a.score);
-
-document.getElementById("resultSummary")
-.textContent=
-`${ranked.length} opportunities ranked for your profile.`;
-
-document.getElementById("resultList").innerHTML=
-ranked.map(s=>{
-
-const days=daysLeft(s.deadline);
-
-const date=new Date(
-s.deadline
-).toLocaleDateString(
-"en-GB",
-{
-day:"numeric",
-month:"short",
-year:"numeric"
-}
-);
-
-return `
-
-<div class="result-card">
-
-<div class="result-top">
+<div class="tracker-item">
 
 <div>
 
-<h3>${escapeHTML(s.name)}</h3>
+<strong>
+Your tracker is empty.
+</strong>
 
-<div class="provider">
-${escapeHTML(s.provider)}
-</div>
+<small>
+Save a scholarship and it will appear here.
 
-</div>
-
-<div class="match">
-
-${s.score}%
-
-<small>match</small>
-
-</div>
-
-</div>
-
-
-<div class="tags">
-
-<span class="tag">
-🌍 ${escapeHTML(s.destination)}
-</span>
-
-<span class="tag">
-🎓 ${s.levels.join(" / ")}
-</span>
-
-<span class="tag">
-💰 ${escapeHTML(s.funding)}
-</span>
-
-<span class="verified">
-✓ OFFICIAL SOURCE
-</span>
-
-</div>
-
-
-<div class="deadline">
-
-${days<=30?"⏳ Closing soon • ":"📅 "}
-Deadline: ${date} • ${days} days left
-
-</div>
-
-
-<div class="result-actions">
-
-<button
-class="small-btn apply"
-onclick="window.open('${s.url}','_blank')">
-View Official Opportunity →
-</button>
-
-<button
-class="small-btn save"
-onclick="saveScholarship('${escapeAttr(s.name)}')">
-♡ Save
-</button>
+</small>
 
 </div>
 
@@ -1664,94 +1746,63 @@ onclick="saveScholarship('${escapeAttr(s.name)}')">
 
 `;
 
-}).join("");
-
-document.getElementById("results").style.display="block";
-
-saveProfile();
-
-scrollToSection("results");
-
-}
-
-
-/* ==========================================
-   SAVED SCHOLARSHIPS
-========================================== */
-
-function getSaved(){
-
-return JSON.parse(
-localStorage.getItem("schkitSaved") || "[]"
-);
-
-}
-
-
-function saveScholarship(name){
-
-let saved=getSaved();
-
-if(!saved.includes(name)){
-saved.push(name);
-
-localStorage.setItem(
-"schkitSaved",
-JSON.stringify(saved)
-);
-
-showToast("Saved to My SCHKIT.");
-}
-
-else{
-
-saved=saved.filter(x=>x!==name);
-
-localStorage.setItem(
-"schkitSaved",
-JSON.stringify(saved)
-);
-
-showToast("Removed from saved scholarships.");
-
-}
-
-renderSaved();
-
-}
-
-
-function renderSaved(){
-
-const saved=getSaved();
-
-const box=document.getElementById("savedList");
-
-if(!saved.length){
-
-box.innerHTML=
-`<div class="empty">
-No saved scholarships yet.
-</div>`;
-
 return;
 
 }
 
-box.innerHTML=saved.map(
-name=>`
 
-<div class="saved-item">
+tracker.innerHTML =
+list.map(s => `
 
-<span>
-❤️ ${escapeHTML(name)}
-</span>
+<div class="tracker-item">
 
-<button
-class="small-btn save"
-onclick="saveScholarship('${escapeAttr(name)}')">
-Remove
-</button>
+<div>
+
+<strong>
+${s.name}
+</strong>
+
+<small>
+${s.organization} · ${s.deadline}
+</small>
+
+</div>
+
+<select
+onchange="changeStatus(${s.id},this.value)"
+>
+
+<option
+${statuses[s.id] === "Interested" ? "selected":""}
+>
+Interested
+</option>
+
+<option
+${statuses[s.id] === "Preparing" ? "selected":""}
+>
+Preparing
+</option>
+
+<option
+${statuses[s.id] === "Applied" ? "selected":""}
+>
+Applied
+</option>
+
+<option
+${statuses[s.id] === "Accepted" ? "selected":""}
+>
+Accepted
+</option>
+
+<option
+${statuses[s.id] === "Rejected" ? "selected":""}
+>
+Rejected
+</option>
+
+</select>
 
 </div>
 
@@ -1760,127 +1811,172 @@ Remove
 }
 
 
-/* ==========================================
-   PROFILE
-========================================== */
+function changeStatus(id,status){
 
-function saveProfile(){
-
-const fields=[
-"country",
-"destination",
-"degree",
-"field",
-"grades",
-"intake"
-];
-
-let filled=0;
-
-fields.forEach(id=>{
-
-if(
-document.getElementById(id).value.trim()
-){
-filled++;
-}
-
-});
-
-const percent=
-Math.round(
-filled/fields.length*100
-);
+statuses[id] = status;
 
 localStorage.setItem(
-"schkitProfile",
-JSON.stringify({
-percent
-})
+"schkitStatuses",
+JSON.stringify(statuses)
 );
 
-renderProfile();
+showToast(
+"Application status updated."
+);
 
 }
 
 
-function renderProfile(){
+/* =========================
+   CLEAR
+========================= */
 
-const data=
-JSON.parse(
-localStorage.getItem(
-"schkitProfile"
-) || "{}"
+function clearFilters(){
+
+document.getElementById("destination").value="";
+document.getElementById("degree").value="";
+document.getElementById("field").value="";
+document.getElementById("search").value="";
+
+renderScholarships(
+scholarships
 );
-
-const percent=data.percent || 0;
-
-document.getElementById(
-"profileProgress"
-).style.width=percent+"%";
-
-document.getElementById(
-"profilePercent"
-).textContent=percent+"%";
-
-document.getElementById(
-"profileMessage"
-).textContent=
-percent===100
-?"Your basic scholarship profile is complete."
-:`Complete ${100-percent}% more of your profile.`;
 
 }
 
 
-/* ==========================================
-   TOOL SYSTEM
-========================================== */
+/* =========================
+   ESSAY BUILDER
+========================= */
 
-function openTool(type){
+function openEssay(){
 
-const modal=
-document.getElementById("toolModal");
+openModal(
+"✍️ Essay Builder",
 
-const title=
-document.getElementById("modalTitle");
+`
 
-const content=
-document.getElementById("modalContent");
+<p style="color:var(--muted)">
+Give SCHKIT the actual scholarship question
+and your real experiences.
+</p>
 
-modal.style.display="flex";
+<div class="field" style="margin-top:15px">
 
-
-if(type==="essay"){
-
-title.textContent="✍️ Essay Builder";
-
-content.innerHTML=`
-
-<div class="tool-form">
-
-<label>Essay question</label>
+<label>
+Scholarship question
+</label>
 
 <textarea
-id="essayQuestion"
-placeholder="Paste the scholarship essay question..."></textarea>
+id="essayPrompt"
+placeholder="Why should you receive this scholarship?"
+></textarea>
 
-<label>Your experiences</label>
+</div>
+
+
+<div class="field">
+
+<label>
+Your real experiences
+</label>
 
 <textarea
 id="essayExperience"
-placeholder="Describe your experiences, challenges, achievements and goals..."></textarea>
+placeholder="Leadership, volunteering, projects, challenges, achievements..."
+></textarea>
+
+</div>
+
 
 <button
 class="primary"
-onclick="buildEssay()">
-Build My Essay Plan
+onclick="buildEssay()"
+>
+Build essay structure
 </button>
 
-<div
-class="output"
-id="essayOutput">
-</div>
+<div id="toolOutput"></div>
+
+`
+
+);
+
+}
+
+
+function buildEssay(){
+
+const prompt =
+document.getElementById("essayPrompt")
+.value.trim();
+
+const experience =
+document.getElementById("essayExperience")
+.value.trim();
+
+
+if(!prompt || !experience){
+
+showToast(
+"Enter the prompt and your real experiences."
+);
+
+return;
+
+}
+
+
+document.getElementById("toolOutput")
+.innerHTML = `
+
+<div class="output">
+
+<strong>Suggested essay structure</strong>
+
+<br><br>
+
+<strong>1. Opening</strong>
+
+Start with one specific moment from your
+experience that connects naturally to the prompt.
+
+<br><br>
+
+<strong>2. Challenge or context</strong>
+
+Explain what happened and why it mattered.
+
+<br><br>
+
+<strong>3. Your actions</strong>
+
+Focus on what YOU did, not just what your
+team or school did.
+
+<br><br>
+
+<strong>4. Impact</strong>
+
+Explain the result, lesson or change that came
+from your actions.
+
+<br><br>
+
+<strong>5. Future connection</strong>
+
+Connect the experience to your academic goals,
+career plans and the reason this scholarship matters.
+
+<br><br>
+
+<strong>Prompt:</strong>
+${prompt}
+
+<br><br>
+
+<strong>Your evidence:</strong>
+${experience}
 
 </div>
 
@@ -1889,95 +1985,109 @@ id="essayOutput">
 }
 
 
-if(type==="cv"){
+/* =========================
+   INTERVIEW
+========================= */
 
-title.textContent="📄 CV Builder";
+function openInterview(){
 
-content.innerHTML=`
+openModal(
+"🎤 Interview Coach",
 
-<div class="tool-form">
+`
 
-<label>Full name</label>
-<input id="cvName">
-
-<label>Education</label>
-<textarea
-id="cvEducation"
-placeholder="School, qualification, dates..."></textarea>
-
-<label>Achievements</label>
-<textarea
-id="cvAchievements"
-placeholder="Awards, competitions, academic achievements..."></textarea>
-
-<label>Activities & leadership</label>
-<textarea
-id="cvActivities"
-placeholder="Clubs, volunteering, leadership, projects..."></textarea>
-
-<label>Skills</label>
-<textarea
-id="cvSkills"
-placeholder="Technical and soft skills..."></textarea>
-
-<button
-class="primary"
-onclick="buildCV()">
-Create CV Draft
-</button>
-
-<div
-class="output"
-id="cvOutput">
-</div>
-
-</div>
-
-`;
-
-}
-
-
-if(type==="interview"){
-
-title.textContent="🎤 Interview Coach";
-
-content.innerHTML=`
-
-<div class="tool-form">
-
-<p>
-Answer the question below as if you were
-in a real scholarship interview.
+<p style="color:var(--muted)">
+Practice answering this scholarship interview question.
 </p>
 
-<div
-style="padding:16px;background:#f8f9fc;border-radius:12px">
-<strong id="interviewQuestion">
-Tell us about yourself and why this scholarship matters to you.
+<div class="output">
+
+<strong>
+Tell us about a challenge you faced
+and what you learned from it.
 </strong>
+
 </div>
+
+<div class="field" style="margin-top:15px">
+
+<label>
+Your answer
+</label>
 
 <textarea
 id="interviewAnswer"
-placeholder="Type your answer here..."></textarea>
+placeholder="Write your answer..."
+></textarea>
+
+</div>
 
 <button
 class="primary"
-onclick="reviewInterview()">
-Review My Answer
+onclick="reviewInterview()"
+>
+Review my answer
 </button>
 
-<button
-class="secondary"
-onclick="nextInterviewQuestion()">
-Next Question
-</button>
+<div id="toolOutput"></div>
 
-<div
-class="output"
-id="interviewOutput">
-</div>
+`
+
+);
+
+}
+
+
+function reviewInterview(){
+
+const answer =
+document.getElementById("interviewAnswer")
+.value.trim();
+
+
+if(!answer){
+
+showToast("Write your answer first.");
+
+return;
+
+}
+
+
+document.getElementById("toolOutput")
+.innerHTML = `
+
+<div class="output">
+
+<strong>Interview checklist</strong>
+
+<br><br>
+
+✓ Did you clearly explain the challenge?
+
+<br><br>
+
+✓ Did you explain YOUR actions?
+
+<br><br>
+
+✓ Did you show what changed because of your actions?
+
+<br><br>
+
+✓ Did you explain what you learned?
+
+<br><br>
+
+✓ Did you connect the lesson to your future?
+
+<br><br>
+
+<strong>Your answer:</strong>
+
+<br>
+
+${answer}
 
 </div>
 
@@ -1986,20 +2096,49 @@ id="interviewOutput">
 }
 
 
-if(type==="eligibility"){
+/* =========================
+   ELIGIBILITY
+========================= */
 
-title.textContent="✅ Eligibility Checker";
+function openEligibility(){
 
-content.innerHTML=`
+openModal(
+"✅ Eligibility Checker",
 
-<div class="tool-form">
+`
 
-<label>Your country</label>
-<input id="eligCountry" placeholder="e.g. Ghana">
+<p style="color:var(--muted)">
+This is a quick screening tool. Always verify
+the complete requirements on the official scholarship page.
+</p>
 
-<label>Degree</label>
+<div class="field" style="margin-top:15px">
 
-<select id="eligDegree">
+<label>
+Scholarship
+</label>
+
+<select id="eligibilityScholarship">
+
+${scholarships.map(
+s =>
+`<option value="${s.id}">
+${s.name}
+</option>`
+).join("")}
+
+</select>
+
+</div>
+
+
+<div class="field" style="margin-top:12px">
+
+<label>
+Your degree
+</label>
+
+<select id="eligibilityDegree">
 
 <option>Bachelor's</option>
 <option>Master's</option>
@@ -2007,770 +2146,211 @@ content.innerHTML=`
 
 </select>
 
-<label>Scholarship requirement text</label>
+</div>
 
-<textarea
-id="eligRequirements"
-placeholder="Paste the eligibility requirements here..."></textarea>
 
 <button
 class="primary"
-onclick="checkEligibility()">
-Check Profile
+style="margin-top:15px"
+onclick="checkEligibility()"
+>
+Check profile
 </button>
 
-<div
-class="output"
-id="eligOutput">
-</div>
+<div id="toolOutput"></div>
 
-</div>
+`
 
-`;
-
-}
-
-
-if(type==="scam"){
-
-title.textContent="🚨 Scholarship Scam Detector";
-
-content.innerHTML=`
-
-<div class="tool-form">
-
-<p>
-Paste the scholarship message, email or offer below.
-</p>
-
-<textarea
-id="scamText"
-placeholder="Paste the message here..."></textarea>
-
-<button
-class="primary"
-onclick="detectScam()">
-Analyze Message
-</button>
-
-<div
-class="output"
-id="scamOutput">
-</div>
-
-</div>
-
-`;
-
-}
-
-
-if(type==="review"){
-
-title.textContent="📋 Application Reviewer";
-
-content.innerHTML=`
-
-<div class="tool-form">
-
-<label>Personal statement ready?</label>
-
-<select id="reviewEssay">
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<label>CV ready?</label>
-
-<select id="reviewCV">
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<label>Recommendation letters?</label>
-
-<select id="reviewRec">
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<label>Academic documents?</label>
-
-<select id="reviewDocs">
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<label>Application deadline checked?</label>
-
-<select id="reviewDeadline">
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<button
-class="primary"
-onclick="reviewApplication()">
-Review Application
-</button>
-
-<div
-class="output"
-id="reviewOutput">
-</div>
-
-</div>
-
-`;
-
-}
-
-}
-
-
-function closeTool(){
-
-document.getElementById(
-"toolModal"
-).style.display="none";
-
-}
-
-
-function closeModalOutside(e){
-
-if(e.target===e.currentTarget){
-closeTool();
-}
-
-}
-
-
-/* ==========================================
-   ESSAY BUILDER
-========================================== */
-
-function buildEssay(){
-
-const q=
-document.getElementById(
-"essayQuestion"
-).value.trim();
-
-const exp=
-document.getElementById(
-"essayExperience"
-).value.trim();
-
-if(!q||!exp){
-
-showToast(
-"Complete both fields first."
 );
 
-return;
-
 }
 
-const output=
-document.getElementById(
-"essayOutput"
-);
-
-output.style.display="block";
-
-output.textContent=
-`ESSAY BLUEPRINT
-
-1. OPENING
-Start with one specific moment, experience or observation connected to the question.
-
-2. YOUR STORY
-Explain what happened. Focus on what YOU did rather than only describing the situation.
-
-3. CHALLENGE
-Identify the difficulty or problem you faced.
-
-4. RESPONSE
-Explain the decisions, actions and skills you used.
-
-5. IMPACT
-Show what changed because of your actions. Use specific evidence where possible.
-
-6. LESSON
-Explain what the experience taught you.
-
-7. FUTURE CONNECTION
-Connect the lesson to your academic goals, career direction or community impact.
-
-ESSAY QUESTION:
-${q}
-
-YOUR EXPERIENCE:
-${exp}
-
-IMPORTANT:
-Do not invent achievements or experiences. Use this blueprint to develop your authentic story.`;
-
-}
-
-
-/* ==========================================
-   CV BUILDER
-========================================== */
-
-function buildCV(){
-
-const name=
-document.getElementById("cvName").value.trim();
-
-const education=
-document.getElementById("cvEducation").value.trim();
-
-const achievements=
-document.getElementById("cvAchievements").value.trim();
-
-const activities=
-document.getElementById("cvActivities").value.trim();
-
-const skills=
-document.getElementById("cvSkills").value.trim();
-
-if(!name){
-
-showToast("Enter your name first.");
-
-return;
-
-}
-
-const output=
-document.getElementById(
-"cvOutput"
-);
-
-output.style.display="block";
-
-output.textContent=
-`${name.toUpperCase()}
-
-EDUCATION
-${education || "Add your education history."}
-
-ACHIEVEMENTS
-${achievements || "Add measurable achievements."}
-
-LEADERSHIP & ACTIVITIES
-${activities || "Add activities, volunteering and leadership."}
-
-SKILLS
-${skills || "Add relevant skills."}
-
-APPLICATION TIP
-Prioritize evidence. Instead of writing "good leader",
-show what you led, who benefited and what happened.`;
-
-}
-
-
-/* ==========================================
-   INTERVIEW COACH
-========================================== */
-
-const interviewQuestions=[
-
-"Tell us about yourself and why this scholarship matters to you.",
-
-"Describe a challenge you faced and how you overcame it.",
-
-"What problem in your community would you like to help solve?",
-
-"Why did you choose your intended field of study?",
-
-"Tell us about a time you demonstrated leadership.",
-
-"Where do you see yourself five years after graduation?"
-
-];
-
-let interviewIndex=0;
-
-
-function nextInterviewQuestion(){
-
-interviewIndex=
-(interviewIndex+1) %
-interviewQuestions.length;
-
-document.getElementById(
-"interviewQuestion"
-).textContent=
-interviewQuestions[
-interviewIndex
-];
-
-document.getElementById(
-"interviewAnswer"
-).value="";
-
-document.getElementById(
-"interviewOutput"
-).style.display="none";
-
-}
-
-
-function reviewInterview(){
-
-const answer=
-document.getElementById(
-"interviewAnswer"
-).value.trim();
-
-if(!answer){
-
-showToast("Type an answer first.");
-
-return;
-
-}
-
-let score=50;
-
-if(answer.length>150) score+=15;
-if(answer.length>300) score+=10;
-
-const words=normalize(answer);
-
-if(
-words.includes("because") ||
-words.includes("therefore") ||
-words.includes("however")
-){
-score+=5;
-}
-
-if(
-words.includes("example") ||
-words.includes("experience")
-){
-score+=5;
-}
-
-score=Math.min(score,85);
-
-const output=
-document.getElementById(
-"interviewOutput"
-);
-
-output.style.display="block";
-
-output.textContent=
-`INTERVIEW FEEDBACK
-
-Structure score: ${score}/100
-
-What worked:
-• You provided an actual response rather than a one-line answer.
-• Your answer can be strengthened by using a specific example.
-
-Improve it:
-• Use a clear Situation → Action → Result structure.
-• Explain what YOU personally did.
-• Include measurable or observable impact.
-• Finish by connecting the experience to your goals.
-
-Remember:
-The tool evaluates structure, not your real-world scholarship eligibility.`;
-
-}
-
-
-/* ==========================================
-   ELIGIBILITY
-========================================== */
 
 function checkEligibility(){
 
-const country=
-normalize(
+const id =
+Number(
 document.getElementById(
-"eligCountry"
+"eligibilityScholarship"
 ).value
 );
 
-const degree=
+const degree =
 document.getElementById(
-"eligDegree"
+"eligibilityDegree"
 ).value;
 
-const req=
-normalize(
+const scholarship =
+scholarships.find(
+s => s.id === id
+);
+
+
+const match =
+scholarship.degree.includes(degree);
+
+
+document.getElementById("toolOutput")
+.innerHTML = `
+
+<div class="output">
+
+<strong>
+${match
+? "Potential match"
+: "Degree mismatch"}
+</strong>
+
+<br><br>
+
+${
+match
+
+?
+
+"The listed degree category matches your selection. You still need to verify citizenship, academic, programme-specific and deadline requirements on the official website."
+
+:
+
+"This scholarship's listed degree categories do not include your selected degree. Check the official requirements before applying."
+
+}
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function openModal(title,content){
+
 document.getElementById(
-"eligRequirements"
-).value
-);
+"modalTitle"
+).textContent = title;
 
-if(!country||!req){
-
-showToast(
-"Enter your country and paste the requirements."
-);
-
-return;
-
-}
-
-let points=50;
-
-let findings=[];
-
-if(
-req.includes("ghana") &&
-country.includes("ghana")
-){
-points+=20;
-findings.push(
-"✓ Ghana appears in the requirements."
-);
-}
-
-else if(
-req.includes("international")
-){
-points+=15;
-findings.push(
-"✓ The requirement mentions international applicants."
-);
-}
-
-if(
-req.includes(
-normalize(degree)
-)
-){
-points+=20;
-findings.push(
-`✓ ${degree} appears compatible with the requirement text.`
-);
-}
-
-else{
-
-findings.push(
-`⚠ The text does not clearly mention ${degree}.`
-);
-
-}
-
-const result=
-points>=75
-?"POTENTIAL MATCH"
-:points>=55
-?"NEEDS FURTHER CHECKING"
-:"LOW MATCH";
-
-const output=
 document.getElementById(
-"eligOutput"
-);
+"modalBody"
+).innerHTML = content;
 
-output.style.display="block";
-
-output.textContent=
-`${result}
-
-Profile score: ${points}/100
-
-${findings.join("\n")}
-
-IMPORTANT:
-This is a text-based screening tool, not an official eligibility decision. Always read the provider's complete eligibility rules.`;
-
-}
-
-
-/* ==========================================
-   SCAM DETECTOR
-========================================== */
-
-function detectScam(){
-
-const text=
-normalize(
 document.getElementById(
-"scamText"
-).value
-);
-
-if(!text){
-
-showToast("Paste a message first.");
-
-return;
+"modal"
+).style.display = "flex";
 
 }
 
-const warnings=[];
 
-const patterns=[
+function closeModal(){
 
-[
-/pay|payment|fee|deposit|transfer/,
-"Requests for money or an upfront payment."
-],
-
-[
-/guarantee|guaranteed|100%/,
-"Promises of guaranteed scholarships or admission."
-],
-
-[
-/urgent|immediately|today|last chance/,
-"High-pressure or artificial urgency."
-],
-
-[
-/whatsapp|telegram/,
-"Moving the process to messaging platforms."
-],
-
-[
-/password|otp|pin/,
-"Requests for passwords, PINs or authentication codes."
-],
-
-[
-/bank account|card number|cvv/,
-"Requests for sensitive financial information."
-],
-
-[
-/crypto|bitcoin|usdt/,
-"Requests for cryptocurrency payments."
-]
-
-];
-
-patterns.forEach(
-p=>{
-if(p[0].test(text)){
-warnings.push("⚠ "+p[1]);
-}
-}
-);
-
-const output=
 document.getElementById(
-"scamOutput"
-);
-
-output.style.display="block";
-
-if(!warnings.length){
-
-output.textContent=
-`NO OBVIOUS WARNING SIGNS DETECTED
-
-That does NOT prove the offer is legitimate.
-
-Verify:
-• The scholarship exists on the institution/provider's official website.
-• The sender's email domain is legitimate.
-• No suspicious payment is required.
-• The application deadline and requirements match the official source.`;
-
-}
-
-else{
-
-output.textContent=
-`⚠ POTENTIAL WARNING SIGNS
-
-${warnings.join("\n")}
-
-Risk indicators found: ${warnings.length}
-
-Do not send money, passwords, OTPs or sensitive financial information until the opportunity has been independently verified.`;
-
-}
+"modal"
+).style.display = "none";
 
 }
 
 
-/* ==========================================
-   APPLICATION REVIEW
-========================================== */
-
-function reviewApplication(){
-
-const ids=[
-"reviewEssay",
-"reviewCV",
-"reviewRec",
-"reviewDocs",
-"reviewDeadline"
-];
-
-let score=0;
-
-ids.forEach(
-id=>{
-if(
-document.getElementById(id).value==="Yes"
-){
-score+=20;
-}
-}
-);
-
-let message="";
-
-if(score===100){
-
-message=
-"🟢 READY FOR FINAL REVIEW\n\nEverything in this checklist is marked complete.";
-
-}
-
-else{
-
-message=
-`APPLICATION STRENGTH: ${score}/100
-
-${document.getElementById("reviewEssay").value==="Yes"
-?"🟢 Personal statement ready"
-:"🔴 Personal statement missing"}
-
-${document.getElementById("reviewCV").value==="Yes"
-?"🟢 CV ready"
-:"🔴 CV missing"}
-
-${document.getElementById("reviewRec").value==="Yes"
-?"🟢 Recommendations ready"
-:"🔴 Recommendations missing"}
-
-${document.getElementById("reviewDocs").value==="Yes"
-?"🟢 Academic documents ready"
-:"🔴 Academic documents missing"}
-
-${document.getElementById("reviewDeadline").value==="Yes"
-?"🟢 Deadline checked"
-:"🔴 Deadline not confirmed"}
-
-Focus on the red items before submitting.`;
-
-}
-
-const output=
-document.getElementById(
-"reviewOutput"
-);
-
-output.style.display="block";
-
-output.textContent=message;
-
-}
-
-
-/* ==========================================
+/* =========================
    PAYSTACK
-========================================== */
+========================= */
 
 function startPro(){
 
-showToast(
-"Opening SCHKIT Pro checkout..."
-);
-
-setTimeout(
-()=>{
-window.location.href=PAYSTACK_LINK;
-},
-700
+window.open(
+"https://paystack.shop/pay/ueikofoy33",
+"_blank",
+"noopener"
 );
 
 }
 
 
-/* ==========================================
-   UTILITIES
-========================================== */
+/* =========================
+   NAV
+========================= */
 
-function escapeHTML(value){
+function goToFinder(){
 
-return String(value)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-
-}
-
-function escapeAttr(value){
-
-return String(value)
-.replaceAll("\\","\\\\")
-.replaceAll("'","\\'");
-
-}
-
-
-function showToast(message){
-
-const toast=
-document.getElementById("toast");
-
-toast.textContent=message;
-
-toast.style.display="block";
-
-clearTimeout(
-window.toastTimer
-);
-
-window.toastTimer=
-setTimeout(
-()=>{
-toast.style.display="none";
-},
-3000
-);
-
-}
-
-
-/* ==========================================
-   AUTO SAVE PROFILE
-========================================== */
-
-[
-"country",
-"destination",
-"degree",
-"field",
-"grades",
-"intake"
-].forEach(id=>{
-
-document.getElementById(id)
-.addEventListener(
-"input",
-saveProfile
-);
-
+document.getElementById(
+"finder"
+).scrollIntoView({
+behavior:"smooth"
 });
 
+}
 
-/* ==========================================
-   STARTUP
-========================================== */
 
-renderSaved();
-renderProfile();
+function goToTools(){
+
+document.getElementById(
+"tools"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+const dark =
+document.body.classList.contains("dark");
+
+localStorage.setItem(
+"schkitDark",
+dark
+);
+
+document.getElementById(
+"themeButton"
+).textContent =
+dark ? "☀" : "☾";
+
+}
+
+
+if(
+localStorage.getItem("schkitDark") === "true"
+){
+
+toggleTheme();
+
+}
+
+
+/* =========================
+   INITIAL LOAD
+========================= */
+
+renderScholarships(
+scholarships
+);
+
+renderTracker();
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+document.getElementById("modal")
+.addEventListener(
+"click",
+function(e){
+
+if(e.target === this){
+closeModal();
+}
+
+}
+);
 
 </script>
 
