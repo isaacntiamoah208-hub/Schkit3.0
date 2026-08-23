@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#635bff">
+<meta name="description" content="SCHKIT helps students discover scholarships, check eligibility, build applications and track opportunities.">
 <title>SCHKIT — Scholarships Made Simpler</title>
 
 <style>
@@ -20,9 +21,15 @@
   --shadow:0 20px 60px rgba(16,24,40,.09);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -31,8 +38,13 @@ body{
   line-height:1.55;
 }
 
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
 
 .container{
   width:min(1180px,92%);
@@ -64,7 +76,9 @@ nav{
   letter-spacing:-1.5px;
 }
 
-.logo span{color:var(--primary)}
+.logo span{
+  color:var(--primary);
+}
 
 .nav-links{
   display:flex;
@@ -79,7 +93,9 @@ nav{
   font-weight:750;
 }
 
-.nav-links a:hover{color:var(--primary)}
+.nav-links a:hover{
+  color:var(--primary);
+}
 
 .nav-cta{
   background:var(--ink);
@@ -129,7 +145,9 @@ nav{
   letter-spacing:-4px;
 }
 
-.hero h1 span{color:var(--primary)}
+.hero h1 span{
+  color:var(--primary);
+}
 
 .hero-text{
   max-width:620px;
@@ -238,7 +256,9 @@ nav{
 
 /* SECTIONS */
 
-section{padding:85px 0}
+section{
+  padding:85px 0;
+}
 
 .section-heading{
   max-width:720px;
@@ -258,7 +278,9 @@ section{padding:85px 0}
 
 /* FINDER */
 
-.finder{background:white}
+.finder{
+  background:white;
+}
 
 .finder-box{
   background:var(--bg);
@@ -510,10 +532,34 @@ section{padding:85px 0}
   box-shadow:0 20px 55px #635bff15;
 }
 
+.pro-badge{
+  display:inline-block;
+  background:#eeecff;
+  color:var(--primary);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
 .price{
   font-size:42px;
   font-weight:950;
   margin:10px 0 20px;
+}
+
+.price small{
+  font-size:13px;
+  color:#667085;
+  font-weight:600;
+}
+
+.currency-note{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:-14px;
+  margin-bottom:20px;
 }
 
 .pro-box ul{
@@ -523,6 +569,12 @@ section{padding:85px 0}
 
 .pro-box li{
   margin-bottom:9px;
+}
+
+.pro-button{
+  width:100%;
+  padding:15px 20px;
+  font-size:15px;
 }
 
 /* MODAL */
@@ -606,7 +658,9 @@ footer{
   font-size:12px;
 }
 
-footer strong{color:white}
+footer strong{
+  color:white;
+}
 
 /* DARK MODE */
 
@@ -662,6 +716,10 @@ body.dark .section-heading p{
 
 body.dark .hero{
   background:#0b1020;
+}
+
+body.dark .currency-note{
+  color:#98a2b3;
 }
 
 /* MOBILE */
@@ -1178,15 +1236,21 @@ Unlock the complete application toolkit.
 
 <div class="pro-box">
 
+<div class="pro-badge">
+⭐ PREMIUM
+</div>
+
 <h3>
 SCHKIT Pro
 </h3>
 
 <div class="price">
-GHS 99
-<small style="font-size:13px;color:#667085">
-/ month
-</small>
+$9
+<small>/ month</small>
+</div>
+
+<div class="currency-note">
+Paystack checkout: GH₵100/month
 </div>
 
 <ul>
@@ -1201,10 +1265,10 @@ GHS 99
 
 
 <button
-class="primary"
+class="primary pro-button"
 onclick="startPro()"
 >
-Start Pro — GHS 99/month
+Start Pro — $9/month
 </button>
 
 </div>
@@ -1277,6 +1341,20 @@ id="toast"
 
 
 <script>
+
+/* =========================
+   SCHKIT CONFIGURATION
+========================= */
+
+const PAYSTACK_PRO_URL =
+"https://paystack.shop/pay/zcydb2e7wz";
+
+const SCHKIT_PRO_DISPLAY_PRICE =
+"$9/month";
+
+const PAYSTACK_CHARGE =
+"GH₵100/month";
+
 
 /* =========================
    SCHOLARSHIP DATABASE
@@ -2257,13 +2335,31 @@ document.getElementById(
    PAYSTACK
 ========================= */
 
+/*
+  SCHKIT Pro payment page
+
+  Website price:
+  $9/month
+
+  Actual Ghana Paystack charge:
+  GH₵100/month
+
+  Paystack handles the recurring subscription.
+*/
+
 function startPro(){
 
-window.open(
-"https://paystack.shop/pay/ueikofoy33",
-"_blank",
-"noopener"
+const confirmed =
+confirm(
+"You're being redirected to Paystack to subscribe to SCHKIT Pro for $9/month (GH₵100/month on Paystack). Continue?"
 );
+
+if(!confirmed){
+return;
+}
+
+window.location.href =
+PAYSTACK_PRO_URL;
 
 }
 
