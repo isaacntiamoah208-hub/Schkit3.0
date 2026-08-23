@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SCHKIT — Scholarships & University Applications</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #635bff;
+      --primary-dark: #5148e8;
+      --dark: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --light: #f7f8fc;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      height: 72px;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 7%;
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-btn {
+      background: var(--dark);
+      color: white !important;
+      padding: 10px 17px;
+      border-radius: 9px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 680px;
+
+      padding: 90px 7% 80px;
+
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+
+      gap: 60px;
+
+      background:
+        radial-gradient(
+          circle at 80% 15%,
+          #e7e4ff 0,
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #f7f8fc
+        );
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      background: #ede9fe;
+      color: #5b21b6;
+
+      padding: 7px 12px;
+
+      border-radius: 50px;
+
+      font-size: 11px;
+      font-weight: 900;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: -4px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      margin-top: 25px;
+
+      color: var(--muted);
+
+      font-size: 18px;
+
+      max-width: 620px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+
+      margin-top: 32px;
+
+      flex-wrap: wrap;
+    }
+
+    .primary {
+      border: none;
+
+      background: var(--primary);
+      color: white;
+
+      padding: 14px 22px;
+
+      border-radius: 11px;
+
+      font-weight: 800;
+
+      transition: .2s;
+    }
+
+    .primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .secondary {
+      background: white;
+      color: var(--dark);
+
+      border: 1px solid #d1d5db;
+
+      padding: 14px 22px;
+
+      border-radius: 11px;
+
+      font-weight: 800;
+
+      transition: .2s;
+    }
+
+    .secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* =========================
+       HERO IMAGE
+    ========================= */
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 450px;
+
+      object-fit: cover;
+
+      border-radius: 26px;
+
+      display: block;
+
+      box-shadow:
+        0 30px 80px rgba(17,24,39,.18);
+    }
+
+    .floating-card {
+      position: absolute;
+
+      left: -28px;
+      bottom: 25px;
+
+      width: 260px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      padding: 18px;
+
+      border-radius: 16px;
+
+      box-shadow:
+        0 18px 45px rgba(17,24,39,.16);
+    }
+
+    .floating-card strong {
+      display: block;
+
+      margin-bottom: 4px;
+
+      font-size: 14px;
+    }
+
+    .floating-card p {
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-heading {
+      max-width: 700px;
+
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+
+      line-height: 1.1;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+
+      font-size: 16px;
+    }
+
+    /* =========================
+       FEATURES
+    ========================= */
+
+    .features {
+      background: white;
+    }
+
+    .feature-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 26px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 17px;
+
+      background: white;
+
+      transition: .2s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 15px 40px rgba(17,24,39,.08);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background: #f1efff;
+
+      font-size: 25px;
+
+      margin-bottom: 17px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       IMAGE STRIP
+    ========================= */
+
+    .image-strip {
+      margin-top: 50px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.3fr .7fr;
+
+      gap: 18px;
+    }
+
+    .image-strip img {
+      width: 100%;
+
+      height: 280px;
+
+      object-fit: cover;
+
+      border-radius: 20px;
+    }
+
+    /* =========================
+       FINDER
+    ========================= */
+
+    .finder {
+      background: var(--light);
+    }
+
+    .finder-box {
+      max-width: 950px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 22px;
+
+      padding: 32px;
+
+      box-shadow:
+        0 20px 60px rgba(17,24,39,.05);
+    }
+
+    .form-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      margin-bottom: 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+
+      padding: 13px;
+
+      border: 1px solid #d1d5db;
+
+      border-radius: 10px;
+
+      background: white;
+
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 3px #635bff18;
+    }
+
+    .finder-button {
+      margin-top: 22px;
+    }
+
+    /* =========================
+       RESULTS
+    ========================= */
+
+    #results {
+      display: none;
+
+      margin-top: 35px;
+    }
+
+    .result-card {
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 17px;
+
+      padding: 22px;
+
+      margin-bottom: 15px;
+    }
+
+    .result-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .result-card p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .result-tags {
+      display: flex;
+
+      gap: 7px;
+
+      flex-wrap: wrap;
+
+      margin: 14px 0;
+    }
+
+    .tag {
+      background: #f3f4f6;
+
+      padding: 5px 9px;
+
+      border-radius: 7px;
+
+      font-size: 11px;
+    }
+
+    .badge {
+      background: #ede9fe;
+
+      color: #5b21b6;
+
+      padding: 5px 9px;
+
+      border-radius: 20px;
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      height: max-content;
+    }
+
+    /* =========================
+       AI
+    ========================= */
+
+    .ai-section {
+      background: #111827;
+
+      color: white;
+    }
+
+    .ai-section .section-heading p {
+      color: #9ca3af;
+    }
+
+    .ai-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .ai-card {
+      background: #1f2937;
+
+      border: 1px solid #374151;
+
+      padding: 20px;
+
+      border-radius: 17px;
+
+      transition: .2s;
+    }
+
+    .ai-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .ai-image {
+      width: 100%;
+
+      height: 170px;
+
+      object-fit: cover;
+
+      border-radius: 12px;
+
+      margin-bottom: 17px;
+    }
+
+    .ai-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .ai-card p {
+      color: #9ca3af;
+
+      font-size: 14px;
+    }
+
+    .ai-card button {
+      margin-top: 18px;
+
+      background: var(--primary);
+
+      border: none;
+
+      color: white;
+
+      padding: 9px 13px;
+
+      border-radius: 8px;
+
+      font-size: 12px;
+
+      font-weight: 800;
+    }
+
+    /* =========================
+       PRICING
+    ========================= */
+
+    .pricing {
+      background: white;
+    }
+
+    .pricing-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      max-width: 850px;
+
+      gap: 20px;
+    }
+
+    .price-card {
+      border: 1px solid var(--border);
+
+      padding: 30px;
+
+      border-radius: 20px;
+    }
+
+    .price-card.pro {
+      border: 2px solid var(--primary);
+
+      position: relative;
+
+      box-shadow:
+        0 20px 50px rgba(99,91,255,.12);
+    }
+
+    .popular {
+      position: absolute;
+
+      top: -13px;
+
+      right: 20px;
+
+      background: var(--primary);
+
+      color: white;
+
+      padding: 5px 11px;
+
+      border-radius: 20px;
+
+      font-size: 11px;
+
+      font-weight: 900;
+    }
+
+    .price {
+      font-size: 40px;
+
+      font-weight: 900;
+
+      margin: 12px 0 20px;
+    }
+
+    .price span {
+      font-size: 13px;
+
+      color: var(--muted);
+
+      font-weight: 400;
+    }
+
+    .price-card ul {
+      list-style: none;
+
+      margin-bottom: 25px;
+    }
+
+    .price-card li {
+      margin-bottom: 10px;
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 40px 7%;
+
+      background: #0b1120;
+
+      color: #9ca3af;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    #toast {
+      position: fixed;
+
+      bottom: 25px;
+
+      right: 25px;
+
+      background: #111827;
+
+      color: white;
+
+      padding: 14px 18px;
+
+      border-radius: 10px;
+
+      display: none;
+
+      z-index: 9999;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.2);
+
+      max-width: 320px;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .ai-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 650px) {
+
+      nav {
+        padding: 0 5%;
+      }
+
+      .nav-links a:not(.nav-btn) {
+        display: none;
+      }
+
+      .hero,
+      section {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+
+        letter-spacing: -2.5px;
+      }
+
+      .hero-image {
+        height: 330px;
+      }
+
+      .floating-card {
+        left: 12px;
+        bottom: 15px;
+      }
+
+      .form-grid,
+      .pricing-grid,
+      .feature-grid,
+      .ai-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .image-strip img {
+        height: 220px;
+      }
+
+      .result-top {
+        flex-direction: column;
+      }
+
+      .section-heading h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      SCH<span>KIT</span>
+    </div>
+
+    <div class="nav-links">
+
+      <a href="#finder">
+        Scholarships
+      </a>
+
+      <a href="#ai">
+        AI Tools
+      </a>
+
+      <a href="#pricing">
+        Pricing
+      </a>
+
+      <a class="nav-btn" href="#finder">
+        Get Started
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        🌍 SCHOLARSHIPS • APPLICATIONS • AI
+      </div>
+
+      <h1>
+        Your shortcut to
+        <span>studying abroad.</span>
+      </h1>
+
+      <p class="hero-description">
+        Find scholarships, check your eligibility,
+        build stronger applications, and keep your
+        deadlines organized — all in one place.
+      </p>
+
+      <div class="hero-buttons">
+
+        <button
+          class="primary"
+          onclick="scrollToFinder()"
+        >
+          Find Scholarships
+        </button>
+
+        <button
+          class="secondary"
+          onclick="scrollToAI()"
+        >
+          Explore AI Tools
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+      <img
+        class="hero-image"
+        src="https://res.cloudinary.com/iugroup/image/upload/v1738144432/cp-blog-top-universities-in-germany-image-6-intl_mydj7a.jpg"
+        alt="International university students"
+      >
+
+      <div class="floating-card">
+
+        <strong>
+          🎓 Your study-abroad journey starts here
+        </strong>
+
+        <p>
+          Discover opportunities, prepare your
+          application and stay organized.
+        </p>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="section-heading">
+
+      <h2>
+        Everything in one place.
+      </h2>
+
+      <p>
+        SCHKIT gives students the tools they need
+        to manage the scholarship journey from
+        discovery to submission.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🔎
+        </div>
+
+        <h3>
+          Find
+        </h3>
+
+        <p>
+          Discover scholarship opportunities
+          that match your goals.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ✅
+        </div>
+
+        <h3>
+          Check
+        </h3>
+
+        <p>
+          Compare your profile with scholarship
+          requirements.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🤖
+        </div>
+
+        <h3>
+          Build
+        </h3>
+
+        <p>
+          Improve essays, CVs, activities
+          and interview preparation.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          📊
+        </div>
+
+        <h3>
+          Track
+        </h3>
+
+        <p>
+          Keep deadlines, documents and
+          application status organized.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- IMAGE STRIP -->
+
+    <div class="image-strip">
+
+      <img
+        src="https://www.china-admissions.com/wp-content/uploads/2020/04/ZIBS-MBA.jpg"
+        alt="Students walking on a university campus"
+      >
+
+      <img
+        src="https://a.storyblok.com/f/268942/2000x1333/ba32e17653/how-to-find-and-apply-for-prodigy-finance-scholarships-as-an-international-student.jpeg"
+        alt="Student preparing an application"
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- SCHOLARSHIP FINDER -->
+
+  <section
+    class="finder"
+    id="finder"
+  >
+
+    <div class="section-heading">
+
+      <h2>
+        Find your scholarships.
+      </h2>
+
+      <p>
+        Tell SCHKIT about yourself and we'll show
+        you opportunities that could match your profile.
+      </p>
+
+    </div>
+
+
+    <div class="finder-box">
+
+      <div class="form-grid">
+
+        <div>
+
+          <label>
+            Country of citizenship
+          </label>
+
+          <input
+            id="country"
+            type="text"
+            placeholder="e.g. Ghana"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Preferred destination
+          </label>
+
+          <select id="destination">
+
+            <option value="">
+              Select one
+            </option>
+
+            <option>
+              United States
+            </option>
+
+            <option>
+              United Kingdom
+            </option>
+
+            <option>
+              Canada
+            </option>
+
+            <option>
+              Australia
+            </option>
+
+            <option>
+              Germany
+            </option>
+
+            <option>
+              Netherlands
+            </option>
+
+            <option>
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Degree level
+          </label>
+
+          <select id="degree">
+
+            <option value="">
+              Select one
+            </option>
+
+            <option>
+              Bachelor's
+            </option>
+
+            <option>
+              Master's
+            </option>
+
+            <option>
+              PhD
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Field of study
+          </label>
+
+          <input
+            id="field"
+            type="text"
+            placeholder="e.g. Computer Science"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Academic results
+          </label>
+
+          <input
+            id="grades"
+            type="text"
+            placeholder="e.g. WASSCE / GPA"
+          >
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Intended intake
+          </label>
+
+          <select id="intake">
+
+            <option value="">
+              Select year
+            </option>
+
+            <option>
+              2026
+            </option>
+
+            <option>
+              2027
+            </option>
+
+            <option>
+              2028
+            </option>
+
+            <option>
+              2029
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="primary finder-button"
+        onclick="findScholarships()"
+      >
+        Find Matching Scholarships
+      </button>
+
+
+      <div id="results">
+
+        <h3 style="margin-bottom:18px;">
+          Potential matches
+        </h3>
+
+
+        <div class="result-card">
+
+          <div class="result-top">
+
+            <div>
+
+              <h3>
+                Global Excellence Scholarship
+              </h3>
+
+              <p>
+                International students • Undergraduate
+              </p>
+
+            </div>
+
+            <span class="badge">
+              Potential Match
+            </span>
+
+          </div>
+
+
+          <div class="result-tags">
+
+            <span class="tag">
+              Tuition support
+            </span>
+
+            <span class="tag">
+              International
+            </span>
+
+            <span class="tag">
+              Bachelor's
+            </span>
+
+          </div>
+
+
+          <button
+            class="secondary"
+            onclick="showToast('Official scholarship verification will be available in the full version.')"
+          >
+            View Opportunity
+          </button>
+
+        </div>
+
+
+        <div class="result-card">
+
+          <div class="result-top">
+
+            <div>
+
+              <h3>
+                Future Leaders Award
+              </h3>
+
+              <p>
+                Undergraduate students • Leadership
+              </p>
+
+            </div>
+
+            <span class="badge">
+              Potential Match
+            </span>
+
+          </div>
+
+
+          <div class="result-tags">
+
+            <span class="tag">
+              Leadership
+            </span>
+
+            <span class="tag">
+              International
+            </span>
+
+            <span class="tag">
+              Partial funding
+            </span>
+
+          </div>
+
+
+          <button
+            class="secondary"
+            onclick="showToast('Official scholarship verification will be available in the full version.')"
+          >
+            View Opportunity
+          </button>
+
+        </div>
+
+
+        <p style="color:#6b7280;font-size:12px;">
+          Demo results shown for the prototype.
+          A production SCHKIT will use a verified,
+          regularly updated scholarship database.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AI TOOLS -->
+
+  <section
+    class="ai-section"
+    id="ai"
+  >
+
+    <div class="section-heading">
+
+      <h2>
+        Build a stronger application with AI.
+      </h2>
+
+      <p>
+        Use structured AI workflows instead of
+        asking random questions and hoping for good results.
+      </p>
+
+    </div>
+
+
+    <div class="ai-grid">
+
+
+      <div class="ai-card">
+
+        <img
+          class="ai-image"
+          src="https://a.storyblok.com/f/268942/2000x1333/ba32e17653/how-to-find-and-apply-for-prodigy-finance-scholarships-as-an-international-student.jpeg"
+          alt="Student working on scholarship application"
+        >
+
+        <h3>
+          ✍️ Essay Builder
+        </h3>
+
+        <p>
+          Brainstorm authentic stories, improve
+          structure and strengthen your personal statement.
+        </p>
+
+        <button
+          onclick="showToast('Essay Builder selected.')"
+        >
+          Open Tool
+        </button>
+
+      </div>
+
+
+      <div class="ai-card">
+
+        <img
+          class="ai-image"
+          src="https://res.cloudinary.com/iugroup/image/upload/v1738144432/cp-blog-top-universities-in-germany-image-6-intl_mydj7a.jpg"
+          alt="University students"
+        >
+
+        <h3>
+          📄 CV Builder
+        </h3>
+
+        <p>
+          Turn your real achievements and activities
+          into stronger application-ready descriptions.
+        </p>
+
+        <button
+          onclick="showToast('CV Builder selected.')"
+        >
+          Open Tool
+        </button>
+
+      </div>
+
+
+      <div class="ai-card">
+
+        <img
+          class="ai-image"
+          src="https://www.china-admissions.com/wp-content/uploads/2020/04/ZIBS-MBA.jpg"
+          alt="Students preparing for university"
+        >
+
+        <h3>
+          🎤 Interview Coach
+        </h3>
+
+        <p>
+          Practice scholarship interview questions
+          and receive structured feedback.
+        </p>
+
+        <button
+          onclick="showToast('Interview Coach selected.')"
+        >
+          Open Tool
+        </button>
+
+      </div>
+
+
+      <div class="ai-card">
+
+        <h3>
+          ✅ Eligibility Checker
+        </h3>
+
+        <p>
+          Compare your profile against
+          scholarship requirements.
+        </p>
+
+        <button
+          onclick="showToast('Eligibility Checker selected.')"
+        >
+          Open Tool
+        </button>
+
+      </div>
+
+
+      <div class="ai-card">
+
+        <h3>
+          🚨 Scam Detector
+        </h3>
+
+        <p>
+          Identify warning signs in suspicious
+          scholarship offers.
+        </p>
+
+        <button
+          onclick="showToast('Scam Detector selected.')"
+        >
+          Open Tool
+        </button>
+
+      </div>
+
+
+      <div class="ai-card">
+
+        <h3>
+          📋 Application Review
+        </h3>
+
+        <p>
+          Run a final review for missing
+          requirements and weak areas.
+        </p>
+
+        <button
+          onclick="showToast('Application Review selected.')"
+        >
+          Open Tool
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRICING -->
+
+  <section
+    class="pricing"
+    id="pricing"
+  >
+
+    <div class="section-heading">
+
+      <h2>
+        Start free. Upgrade when you need more.
+      </h2>
+
+      <p>
+        Get the essentials for free, then unlock
+        the full SCHKIT toolkit with Pro.
+      </p>
+
+    </div>
+
+
+    <div class="pricing-grid">
+
+
+      <!-- FREE -->
+
+      <div class="price-card">
+
+        <h3>
+          SCHKIT Free
+        </h3>
+
+        <div class="price">
+          GHS 0
+        </div>
+
+        <ul>
+
+          <li>
+            ✓ Basic scholarship finder
+          </li>
+
+          <li>
+            ✓ Basic eligibility tools
+          </li>
+
+          <li>
+            ✓ Limited AI prompts
+          </li>
+
+          <li>
+            ✓ Basic application tracker
+          </li>
+
+        </ul>
+
+        <button
+          class="secondary"
+          onclick="showToast('Free account selected.')"
+        >
+          Get Started
+        </button>
+
+      </div>
+
+
+      <!-- PRO -->
+
+      <div class="price-card pro">
+
+        <div class="popular">
+          MOST POPULAR
+        </div>
+
+        <h3>
+          SCHKIT Pro
+        </h3>
+
+        <div class="price">
+          GHS 99
+          <span>
+            / month
+          </span>
+        </div>
+
+        <ul>
+
+          <li>
+            ✓ Advanced scholarship research
+          </li>
+
+          <li>
+            ✓ Full AI Prompt Vault
+          </li>
+
+          <li>
+            ✓ Essay & CV tools
+          </li>
+
+          <li>
+            ✓ Interview Coach
+          </li>
+
+          <li>
+            ✓ Unlimited application tracking
+          </li>
+
+          <li>
+            ✓ Advanced application review
+          </li>
+
+        </ul>
+
+        <button
+          class="primary"
+          onclick="startPro()"
+        >
+          Start Pro — GHS 99/month
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div>
+
+      <strong>
+        SCHKIT
+      </strong>
+
+      <br>
+
+      Scholarship & University
+      Application Platform
+
+    </div>
+
+
+    <div>
+      © 2026 SCHKIT
+    </div>
+
+  </footer>
+
+
+  <!-- TOAST -->
+
+  <div id="toast"></div>
+
+
+  <script>
+
+    /*
+      PAYSTACK PAYMENT LINK
+
+      IMPORTANT:
+      Replace this with your LIVE Paystack
+      payment link before launching.
+
+      Current link supplied for the prototype:
+    */
+
+    const PAYSTACK_LINK =
+      "https://paystack.shop/pay/ueikofoy33";
+
+
+    function scrollToFinder() {
+
+      document
+        .getElementById("finder")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    function scrollToAI() {
+
+      document
+        .getElementById("ai")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    function findScholarships() {
+
+      const country =
+        document
+          .getElementById("country")
+          .value
+          .trim();
+
+      const destination =
+        document
+          .getElementById("destination")
+          .value;
+
+      const degree =
+        document
+          .getElementById("degree")
+          .value;
+
+      const field =
+        document
+          .getElementById("field")
+          .value
+          .trim();
+
+
+      if (
+        !country ||
+        !destination ||
+        !degree ||
+        !field
+      ) {
+
+        showToast(
+          "Please complete your country, destination, degree and field."
+        );
+
+        return;
+
+      }
+
+
+      document
+        .getElementById("results")
+        .style.display = "block";
+
+
+      document
+        .getElementById("results")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+    }
+
+
+    function startPro() {
+
+      showToast(
+        "Opening SCHKIT Pro checkout..."
+      );
+
+
+      setTimeout(function() {
+
+        window.location.href =
+          PAYSTACK_LINK;
+
+      }, 700);
+
+    }
+
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById("toast");
+
+
+      toast.textContent =
+        message;
+
+
+      toast.style.display =
+        "block";
+
+
+      setTimeout(function() {
+
+        toast.style.display =
+          "none";
+
+      }, 3000);
+
+    }
+
+  </script>
+
+</body>
+</html>
