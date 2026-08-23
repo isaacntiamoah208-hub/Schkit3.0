@@ -334,6 +334,7 @@ section{
 
 .field textarea{
   resize:vertical;
+  min-height:110px;
 }
 
 .field input:focus,
@@ -854,7 +855,7 @@ body.dark .output{
 <body>
 
 <!-- =========================
-     NAV
+     NAVIGATION
 ========================= -->
 
 <nav>
@@ -1009,6 +1010,7 @@ body.dark .output{
 
         <div class="field">
           <label>Citizenship</label>
+
           <input
             id="citizenship"
             placeholder="e.g. Ghana"
@@ -1293,12 +1295,12 @@ body.dark .output{
 
       <div class="price">
         $9
-        <small>/ month</small>
+        <small>one-time</small>
       </div>
 
       <p class="price-note">
-        Recurring monthly subscription. Payment is
-        processed securely by our payment provider.
+        One-time payment for SCHKIT Pro.
+        No recurring subscription.
       </p>
 
 
@@ -1319,11 +1321,11 @@ body.dark .output{
         onclick="startPro()"
         id="proButton"
       >
-        Start Pro — $9/month
+        Unlock SCHKIT Pro — $9
       </button>
 
       <div class="payment-note">
-        🔒 Secure checkout · $9 USD/month
+        🔒 Secure checkout · $9 one-time payment
       </div>
 
     </div>
@@ -1398,28 +1400,11 @@ body.dark .output{
 <script>
 
 /* =====================================================
-   SCHKIT CONFIGURATION
+   SCHKIT PAYMENT CONFIGURATION
 ===================================================== */
 
-/*
-  IMPORTANT PAYMENT SETUP
-
-  Replace ONLY the value below with your REAL
-  Ghana-compatible USD recurring checkout URL.
-
-  Example:
-
-  const PAYMENT_URL =
-  "https://your-real-provider.com/checkout/xxxxx";
-
-  DO NOT put a random Paystack/Haystack URL here.
-
-  The website cannot create a recurring subscription
-  itself. Your payment provider must create the
-  recurring $9/month subscription/checkout.
-*/
-
-const PAYMENT_URL = "";
+const PAYMENT_URL =
+  "https://paystack.shop/pay/egm-imld0p";
 
 
 /* =====================================================
@@ -2420,66 +2405,11 @@ function closeModal(){
 function startPro(){
 
   /*
-    We deliberately don't redirect to the old
-    Paystack/Haystack URL because that link was
-    returning "Page Not Found".
+    SCHKIT Pro is a ONE-TIME payment.
 
-    Add your REAL recurring USD checkout URL
-    to PAYMENT_URL above.
+    The button sends the customer directly
+    to the Paystack checkout configured below.
   */
-
-  if(!PAYMENT_URL){
-
-    openModal(
-      "💳 SCHKIT Pro",
-
-      `
-
-        <div class="output">
-
-          <strong>
-            SCHKIT Pro — $9/month
-          </strong>
-
-          <br><br>
-
-          The checkout is being configured.
-
-          <br><br>
-
-          Your payment provider must provide a
-          valid checkout that supports:
-
-          <br><br>
-
-          ✓ Ghana customers
-
-          <br>
-
-          ✓ USD
-
-          <br>
-
-          ✓ Recurring monthly payments
-
-          <br>
-
-          ✓ $9/month subscription
-
-          <br><br>
-
-          Once you have the real checkout URL,
-          put it into the PAYMENT_URL variable
-          in this file.
-
-        </div>
-
-      `
-    );
-
-    return;
-  }
-
 
   window.location.href = PAYMENT_URL;
 }
