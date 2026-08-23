@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#635bff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#635BFF">
 <meta name="description" content="SCHKIT — Find scholarships, build applications and track your university journey.">
 <title>SCHKIT — Scholarships Made Simpler</title>
 
 <style>
 :root{
-  --primary:#635bff;
-  --primary-dark:#5148e8;
-  --primary-light:#eeecff;
+  --primary:#635BFF;
+  --primary-dark:#5148E8;
+  --primary-light:#EEECFF;
   --ink:#101828;
   --muted:#667085;
-  --bg:#f6f7fb;
-  --card:#fff;
-  --border:#e4e7ec;
-  --success:#12b76a;
-  --danger:#f04438;
-  --warning:#f79009;
+  --bg:#F6F7FB;
+  --card:#FFFFFF;
+  --border:#E4E7EC;
+  --success:#12B76A;
+  --danger:#F04438;
+  --warning:#F79009;
   --shadow:0 20px 60px rgba(16,24,40,.09);
   --radius:18px;
 }
@@ -39,10 +39,12 @@ body{
   background:var(--bg);
   color:var(--ink);
   line-height:1.55;
-  transition:.25s;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit;
 }
 
@@ -59,16 +61,14 @@ a{
   margin:auto;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAV */
 
 nav{
   height:72px;
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--border);
 }
@@ -94,7 +94,7 @@ nav{
 .nav-links{
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:20px;
 }
 
 .nav-links a{
@@ -117,21 +117,19 @@ nav{
 
 .theme-btn{
   border:1px solid var(--border);
-  background:white;
+  background:#fff;
   width:38px;
   height:38px;
   border-radius:10px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   padding:82px 0 65px;
   background:
-    radial-gradient(circle at 85% 10%,#e7e4ff 0,transparent 34%),
-    linear-gradient(#fff,#f7f8fc);
+    radial-gradient(circle at 85% 10%,#E7E4FF 0,transparent 34%),
+    linear-gradient(#fff,#F7F8FC);
 }
 
 .hero-grid{
@@ -144,7 +142,7 @@ nav{
 .eyebrow{
   display:inline-block;
   background:var(--primary-light);
-  color:#5148e8;
+  color:#5148E8;
   padding:7px 12px;
   border-radius:999px;
   font-size:11px;
@@ -197,7 +195,7 @@ nav{
 .secondary{
   background:white;
   color:var(--ink);
-  border:1px solid #d0d5dd;
+  border:1px solid #D0D5DD;
 }
 
 .secondary:hover{
@@ -241,9 +239,7 @@ nav{
   font-size:11px;
 }
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
   display:grid;
@@ -269,9 +265,7 @@ nav{
   font-size:11px;
 }
 
-/* =========================
-   GENERAL SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
   padding:85px 0;
@@ -293,9 +287,7 @@ section{
   color:var(--muted);
 }
 
-/* =========================
-   FINDER
-========================= */
+/* FINDER */
 
 .finder{
   background:white;
@@ -326,7 +318,7 @@ section{
 .field textarea{
   width:100%;
   padding:12px;
-  border:1px solid #d0d5dd;
+  border:1px solid #D0D5DD;
   border-radius:10px;
   background:white;
   outline:none;
@@ -334,14 +326,14 @@ section{
 
 .field textarea{
   resize:vertical;
-  min-height:110px;
+  min-height:120px;
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus{
   border-color:var(--primary);
-  box-shadow:0 0 0 3px #635bff18;
+  box-shadow:0 0 0 3px #635BFF18;
 }
 
 .search-row{
@@ -353,13 +345,11 @@ section{
 .search-row input{
   flex:1;
   padding:13px;
-  border:1px solid #d0d5dd;
+  border:1px solid #D0D5DD;
   border-radius:10px;
 }
 
-/* =========================
-   SCHOLARSHIPS
-========================= */
+/* SCHOLARSHIPS */
 
 .results-header{
   display:flex;
@@ -406,7 +396,7 @@ section{
 }
 
 .funding{
-  background:#ecfdf3;
+  background:#ECFDF3;
   color:#087443;
   padding:5px 8px;
   border-radius:99px;
@@ -424,7 +414,7 @@ section{
 }
 
 .tag{
-  background:#f2f4f7;
+  background:#F2F4F7;
   padding:5px 8px;
   border-radius:7px;
   font-size:10px;
@@ -458,21 +448,19 @@ section{
 
 .save-btn{
   border:0;
-  background:#f2f4f7;
+  background:#F2F4F7;
   color:var(--ink);
 }
 
-/* =========================
-   TOOLS
-========================= */
+/* TOOLS */
 
 .tools{
-  background:#0b1020;
+  background:#0B1020;
   color:white;
 }
 
 .tools .section-heading p{
-  color:#98a2b3;
+  color:#98A2B3;
 }
 
 .tool-grid{
@@ -482,7 +470,7 @@ section{
 }
 
 .tool{
-  background:#151e2e;
+  background:#151E2E;
   border:1px solid #293548;
   border-radius:18px;
   padding:22px;
@@ -498,7 +486,7 @@ section{
 }
 
 .tool p{
-  color:#98a2b3;
+  color:#98A2B3;
   font-size:13px;
   margin-bottom:17px;
 }
@@ -513,12 +501,10 @@ section{
   font-weight:800;
 }
 
-/* =========================
-   TRACKER
-========================= */
+/* TRACKER */
 
 .tracker{
-  background:#f9fafb;
+  background:#F9FAFB;
 }
 
 .tracker-list{
@@ -548,14 +534,12 @@ section{
   border-radius:8px;
 }
 
-/* =========================
-   PRO
-========================= */
+/* PRO */
 
 .pro{
   background:
-    radial-gradient(circle at 90% 10%,#e7e4ff 0,transparent 30%),
-    #f6f7fb;
+    radial-gradient(circle at 90% 10%,#E7E4FF 0,transparent 30%),
+    #F6F7FB;
 }
 
 .pro-box{
@@ -564,7 +548,7 @@ section{
   border:2px solid var(--primary);
   padding:32px;
   border-radius:22px;
-  box-shadow:0 20px 55px #635bff15;
+  box-shadow:0 20px 55px #635BFF15;
 }
 
 .pro-badge{
@@ -611,9 +595,7 @@ section{
   color:var(--muted);
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal-overlay{
   display:none;
@@ -647,21 +629,55 @@ section{
   height:34px;
   border:0;
   border-radius:50%;
-  background:#f2f4f7;
+  background:#F2F4F7;
 }
 
 .output{
   margin-top:15px;
   padding:16px;
-  background:#f8f9fc;
+  background:#F8F9FC;
   border-radius:12px;
   white-space:pre-wrap;
   font-size:13px;
 }
 
-/* =========================
-   TOAST
-========================= */
+/* PAYMENT */
+
+.payment-card{
+  text-align:center;
+  padding:10px 0;
+}
+
+.payment-icon{
+  font-size:45px;
+  margin-bottom:10px;
+}
+
+.payment-card h3{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.payment-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.payment-features{
+  text-align:left;
+  background:#F8F9FC;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:20px;
+}
+
+.payment-features div{
+  margin:8px 0;
+  font-size:13px;
+}
+
+/* TOAST */
 
 .toast{
   display:none;
@@ -676,13 +692,11 @@ section{
   font-size:13px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
-  background:#080d18;
-  color:#98a2b3;
+  background:#080D18;
+  color:#98A2B3;
   padding:35px 0;
 }
 
@@ -698,22 +712,20 @@ footer strong{
   color:white;
 }
 
-/* =========================
-   DARK MODE
-========================= */
+/* DARK MODE */
 
 body.dark{
-  background:#0b1020;
+  background:#0B1020;
   color:white;
 }
 
 body.dark nav{
-  background:#0b1020e8;
+  background:#0B1020E8;
   border-color:#273244;
 }
 
 body.dark .nav-links a{
-  color:#cbd5e1;
+  color:#CBD5E1;
 }
 
 body.dark .theme-btn,
@@ -729,11 +741,11 @@ body.dark .modal{
 }
 
 body.dark .finder{
-  background:#0b1020;
+  background:#0B1020;
 }
 
 body.dark .finder-box{
-  background:#0f172a;
+  background:#0F172A;
   border-color:#273244;
 }
 
@@ -749,32 +761,27 @@ body.dark .search-row input{
 body.dark .organization,
 body.dark .deadline,
 body.dark .section-heading p{
-  color:#98a2b3;
+  color:#98A2B3;
 }
 
 body.dark .hero{
-  background:#0b1020;
-}
-
-body.dark .hero-image{
-  box-shadow:none;
+  background:#0B1020;
 }
 
 body.dark .tracker{
-  background:#0b1020;
+  background:#0B1020;
 }
 
 body.dark .pro{
-  background:#0b1020;
+  background:#0B1020;
 }
 
-body.dark .output{
-  background:#0f172a;
+body.dark .output,
+body.dark .payment-features{
+  background:#0F172A;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:850px){
 
@@ -854,9 +861,7 @@ body.dark .output{
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAV -->
 
 <nav>
   <div class="container nav-inner">
@@ -872,7 +877,7 @@ body.dark .output{
       <a href="#tracker">Tracker</a>
 
       <a href="#pro" class="nav-cta">
-        Go Pro
+        Get SCHKIT
       </a>
 
       <button
@@ -880,9 +885,7 @@ body.dark .output{
         onclick="toggleTheme()"
         id="themeButton"
         aria-label="Toggle dark mode"
-      >
-        ☾
-      </button>
+      >☾</button>
 
     </div>
 
@@ -890,9 +893,7 @@ body.dark .output{
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -954,7 +955,6 @@ body.dark .output{
 
     </div>
 
-
     <div class="hero-image">
 
       <img
@@ -982,9 +982,7 @@ body.dark .output{
 </header>
 
 
-<!-- =========================
-     FINDER
-========================= -->
+<!-- FINDER -->
 
 <section class="finder" id="finder">
 
@@ -1003,95 +1001,62 @@ body.dark .output{
 
     </div>
 
-
     <div class="finder-box">
 
       <div class="form-grid">
 
         <div class="field">
           <label>Citizenship</label>
-
-          <input
-            id="citizenship"
-            placeholder="e.g. Ghana"
-          >
+          <input id="citizenship" placeholder="e.g. Ghana">
         </div>
-
 
         <div class="field">
           <label>Destination</label>
 
           <select id="destination">
-
-            <option value="">
-              Any destination
-            </option>
-
+            <option value="">Any destination</option>
             <option>United States</option>
             <option>United Kingdom</option>
             <option>Canada</option>
             <option>Australia</option>
             <option>Germany</option>
-
+            <option>Multiple</option>
           </select>
         </div>
-
 
         <div class="field">
           <label>Degree</label>
 
           <select id="degree">
-
-            <option value="">
-              Any degree
-            </option>
-
+            <option value="">Any degree</option>
             <option>Bachelor's</option>
             <option>Master's</option>
             <option>PhD</option>
-
           </select>
         </div>
 
-
         <div class="field">
           <label>Field of study</label>
-
-          <input
-            id="field"
-            placeholder="e.g. Computer Science"
-          >
+          <input id="field" placeholder="e.g. Computer Science">
         </div>
-
 
         <div class="field">
           <label>Intended intake</label>
 
           <select id="intake">
-
-            <option value="">
-              Any year
-            </option>
-
+            <option value="">Any year</option>
             <option>2026</option>
             <option>2027</option>
             <option>2028</option>
-
           </select>
         </div>
 
-
         <div class="field">
           <label>Academic results</label>
-
-          <input
-            id="grades"
-            placeholder="e.g. WASSCE 8As / GPA"
-          >
+          <input id="grades" placeholder="e.g. WASSCE / GPA">
         </div>
 
       </div>
-
 
       <div class="search-row">
 
@@ -1111,7 +1076,6 @@ body.dark .output{
 
     </div>
 
-
     <div class="results-header">
 
       <h3 id="resultCount">
@@ -1127,20 +1091,14 @@ body.dark .output{
 
     </div>
 
-
-    <div
-      class="results"
-      id="results"
-    ></div>
+    <div class="results" id="results"></div>
 
   </div>
 
 </section>
 
 
-<!-- =========================
-     TOOLS
-========================= -->
+<!-- TOOLS -->
 
 <section class="tools" id="tools">
 
@@ -1159,9 +1117,7 @@ body.dark .output{
 
     </div>
 
-
     <div class="tool-grid">
-
 
       <div class="tool">
 
@@ -1180,7 +1136,6 @@ body.dark .output{
 
       </div>
 
-
       <div class="tool">
 
         <div class="tool-icon">🎤</div>
@@ -1198,7 +1153,6 @@ body.dark .output{
 
       </div>
 
-
       <div class="tool">
 
         <div class="tool-icon">✅</div>
@@ -1206,7 +1160,7 @@ body.dark .output{
         <h3>Eligibility Checker</h3>
 
         <p>
-          Compare your degree with the listed scholarship
+          Compare your degree with listed scholarship
           requirements before applying.
         </p>
 
@@ -1216,7 +1170,6 @@ body.dark .output{
 
       </div>
 
-
     </div>
 
   </div>
@@ -1224,14 +1177,9 @@ body.dark .output{
 </section>
 
 
-<!-- =========================
-     TRACKER
-========================= -->
+<!-- TRACKER -->
 
-<section
-  class="tracker"
-  id="tracker"
->
+<section class="tracker" id="tracker">
 
   <div class="container">
 
@@ -1248,7 +1196,6 @@ body.dark .output{
 
     </div>
 
-
     <div
       class="tracker-list"
       id="trackerList"
@@ -1259,34 +1206,28 @@ body.dark .output{
 </section>
 
 
-<!-- =========================
-     PRO
-========================= -->
+<!-- PAYMENT -->
 
-<section
-  class="pro"
-  id="pro"
->
+<section class="pro" id="pro">
 
   <div class="container">
 
     <div class="section-heading">
 
       <h2>
-        SCHKIT Pro
+        Unlock SCHKIT.
       </h2>
 
       <p>
-        Unlock the complete application toolkit.
+        Get access to the complete SCHKIT application toolkit.
       </p>
 
     </div>
 
-
     <div class="pro-box">
 
       <div class="pro-badge">
-        ⭐ SCHKIT PRO
+        ⭐ SCHKIT PREMIUM
       </div>
 
       <h3>
@@ -1295,37 +1236,32 @@ body.dark .output{
 
       <div class="price">
         $9
-        <small>one-time</small>
+        <small>one-time payment</small>
       </div>
 
       <p class="price-note">
-        One-time payment for SCHKIT Pro.
-        No recurring subscription.
+        Pay once. No monthly subscription.
       </p>
 
-
       <ul>
-
         <li>✓ Advanced scholarship research</li>
         <li>✓ Essay Builder</li>
         <li>✓ Interview Coach</li>
-        <li>✓ Application review tools</li>
-        <li>✓ Unlimited application tracking</li>
-        <li>✓ Priority SCHKIT features</li>
-
+        <li>✓ Eligibility Checker</li>
+        <li>✓ Application tracking</li>
+        <li>✓ Future SCHKIT premium features</li>
       </ul>
-
 
       <button
         class="primary"
-        onclick="startPro()"
-        id="proButton"
+        onclick="startPayment()"
+        id="paymentButton"
       >
-        Unlock SCHKIT Pro — $9
+        Get SCHKIT — $9
       </button>
 
       <div class="payment-note">
-        🔒 Secure checkout · $9 one-time payment
+        🔒 Secure one-time checkout powered by Paystack
       </div>
 
     </div>
@@ -1335,9 +1271,7 @@ body.dark .output{
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1358,9 +1292,7 @@ body.dark .output{
 </footer>
 
 
-<!-- =========================
-     MODAL
-========================= -->
+<!-- MODAL -->
 
 <div
   class="modal-overlay"
@@ -1400,8 +1332,14 @@ body.dark .output{
 <script>
 
 /* =====================================================
-   SCHKIT PAYMENT CONFIGURATION
+   SCHKIT PAYMENT
 ===================================================== */
+
+/*
+   YOUR ONE-TIME PAYSTACK CHECKOUT
+
+   This is the payment link you supplied.
+*/
 
 const PAYMENT_URL =
   "https://paystack.shop/pay/egm-imld0p";
@@ -1422,11 +1360,7 @@ const scholarships = [
     field:"All fields",
     funding:"Full / substantial funding",
     deadline:"Varies by partner",
-    tags:[
-      "International",
-      "Leadership",
-      "Need-based"
-    ],
+    tags:["International","Leadership","Need-based"],
     link:"https://mastercardfdn.org/all/scholars/become-a-scholar/"
   },
 
@@ -1439,11 +1373,7 @@ const scholarships = [
     field:"All fields",
     funding:"Fully funded",
     deadline:"Annual cycle",
-    tags:[
-      "UK",
-      "Fully funded",
-      "Leadership"
-    ],
+    tags:["UK","Fully funded","Leadership"],
     link:"https://www.chevening.org/scholarships/"
   },
 
@@ -1456,11 +1386,7 @@ const scholarships = [
     field:"All fields",
     funding:"Full funding",
     deadline:"Varies by course",
-    tags:[
-      "UK",
-      "Cambridge",
-      "Full funding"
-    ],
+    tags:["UK","Cambridge","Full funding"],
     link:"https://www.gatescambridge.org/apply/"
   },
 
@@ -1473,11 +1399,7 @@ const scholarships = [
     field:"All fields",
     funding:"Funding varies",
     deadline:"Varies by country",
-    tags:[
-      "USA",
-      "Graduate",
-      "International"
-    ],
+    tags:["USA","Graduate","International"],
     link:"https://foreign.fulbrightonline.org/"
   },
 
@@ -1490,11 +1412,7 @@ const scholarships = [
     field:"All fields",
     funding:"Funding package",
     deadline:"Annual cycle",
-    tags:[
-      "USA",
-      "Stanford",
-      "Leadership"
-    ],
+    tags:["USA","Stanford","Leadership"],
     link:"https://knight-hennessy.stanford.edu/"
   },
 
@@ -1507,11 +1425,7 @@ const scholarships = [
     field:"All fields",
     funding:"Varies by programme",
     deadline:"Varies by programme",
-    tags:[
-      "Germany",
-      "Graduate",
-      "International"
-    ],
+    tags:["Germany","Graduate","International"],
     link:"https://www.daad.de/en/studying-in-germany/scholarships/"
   },
 
@@ -1524,11 +1438,7 @@ const scholarships = [
     field:"All fields",
     funding:"Full support",
     deadline:"Annual cycle",
-    tags:[
-      "Canada",
-      "Undergraduate",
-      "Full funding"
-    ],
+    tags:["Canada","Undergraduate","Full funding"],
     link:"https://future.utoronto.ca/pearson/about/"
   },
 
@@ -1541,10 +1451,7 @@ const scholarships = [
     field:"All fields",
     funding:"Partial tuition",
     deadline:"Varies",
-    tags:[
-      "UK",
-      "Partial funding"
-    ],
+    tags:["UK","Partial funding"],
     link:"https://www.uwe.ac.uk/courses/funding/scholarships-and-bursaries"
   }
 
@@ -1588,7 +1495,7 @@ function showToast(message){
 
 
 /* =====================================================
-   RENDER SCHOLARSHIPS
+   RENDER
 ===================================================== */
 
 function renderScholarships(list){
@@ -1599,7 +1506,6 @@ function renderScholarships(list){
   document.getElementById("resultCount")
     .textContent =
       `${list.length} opportunit${list.length === 1 ? "y" : "ies"} found`;
-
 
   if(!list.length){
 
@@ -1638,16 +1544,13 @@ function renderScholarships(list){
     return;
   }
 
-
   container.innerHTML =
-    list.map(
-      s => scholarshipHTML(s)
-    ).join("");
+    list.map(s => scholarshipHTML(s)).join("");
 }
 
 
 /* =====================================================
-   SCHOLARSHIP CARD
+   CARD
 ===================================================== */
 
 function scholarshipHTML(s){
@@ -1681,23 +1584,20 @@ function scholarshipHTML(s){
 
       </div>
 
-
       <div class="tags">
 
         ${s.tags.map(
           tag =>
-            `<span class="tag">
-              ${escapeHTML(tag)}
-            </span>`
+          `<span class="tag">
+            ${escapeHTML(tag)}
+          </span>`
         ).join("")}
 
       </div>
 
-
       <div class="deadline">
         ⏳ Deadline: ${escapeHTML(s.deadline)}
       </div>
-
 
       <div class="card-actions">
 
@@ -1747,7 +1647,6 @@ function findScholarships(){
       .toLowerCase()
       .trim();
 
-
   const results =
     scholarships.filter(s => {
 
@@ -1756,17 +1655,14 @@ function findScholarships(){
         s.country === destination ||
         s.country === "Multiple";
 
-
       const degreeMatch =
         !degree ||
         s.degree.includes(degree);
-
 
       const fieldMatch =
         !field ||
         s.field.toLowerCase().includes(field) ||
         s.field === "All fields";
-
 
       const searchMatch =
         !search ||
@@ -1779,16 +1675,13 @@ function findScholarships(){
         .toLowerCase()
         .includes(search);
 
-
       return (
         destinationMatch &&
         degreeMatch &&
         fieldMatch &&
         searchMatch
       );
-
     });
-
 
   renderScholarships(results);
 
@@ -1825,9 +1718,7 @@ function toggleSave(id){
     showToast(
       "Scholarship saved."
     );
-
   }
-
 
   localStorage.setItem(
     "schkitSaved",
@@ -1869,12 +1760,10 @@ function renderTracker(){
   const tracker =
     document.getElementById("trackerList");
 
-
   const list =
     scholarships.filter(
       s => saved.includes(s.id)
     );
-
 
   if(!list.length){
 
@@ -1901,7 +1790,6 @@ function renderTracker(){
     return;
   }
 
-
   tracker.innerHTML =
     list.map(s => `
 
@@ -1925,33 +1813,23 @@ function renderTracker(){
           onchange="changeStatus(${s.id},this.value)"
         >
 
-          <option
-            ${statuses[s.id] === "Interested" ? "selected":""}
-          >
+          <option ${statuses[s.id] === "Interested" ? "selected":""}>
             Interested
           </option>
 
-          <option
-            ${statuses[s.id] === "Preparing" ? "selected":""}
-          >
+          <option ${statuses[s.id] === "Preparing" ? "selected":""}>
             Preparing
           </option>
 
-          <option
-            ${statuses[s.id] === "Applied" ? "selected":""}
-          >
+          <option ${statuses[s.id] === "Applied" ? "selected":""}>
             Applied
           </option>
 
-          <option
-            ${statuses[s.id] === "Accepted" ? "selected":""}
-          >
+          <option ${statuses[s.id] === "Accepted" ? "selected":""}>
             Accepted
           </option>
 
-          <option
-            ${statuses[s.id] === "Rejected" ? "selected":""}
-          >
+          <option ${statuses[s.id] === "Rejected" ? "selected":""}>
             Rejected
           </option>
 
@@ -1979,7 +1857,7 @@ function changeStatus(id,status){
 
 
 /* =====================================================
-   CLEAR FILTERS
+   CLEAR
 ===================================================== */
 
 function clearFilters(){
@@ -2014,9 +1892,7 @@ function openEssay(){
 
       <div class="field" style="margin-top:15px">
 
-        <label>
-          Scholarship question
-        </label>
+        <label>Scholarship question</label>
 
         <textarea
           id="essayPrompt"
@@ -2025,12 +1901,9 @@ function openEssay(){
 
       </div>
 
-
       <div class="field">
 
-        <label>
-          Your real experiences
-        </label>
+        <label>Your real experiences</label>
 
         <textarea
           id="essayExperience"
@@ -2038,7 +1911,6 @@ function openEssay(){
         ></textarea>
 
       </div>
-
 
       <button
         class="primary"
@@ -2057,13 +1929,10 @@ function openEssay(){
 function buildEssay(){
 
   const prompt =
-    document.getElementById("essayPrompt")
-      .value.trim();
+    document.getElementById("essayPrompt").value.trim();
 
   const experience =
-    document.getElementById("essayExperience")
-      .value.trim();
-
+    document.getElementById("essayExperience").value.trim();
 
   if(!prompt || !experience){
 
@@ -2074,15 +1943,12 @@ function buildEssay(){
     return;
   }
 
-
   document.getElementById("toolOutput")
     .innerHTML = `
 
       <div class="output">
 
-        <strong>
-          Suggested essay structure
-        </strong>
+        <strong>Suggested essay structure</strong>
 
         <br><br>
 
@@ -2114,17 +1980,7 @@ function buildEssay(){
         <strong>5. Future connection</strong>
 
         Connect the experience to your academic goals,
-        career plans and why this scholarship matters.
-
-        <br><br>
-
-        <strong>Prompt:</strong>
-        ${escapeHTML(prompt)}
-
-        <br><br>
-
-        <strong>Your evidence:</strong>
-        ${escapeHTML(experience)}
+        career plans and why the scholarship matters.
 
       </div>
 
@@ -2133,7 +1989,7 @@ function buildEssay(){
 
 
 /* =====================================================
-   INTERVIEW COACH
+   INTERVIEW
 ===================================================== */
 
 function openInterview(){
@@ -2158,9 +2014,7 @@ function openInterview(){
 
       <div class="field" style="margin-top:15px">
 
-        <label>
-          Your answer
-        </label>
+        <label>Your answer</label>
 
         <textarea
           id="interviewAnswer"
@@ -2189,7 +2043,6 @@ function reviewInterview(){
     document.getElementById("interviewAnswer")
       .value.trim();
 
-
   if(!answer){
 
     showToast(
@@ -2199,15 +2052,12 @@ function reviewInterview(){
     return;
   }
 
-
   document.getElementById("toolOutput")
     .innerHTML = `
 
       <div class="output">
 
-        <strong>
-          Interview checklist
-        </strong>
+        <strong>Interview checklist</strong>
 
         <br><br>
 
@@ -2229,14 +2079,6 @@ function reviewInterview(){
 
         ✓ Did you connect the lesson to your future?
 
-        <br><br>
-
-        <strong>Your answer:</strong>
-
-        <br><br>
-
-        ${escapeHTML(answer)}
-
       </div>
 
     `;
@@ -2256,34 +2098,29 @@ function openEligibility(){
 
       <p style="color:var(--muted)">
         This is a quick screening tool. Always verify
-        the complete requirements on the official scholarship page.
+        complete requirements on the official scholarship page.
       </p>
 
       <div class="field" style="margin-top:15px">
 
-        <label>
-          Scholarship
-        </label>
+        <label>Scholarship</label>
 
         <select id="eligibilityScholarship">
 
           ${scholarships.map(
             s =>
-              `<option value="${s.id}">
-                ${escapeHTML(s.name)}
-              </option>`
+            `<option value="${s.id}">
+              ${escapeHTML(s.name)}
+            </option>`
           ).join("")}
 
         </select>
 
       </div>
 
-
       <div class="field" style="margin-top:12px">
 
-        <label>
-          Your degree
-        </label>
+        <label>Your degree</label>
 
         <select id="eligibilityDegree">
 
@@ -2294,7 +2131,6 @@ function openEligibility(){
         </select>
 
       </div>
-
 
       <button
         class="primary"
@@ -2320,22 +2156,18 @@ function checkEligibility(){
       ).value
     );
 
-
   const degree =
     document.getElementById(
       "eligibilityDegree"
     ).value;
-
 
   const scholarship =
     scholarships.find(
       s => s.id === id
     );
 
-
   const match =
     scholarship.degree.includes(degree);
-
 
   document.getElementById("toolOutput")
     .innerHTML = `
@@ -2353,15 +2185,10 @@ function checkEligibility(){
 
         ${
           match
-
           ?
-
-          "The listed degree category matches your selection. You still need to verify citizenship, academic, programme-specific and deadline requirements on the official website."
-
+          "The listed degree category matches your selection. Verify citizenship, academic, programme-specific and deadline requirements on the official website."
           :
-
           "This scholarship's listed degree categories do not include your selected degree. Check the official requirements before applying."
-
         }
 
       </div>
@@ -2399,16 +2226,27 @@ function closeModal(){
 
 
 /* =====================================================
-   PAYMENT
+   ONE-TIME PAYMENT
 ===================================================== */
 
-function startPro(){
+function startPayment(){
+
+  if(
+    !PAYMENT_URL ||
+    !PAYMENT_URL.startsWith("https://")
+  ){
+
+    showToast(
+      "Payment link is not configured."
+    );
+
+    return;
+  }
 
   /*
-    SCHKIT Pro is a ONE-TIME payment.
-
-    The button sends the customer directly
-    to the Paystack checkout configured below.
+    Open the Paystack checkout in the same tab.
+    The actual payment, amount and transaction
+    are controlled by your Paystack checkout page.
   */
 
   window.location.href = PAYMENT_URL;
@@ -2475,7 +2313,7 @@ if(
 
 
 /* =====================================================
-   SECURITY / HTML ESCAPING
+   HTML ESCAPING
 ===================================================== */
 
 function escapeHTML(value){
@@ -2490,7 +2328,7 @@ function escapeHTML(value){
 
 
 /* =====================================================
-   INITIAL LOAD
+   INITIALIZE
 ===================================================== */
 
 renderScholarships(
@@ -2501,7 +2339,7 @@ renderTracker();
 
 
 /* =====================================================
-   CLOSE MODAL OUTSIDE
+   MODAL OUTSIDE CLICK
 ===================================================== */
 
 document
@@ -2519,7 +2357,7 @@ document
 
 
 /* =====================================================
-   ENTER KEY SEARCH
+   ENTER TO SEARCH
 ===================================================== */
 
 document
