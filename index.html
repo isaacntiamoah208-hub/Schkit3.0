@@ -2,573 +2,552 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080d18">
-<title>SCHKIT Pro — Find. Prepare. Apply.</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#ff4d2e">
+<meta name="description" content="Applyt — discover scholarships, internships, jobs, fellowships, competitions, volunteering and grants with AI-powered application help.">
+<title>Applyt — Find It. Apply Better. Go Further.</title>
 
 <style>
 :root{
-  --bg:#f5f7fb;
-  --card:#fff;
-  --ink:#101828;
-  --muted:#667085;
-  --line:#e4e7ec;
-  --brand:#635bff;
-  --brand2:#8b5cf6;
-  --green:#12b76a;
-  --shadow:0 18px 60px #10182812;
+  --red:#ff3d32;
+  --orange:#ff8a00;
+  --green:#10b981;
+  --lime:#b8f000;
+  --blue:#2775ff;
+  --purple:#7c3aed;
+  --pink:#ff3f81;
+  --yellow:#ffd600;
+  --dark:#10131b;
+  --muted:#697386;
+  --bg:#f7f8fc;
+  --white:#fff;
+  --border:#e8eaf0;
+  --shadow:0 18px 50px rgba(16,19,27,.09);
+  --radius:22px;
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 body{
   margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:var(--bg);
-  color:var(--ink);
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--dark);
 }
-
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
 
 .nav{
-  height:70px;
   position:sticky;
   top:0;
-  z-index:50;
-  background:#ffffffea;
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
+  z-index:1000;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1250px;
+  margin:auto;
+  height:74px;
+  padding:0 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 5%;
+  gap:20px;
 }
-
 .logo{
-  font-size:24px;
-  font-weight:950;
-  letter-spacing:-1.2px;
-}
-
-.logo span{color:var(--brand)}
-
-.navlinks{
-  display:flex;
-  gap:4px;
-}
-
-.navlinks button,
-.iconbtn{
-  border:0;
-  background:transparent;
-  padding:10px 12px;
-  border-radius:10px;
-  color:#475467;
-  font-weight:750;
-}
-
-.navlinks button:hover,
-.iconbtn:hover{
-  background:#f2f4f7;
-}
-
-.navright{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:9px;
+  font-size:25px;
+  font-weight:950;
+  letter-spacing:-1.5px;
 }
-
-.primary{
+.logo-mark{
+  width:38px;
+  height:38px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  color:white;
+  background:linear-gradient(135deg,var(--red),var(--orange),var(--green));
+  box-shadow:0 8px 20px rgba(255,61,50,.25);
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-weight:750;
+  color:#4d5565;
+}
+.nav-links a:hover{color:var(--red)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn{
   border:0;
-  color:#fff;
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  padding:12px 17px;
-  border-radius:12px;
-  font-weight:900;
-  box-shadow:0 10px 25px #635bff30;
-}
-
-.secondary{
-  border:1px solid var(--line);
-  background:var(--card);
-  color:var(--ink);
-  padding:11px 14px;
-  border-radius:12px;
+  border-radius:14px;
+  padding:12px 18px;
   font-weight:850;
+  transition:.2s;
 }
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--dark);color:white}
+.btn-red{background:var(--red);color:white}
+.btn-green{background:var(--green);color:white}
+.btn-orange{background:var(--orange);color:white}
+.btn-light{background:#f0f2f6;color:var(--dark)}
+.btn-outline{background:white;border:1px solid var(--border)}
 
 .hero{
+  position:relative;
+  overflow:hidden;
   background:
-    radial-gradient(circle at 85% 15%,#8b5cf633,transparent 28%),
-    radial-gradient(circle at 10% 0,#635bff30,transparent 32%),
-    #080d18;
-  color:#fff;
-  padding:72px 5% 54px;
+    radial-gradient(circle at 8% 15%,rgba(255,61,50,.18),transparent 25%),
+    radial-gradient(circle at 90% 20%,rgba(184,240,0,.25),transparent 23%),
+    radial-gradient(circle at 70% 100%,rgba(16,185,129,.18),transparent 30%),
+    white;
 }
-
-.heroGrid{
-  max-width:1180px;
+.hero-inner{
+  max-width:1250px;
   margin:auto;
+  padding:75px 22px 65px;
   display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:45px;
+  grid-template-columns:1.08fr .92fr;
+  gap:55px;
   align-items:center;
 }
-
-.eyebrow{
+.badge{
   display:inline-flex;
-  padding:7px 11px;
-  border:1px solid #ffffff1c;
-  background:#ffffff0d;
+  gap:8px;
+  align-items:center;
+  background:#fff0ed;
+  color:#d82d24;
+  padding:8px 13px;
   border-radius:999px;
-  font-size:11px;
+  font-size:13px;
   font-weight:900;
-  letter-spacing:.5px;
 }
-
 .hero h1{
-  font-size:clamp(44px,6vw,75px);
-  line-height:.96;
-  letter-spacing:-4px;
-  margin:18px 0;
+  font-size:clamp(46px,6vw,78px);
+  line-height:.95;
+  letter-spacing:-5px;
+  margin:20px 0;
+  max-width:800px;
 }
-
-.hero h1 span{color:#a78bfa}
-
+.gradient-text{
+  background:linear-gradient(90deg,var(--red),var(--orange),var(--green),var(--blue));
+  -webkit-background-clip:text;
+  color:transparent;
+}
 .hero p{
-  color:#b9c3d4;
-  max-width:680px;
-  font-size:19px;
-  line-height:1.65;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.7;
+  max-width:690px;
 }
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
 
-.actions{
+.hero-visual{
+  position:relative;
+  min-height:490px;
+}
+.hero-photo{
+  width:85%;
+  height:430px;
+  object-fit:cover;
+  border-radius:35px;
+  box-shadow:var(--shadow);
+  transform:rotate(2deg);
+}
+.floating-card{
+  position:absolute;
+  background:white;
+  padding:17px;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,.05);
+}
+.match-card{right:0;top:35px;width:220px}
+.deadline-card{left:0;bottom:10px;width:225px}
+.match-number{font-size:38px;font-weight:950;color:var(--green)}
+.mini-progress{height:8px;background:#e9edf2;border-radius:20px;overflow:hidden}
+.mini-progress span{display:block;height:100%;width:92%;background:linear-gradient(90deg,var(--green),var(--lime));border-radius:20px}
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:70px 22px;
+}
+.section-head{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:25px;
+  justify-content:space-between;
+  gap:25px;
+  align-items:end;
+  margin-bottom:30px;
 }
+.section h2{
+  margin:0;
+  font-size:clamp(30px,4vw,48px);
+  letter-spacing:-2px;
+}
+.section-sub{color:var(--muted);line-height:1.6;max-width:680px}
 
-.heroAlt{
-  border:1px solid #ffffff1f;
-  background:#ffffff0c;
-  color:#fff;
-  padding:12px 16px;
-  border-radius:12px;
+.opportunity-tabs{
+  display:flex;
+  gap:9px;
+  overflow:auto;
+  padding-bottom:12px;
+}
+.tab{
+  white-space:nowrap;
+  padding:11px 17px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:white;
   font-weight:850;
 }
+.tab.active{background:var(--dark);color:white}
 
-.dashboard{
-  background:#ffffff0d;
-  border:1px solid #ffffff16;
-  border-radius:25px;
-  padding:20px;
-  box-shadow:0 30px 90px #0007;
-}
-
-.dashTop{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.readiness{
-  font-size:30px;
-  font-weight:950;
-}
-
-.bar{
-  height:8px;
-  background:#263246;
-  border-radius:20px;
-  overflow:hidden;
-  margin:10px 0 15px;
-}
-
-.bar i{
-  display:block;
-  height:100%;
-  width:84%;
-  background:linear-gradient(90deg,#8b5cf6,#22c55e);
-}
-
-.dashrow{
-  display:flex;
-  justify-content:space-between;
-  padding:12px 0;
-  border-bottom:1px solid #ffffff12;
-  font-size:13px;
-}
-
-.dashrow:last-child{border:0}
-
-main{
-  max-width:1180px;
-  margin:auto;
-  padding:32px 5%;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-}
-
-.stat,
-.card,
-.tool,
-.track{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:19px;
-  box-shadow:var(--shadow);
-}
-
-.stat{padding:18px}
-
-.stat strong{font-size:28px}
-
-.stat small{
-  display:block;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-.section{margin-top:43px}
-
-.sectionhead{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:14px;
-  margin-bottom:15px;
-}
-
-.sectionhead h2{
-  margin:0;
-  font-size:29px;
-  letter-spacing:-1px;
-}
-
-.sectionhead p{
-  margin:5px 0 0;
-  color:var(--muted);
-}
-
-.grid{
+.opportunity-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:15px;
+  gap:22px;
 }
-
-.card{padding:19px}
-
-.match{
-  display:inline-block;
-  color:#087443;
-  background:#ecfdf3;
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(16,19,27,.04);
+}
+.opp-image{
+  height:205px;
+  width:100%;
+  object-fit:cover;
+}
+.card-body{padding:21px}
+.source{
+  display:inline-flex;
+  background:#fff4e7;
+  color:#b95a00;
   border-radius:999px;
   padding:6px 9px;
   font-size:11px;
-  font-weight:950;
+  font-weight:900;
 }
-
-.card h3{
-  margin:13px 0 5px;
-  font-size:17px;
-}
-
-.muted{color:var(--muted)}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin:13px 0;
-}
-
+.card h3{font-size:21px;margin:12px 0 8px}
+.card p{color:var(--muted);line-height:1.55;font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
 .tag{
+  background:#f1f3f7;
+  border-radius:999px;
+  padding:6px 9px;
   font-size:11px;
-  padding:6px 8px;
-  border-radius:8px;
-  background:#f2f4f7;
-  color:#475467;
+  font-weight:800;
 }
-
-.cardActions{
+.card-footer{
   display:flex;
-  gap:8px;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
   margin-top:16px;
-  flex-wrap:wrap;
 }
+.deadline{font-size:12px;color:#d82d24;font-weight:850}
 
-.mini{
-  padding:9px 11px;
+.finder{
+  background:var(--dark);
+  color:white;
+  border-radius:32px;
+  padding:38px;
+  box-shadow:var(--shadow);
+}
+.finder-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:25px;
+}
+.field label{
+  display:block;
+  color:#aeb5c3;
   font-size:12px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+.field select,.field input{
+  width:100%;
+  padding:14px;
+  border:1px solid #323846;
+  border-radius:13px;
+  background:#1a1e27;
+  color:white;
+  outline:none;
+}
+.finder-result{
+  display:none;
+  margin-top:25px;
+  background:white;
+  color:var(--dark);
+  border-radius:22px;
+  padding:22px;
+}
+.finder-result.show{display:block}
+.result-flex{display:flex;gap:20px;align-items:center}
+.result-flex img{width:125px;height:105px;object-fit:cover;border-radius:16px}
+.score{
+  margin-left:auto;
+  min-width:85px;
+  height:85px;
+  border-radius:50%;
+  background:#e9fff5;
+  color:#079363;
+  display:grid;
+  place-items:center;
+  font-weight:950;
+  font-size:22px;
 }
 
-.tools{
+.tools-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:13px;
+  gap:18px;
 }
-
 .tool{
-  padding:18px;
-  text-align:left;
-  border:1px solid var(--line);
+  padding:25px;
+  border-radius:24px;
+  background:white;
+  border:1px solid var(--border);
+  min-height:210px;
+  transition:.2s;
 }
-
-.tool .ico{font-size:27px}
-
-.tool h3{margin:9px 0 5px}
-
-.tool p{
-  font-size:13px;
-  line-height:1.5;
-  color:var(--muted);
-  margin:0;
+.tool:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.tool-icon{
+  width:52px;height:52px;border-radius:16px;
+  display:grid;place-items:center;font-size:24px;
+  margin-bottom:20px;
 }
+.tool h3{margin:0 0 8px}
+.tool p{color:var(--muted);font-size:14px;line-height:1.55}
 
-.track{
-  padding:16px;
+.app-section{
+  background:linear-gradient(135deg,#fff3ee,#f0fff8,#fffbe9);
+}
+.application{
   display:grid;
-  grid-template-columns:1fr 180px 150px;
-  gap:15px;
-  align-items:center;
-  margin-bottom:10px;
+  grid-template-columns:.8fr 1.2fr;
+  gap:25px;
 }
-
-.progress{
-  height:8px;
-  background:#eef1f5;
-  border-radius:20px;
-  overflow:hidden;
+.panel{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:27px;
+  box-shadow:0 10px 35px rgba(0,0,0,.04);
 }
-
-.progress i{
-  display:block;
-  height:100%;
-  background:linear-gradient(90deg,var(--brand),var(--brand2));
+.steps{display:grid;gap:12px;margin-top:20px}
+.step{
+  padding:15px;
+  border-radius:15px;
+  background:#f6f7f9;
+  display:flex;gap:12px;
 }
-
-.steps{
+.step-num{
+  width:30px;height:30px;border-radius:10px;
+  background:var(--red);color:white;
+  display:grid;place-items:center;font-weight:900;flex:none;
+}
+.option-grid{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:10px;
 }
-
-.step{
-  background:var(--card);
-  border:1px solid var(--line);
-  padding:17px;
-  border-radius:17px;
+.choice{
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:14px;
+  padding:13px;
+  text-align:left;
+  font-weight:750;
+}
+.choice.selected{
+  border-color:var(--green);
+  background:#ecfff7;
+  color:#087c58;
+}
+.essay-box{
+  min-height:180px;
+  margin-top:16px;
+  padding:18px;
+  border-radius:18px;
+  background:#f7f8fb;
+  border:1px solid var(--border);
+  line-height:1.7;
+  color:#424a59;
 }
 
-.step b{
-  display:block;
-  margin-bottom:6px;
+.chat-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+.chat{
+  background:#11151d;
+  border-radius:28px;
+  padding:20px;
+  color:white;
+}
+.chat-messages{
+  height:330px;
+  overflow:auto;
+  padding:5px;
+}
+.msg{
+  max-width:82%;
+  padding:12px 14px;
+  border-radius:16px;
+  margin:9px 0;
+  line-height:1.5;
+  font-size:14px;
+}
+.bot{background:#242a35}
+.user{background:var(--red);margin-left:auto}
+.chat-input{
+  display:flex;gap:8px;margin-top:10px;
+}
+.chat-input input{
+  flex:1;
+  padding:13px;
+  border:1px solid #343b49;
+  background:#1a1f28;
+  color:white;
+  border-radius:13px;
+  outline:none;
 }
 
-.step span{
-  font-size:13px;
-  color:var(--muted);
+.game{
+  position:relative;
+  min-height:300px;
+  border-radius:28px;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(8,12,18,.25),rgba(8,12,18,.5)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85") center/cover;
+  color:white;
+  padding:30px;
 }
+.game-target{
+  position:absolute;
+  font-size:38px;
+  border:0;
+  background:transparent;
+  transition:.15s;
+}
+.game-score{
+  font-weight:950;
+  font-size:18px;
+}
+.game-info{position:relative;z-index:2}
+
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.quote{
+  background:white;
+  padding:25px;
+  border-radius:24px;
+  border:1px solid var(--border);
+}
+.avatar{
+  width:42px;height:42px;border-radius:50%;object-fit:cover;
+}
+.person{display:flex;align-items:center;gap:10px;margin-top:18px}
+.person small{display:block;color:var(--muted)}
 
 footer{
-  margin-top:45px;
-  background:#080d18;
-  color:#98a2b3;
-  padding:45px 5%;
-  text-align:center;
+  background:#0d1016;
+  color:white;
+  padding:50px 22px;
 }
-
-.flogo{
-  font-size:22px;
-  font-weight:950;
-  color:#fff;
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
 }
+footer p{color:#9ca3af}
 
 .modal{
   position:fixed;
   inset:0;
-  background:#020617b8;
-  z-index:100;
+  background:rgba(0,0,0,.62);
   display:none;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
+  place-items:center;
+  z-index:2000;
+  padding:20px;
 }
-
-.modal.open{display:flex}
-
-.box{
-  width:min(820px,100%);
-  max-height:92vh;
+.modal.open{display:grid}
+.modal-box{
+  width:min(760px,100%);
+  max-height:90vh;
   overflow:auto;
-  background:var(--card);
-  border-radius:24px;
-  padding:24px;
-  box-shadow:0 30px 100px #0008;
+  background:white;
+  border-radius:28px;
+  padding:28px;
 }
-
-.modalhead{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-}
-
 .close{
-  border:0;
-  background:#f2f4f7;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  font-size:20px;
+  float:right;
+  border:0;background:#f0f2f5;
+  width:38px;height:38px;border-radius:50%;
+  font-size:18px;
 }
-
-.field{margin:13px 0}
-
-.field label{
-  display:block;
-  font-size:13px;
-  font-weight:850;
-  margin-bottom:6px;
-}
-
-.field input,
-.field select,
-.field textarea{
+.detail-image{
   width:100%;
-  padding:12px;
-  border:1px solid #d0d5dd;
-  border-radius:11px;
-  background:var(--card);
-  color:var(--ink);
-  outline:0;
-}
-
-.field textarea{
-  min-height:125px;
-  resize:vertical;
-}
-
-.two{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.output{
-  margin-top:15px;
-  background:#f8f9fc;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:16px;
-  line-height:1.65;
-  white-space:pre-wrap;
-}
-
-.notice{
-  background:#fffaeb;
-  border:1px solid #fedf89;
-  color:#92400e;
-  border-radius:12px;
-  padding:12px;
-  font-size:13px;
+  height:250px;
+  object-fit:cover;
+  border-radius:20px;
 }
 
 .toast{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:200;
-  background:#101828;
-  color:#fff;
-  border-radius:12px;
-  padding:13px 16px;
-  display:none;
+  bottom:22px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:#10131b;
+  color:white;
+  padding:13px 18px;
+  border-radius:999px;
+  z-index:3000;
+  transition:.3s;
+  opacity:0;
+}
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
 }
 
-.dark{
-  --bg:#070b12;
-  --card:#101722;
-  --ink:#f8fafc;
-  --muted:#98a2b3;
-  --line:#253043;
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hero-inner,.application,.chat-wrap{grid-template-columns:1fr}
+  .hero-visual{min-height:400px}
+  .opportunity-grid,.testimonials{grid-template-columns:repeat(2,1fr)}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .finder-grid{grid-template-columns:1fr 1fr}
 }
-
-.dark .nav{background:#101722ee}
-
-.dark .secondary{background:#101722}
-
-.dark .tag{
-  background:#1d2939;
-  color:#d0d5dd;
-}
-
-.dark .output{background:#0c131e}
-
-.dark .close{
-  background:#1d2939;
-  color:#fff;
-}
-
-@media(max-width:850px){
-
-  .heroGrid{
-    grid-template-columns:1fr;
-  }
-
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .tools{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .steps{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .track{
-    grid-template-columns:1fr;
-  }
-
-  .navlinks{
-    display:none;
-  }
-}
-
-@media(max-width:520px){
-
-  .grid,
-  .stats,
-  .tools,
-  .steps{
-    grid-template-columns:1fr;
-  }
-
-  .two{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:48px;
-  }
-
-  .hero h1{
-    letter-spacing:-2px;
-  }
+@media(max-width:600px){
+  .nav-actions .btn-light{display:none}
+  .hero-inner{padding-top:45px}
+  .hero h1{letter-spacing:-3px}
+  .hero-photo{width:90%;height:350px}
+  .floating-card{transform:scale(.86)}
+  .opportunity-grid,.tools-grid,.testimonials,.finder-grid{grid-template-columns:1fr}
+  .finder{padding:22px}
+  .result-flex{align-items:flex-start}
+  .score{min-width:65px;height:65px;font-size:16px}
+  .option-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column}
 }
 </style>
 </head>
@@ -576,2703 +555,877 @@ footer{
 <body>
 
 <nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">A</span>
+      Applyt
+    </a>
 
-  <div class="logo">
-    SCH<span>KIT</span>
+    <div class="nav-links">
+      <a href="#discover">Discover</a>
+      <a href="#application">Apply with AI</a>
+      <a href="#assistant">AI Assistant</a>
+      <a href="#game">Play</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn btn-light" onclick="showToast('Applyt is currently free 🎉')">Free for now</button>
+      <button class="btn btn-red" onclick="document.getElementById('discover').scrollIntoView()">Get Started</button>
+    </div>
   </div>
-
-  <div class="navlinks">
-    <button onclick="go('matches')">Matches</button>
-    <button onclick="go('applications')">Applications</button>
-    <button onclick="go('tools')">Pro Tools</button>
-  </div>
-
-  <div class="navright">
-
-    <button
-      class="iconbtn"
-      id="themeBtn"
-      onclick="toggleTheme()"
-    >
-      ☾
-    </button>
-
-    <button
-      class="primary"
-      onclick="startPro()"
-    >
-      Unlock Pro
-    </button>
-
-  </div>
-
 </nav>
 
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="badge">✨ AI-powered opportunity discovery</span>
 
-<section class="hero">
+      <h1>
+        Find opportunities.
+        <span class="gradient-text">Apply smarter.</span>
+      </h1>
 
-<div class="heroGrid">
+      <p>
+        Applyt helps students discover scholarships, internships, jobs,
+        fellowships, competitions, volunteering opportunities and grants —
+        then guides them through the application process.
+      </p>
 
-<div>
+      <div class="hero-actions">
+        <button class="btn btn-red" onclick="document.getElementById('finder').scrollIntoView()">Find My Opportunities →</button>
+        <button class="btn btn-light" onclick="document.getElementById('application').scrollIntoView()">Try Application AI</button>
+      </div>
+    </div>
 
-<span class="eyebrow">
-✦ SCHOLARSHIP APPLICATION COPILOT
-</span>
+    <div class="hero-visual">
+      <img class="hero-photo"
+        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
+        alt="Students collaborating">
+      
+      <div class="floating-card match-card">
+        <small>AI MATCH</small>
+        <div class="match-number">94%</div>
+        <div class="mini-progress"><span></span></div>
+        <p style="margin-bottom:0;color:#697386;font-size:12px">Scholarship match found</p>
+      </div>
 
-<h1>
-Find funding.<br>
-<span>Build your case.</span>
-</h1>
+      <div class="floating-card deadline-card">
+        <strong>⏰ Deadline alert</strong>
+        <p style="margin:6px 0;color:#697386;font-size:12px">
+          3 opportunities closing soon.
+        </p>
+        <button class="btn btn-orange" style="padding:8px 11px;font-size:11px"
+          onclick="document.getElementById('discover').scrollIntoView()">
+          View
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
 
-<p>
-One workspace for scholarship discovery,
-personalized matching, prompt-specific essay
-coaching, CV building, application review,
-interview practice and deadline tracking.
-</p>
+<section class="section" id="finder">
+  <div class="section-head">
+    <div>
+      <h2>Tell Applyt about yourself.</h2>
+      <p class="section-sub">
+        No complicated search. Choose common options and Applyt draws a
+        personalized conclusion and recommends opportunities that fit.
+      </p>
+    </div>
+  </div>
 
-<div class="actions">
+  <div class="finder">
+    <h3 style="font-size:27px;margin:0">🎯 Opportunity Matcher</h3>
+    <p style="color:#aeb5c3">Choose your options. Applyt does the matching.</p>
 
-<button
-  class="primary"
-  onclick="finder()"
->
-🎯 Find my scholarships
-</button>
+    <div class="finder-grid">
+      <div class="field">
+        <label>YOUR CURRENT LEVEL</label>
+        <select id="level">
+          <option value="secondary">Secondary school graduate</option>
+          <option value="undergrad">Undergraduate</option>
+          <option value="graduate">Graduate</option>
+          <option value="professional">Professional</option>
+        </select>
+      </div>
 
-<button
-  class="heroAlt"
-  onclick="essay()"
->
-✍️ Start an essay
-</button>
+      <div class="field">
+        <label>FIELD</label>
+        <select id="field">
+          <option value="technology">Technology / Computer Science</option>
+          <option value="business">Business / Economics</option>
+          <option value="engineering">Engineering</option>
+          <option value="health">Health / Medicine</option>
+          <option value="arts">Arts / Humanities</option>
+          <option value="science">Science</option>
+          <option value="any">I'm open to anything</option>
+        </select>
+      </div>
 
-</div>
+      <div class="field">
+        <label>WHAT DO YOU WANT?</label>
+        <select id="goal">
+          <option value="scholarship">Scholarship</option>
+          <option value="internship">Internship</option>
+          <option value="job">Job</option>
+          <option value="fellowship">Fellowship</option>
+          <option value="competition">Competition</option>
+          <option value="volunteering">Volunteering</option>
+          <option value="grant">Grant</option>
+        </select>
+      </div>
 
-</div>
+      <div class="field">
+        <label>LOCATION</label>
+        <select id="location">
+          <option value="international">International</option>
+          <option value="africa">Africa</option>
+          <option value="usa">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="canada">Canada</option>
+          <option value="any">Anywhere</option>
+        </select>
+      </div>
 
+      <div class="field">
+        <label>FUNDING</label>
+        <select id="funding">
+          <option value="fully">Fully funded / fully covered</option>
+          <option value="partial">Partial funding is okay</option>
+          <option value="paid">I want paid opportunities</option>
+          <option value="free">No application fee</option>
+        </select>
+      </div>
 
-<div class="dashboard">
+      <div class="field">
+        <label>EXPERIENCE</label>
+        <select id="experience">
+          <option value="beginner">I'm just starting</option>
+          <option value="some">I have some experience</option>
+          <option value="strong">I have strong experience</option>
+        </select>
+      </div>
+    </div>
 
-<div class="dashTop">
+    <button class="btn btn-green" style="margin-top:20px"
+      onclick="findOpportunity()">
+      ✨ Draw My Conclusion
+    </button>
 
-<span>
-APPLICATION READINESS
-</span>
-
-<span
-  class="readiness"
-  id="readiness"
->
-84
-</span>
-
-</div>
-
-<div class="bar">
-<i id="readinessBar"></i>
-</div>
-
-<div class="dashrow">
-<span>Profile</span>
-<b id="profileState">
-Build profile
-</b>
-</div>
-
-<div class="dashrow">
-<span>Best match</span>
-<b>94%</b>
-</div>
-
-<div class="dashrow">
-<span>Essay projects</span>
-<b id="heroEssays">0</b>
-</div>
-
-<div class="dashrow">
-<span>Applications</span>
-<b id="heroApps">0</b>
-</div>
-
-</div>
-
-</div>
-
+    <div class="finder-result" id="finderResult"></div>
+  </div>
 </section>
 
+<section class="section" id="discover">
+  <div class="section-head">
+    <div>
+      <h2>Opportunities for you.</h2>
+      <p class="section-sub">
+        Scholarships and other opportunities displayed with visual information,
+        eligibility, deadlines and source information.
+      </p>
+    </div>
+  </div>
 
-<main>
+  <div class="opportunity-tabs">
+    <button class="tab active" onclick="filterOpp('all',this)">All</button>
+    <button class="tab" onclick="filterOpp('scholarship',this)">🎓 Scholarships</button>
+    <button class="tab" onclick="filterOpp('internship',this)">💼 Internships</button>
+    <button class="tab" onclick="filterOpp('job',this)">💰 Jobs</button>
+    <button class="tab" onclick="filterOpp('fellowship',this)">🌍 Fellowships</button>
+    <button class="tab" onclick="filterOpp('competition',this)">🏆 Competitions</button>
+    <button class="tab" onclick="filterOpp('volunteering',this)">🤝 Volunteering</button>
+    <button class="tab" onclick="filterOpp('grant',this)">🚀 Grants</button>
+  </div>
 
-<section class="stats">
-
-<div class="stat">
-<strong>8</strong>
-<small>
-opportunities in the starter database
-</small>
-</div>
-
-<div class="stat">
-<strong id="savedCount">0</strong>
-<small>
-saved scholarships
-</small>
-</div>
-
-<div class="stat">
-<strong id="appCount">0</strong>
-<small>
-applications tracked
-</small>
-</div>
-
-<div class="stat">
-<strong id="essayCount">0</strong>
-<small>
-essay projects
-</small>
-</div>
-
+  <div class="opportunity-grid" id="opportunityGrid"></div>
 </section>
-
-
-<section
-  class="section"
-  id="matches"
->
-
-<div class="sectionhead">
-
-<div>
-
-<h2>
-Recommended scholarships
-</h2>
-
-<p>
-Match score + profile fit + funding information
-in one view.
-</p>
-
-</div>
-
-<button
-  class="secondary"
-  onclick="finder()"
->
-Customize matching
-</button>
-
-</div>
-
-<div
-  class="grid"
-  id="results"
-></div>
-
-</section>
-
-
-<section
-  class="section"
-  id="applications"
->
-
-<div class="sectionhead">
-
-<div>
-
-<h2>
-Application command center
-</h2>
-
-<p>
-Track every opportunity from interest to decision.
-</p>
-
-</div>
-
-</div>
-
-<div id="tracker"></div>
-
-</section>
-
 
 <section class="section">
+  <div class="section-head">
+    <div>
+      <h2>One place for the whole journey.</h2>
+      <p class="section-sub">
+        Applyt isn't just a search page. It is designed to take a student from
+        discovery all the way to a stronger application.
+      </p>
+    </div>
+  </div>
 
-<div class="sectionhead">
+  <div class="tools-grid">
+    <div class="tool">
+      <div class="tool-icon" style="background:#fff0ed">🎯</div>
+      <h3>AI Matching</h3>
+      <p>Choose simple options and receive personalized opportunity recommendations.</p>
+    </div>
 
-<div>
+    <div class="tool">
+      <div class="tool-icon" style="background:#e9fff5">📝</div>
+      <h3>Application Helper</h3>
+      <p>Break down an application and understand what each section is asking for.</p>
+    </div>
 
-<h2>
-Built around the whole application
-</h2>
+    <div class="tool">
+      <div class="tool-icon" style="background:#fff5d8">✍️</div>
+      <h3>Essay Builder</h3>
+      <p>Choose ideas, experiences, tone and goals instead of starting from a blank page.</p>
+    </div>
 
-<p>
-Discovery → preparation → review → official application.
-</p>
+    <div class="tool">
+      <div class="tool-icon" style="background:#eee8ff">🤖</div>
+      <h3>AI Assistant</h3>
+      <p>Ask questions about an opportunity and get help understanding the process.</p>
+    </div>
 
-</div>
+    <div class="tool">
+      <div class="tool-icon" style="background:#e9f1ff">📄</div>
+      <h3>CV Builder</h3>
+      <p>Turn selected achievements and experiences into a professional application CV.</p>
+    </div>
 
-</div>
+    <div class="tool">
+      <div class="tool-icon" style="background:#fff0f5">🎤</div>
+      <h3>Interview Coach</h3>
+      <p>Practice likely questions and receive structured feedback.</p>
+    </div>
 
+    <div class="tool">
+      <div class="tool-icon" style="background:#efffd9">🔎</div>
+      <h3>Opportunity Check</h3>
+      <p>See eligibility, documents, deadlines and application requirements.</p>
+    </div>
 
-<div class="steps">
-
-<div class="step">
-<b>01 · Profile</b>
-<span>
-Save your goals, academics and experiences.
-</span>
-</div>
-
-<div class="step">
-<b>02 · Match</b>
-<span>
-Answer guided questions and surface relevant funding.
-</span>
-</div>
-
-<div class="step">
-<b>03 · Prepare</b>
-<span>
-Build essays, CVs and interview answers.
-</span>
-</div>
-
-<div class="step">
-<b>04 · Review</b>
-<span>
-Check evidence, structure and prompt alignment.
-</span>
-</div>
-
-<div class="step">
-<b>05 · Apply</b>
-<span>
-Open the official provider application and track it here.
-</span>
-</div>
-
-</div>
-
+    <div class="tool">
+      <div class="tool-icon" style="background:#fff0e3">🚨</div>
+      <h3>Risk Signals</h3>
+      <p>Identify suspicious claims and warning signs before spending money or sharing information.</p>
+    </div>
+  </div>
 </section>
 
+<section class="section app-section" id="application">
+  <div class="section-head">
+    <div>
+      <h2>Help me apply.</h2>
+      <p class="section-sub">
+        Applyt guides the student through the application instead of dumping
+        them onto a blank form.
+      </p>
+    </div>
+  </div>
 
-<section
-  class="section"
-  id="tools"
->
+  <div class="application">
+    <div class="panel">
+      <h3 style="font-size:26px;margin-top:0">Application roadmap</h3>
+      <p style="color:#697386">
+        Select an opportunity above, then work through the process.
+      </p>
 
-<div class="sectionhead">
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><div><strong>Check eligibility</strong><br><small>Country, age, education and requirements.</small></div></div>
+        <div class="step"><span class="step-num">2</span><div><strong>Understand what wins</strong><br><small>Identify what the selection committee values.</small></div></div>
+        <div class="step"><span class="step-num">3</span><div><strong>Build your answers</strong><br><small>Choose guided options instead of facing a blank page.</small></div></div>
+        <div class="step"><span class="step-num">4</span><div><strong>Review everything</strong><br><small>Check completeness, clarity and consistency.</small></div></div>
+        <div class="step"><span class="step-num">5</span><div><strong>Apply</strong><br><small>Open the official application and complete submission there.</small></div></div>
+      </div>
+    </div>
 
-<div>
+    <div class="panel">
+      <h3 style="margin-top:0">✍️ Guided Essay Builder</h3>
+      <p style="color:#697386">
+        Pick options. Applyt turns your selections into a personalized starting draft.
+      </p>
 
-<h2>
-Pro toolkit
-</h2>
+      <label style="font-weight:850;font-size:13px">WHY DO YOU WANT THIS OPPORTUNITY?</label>
+      <div class="option-grid" style="margin-top:9px">
+        <button class="choice" onclick="choose(this,'motivation','education')">🎓 To access better education</button>
+        <button class="choice" onclick="choose(this,'motivation','impact')">🌍 To create impact</button>
+        <button class="choice" onclick="choose(this,'motivation','career')">🚀 To build my career</button>
+        <button class="choice" onclick="choose(this,'motivation','community')">🤝 To help my community</button>
+      </div>
 
-<p>
-Everything students need to prepare stronger applications.
-</p>
+      <label style="font-weight:850;font-size:13px;display:block;margin-top:20px">WHAT SHOULD THE ESSAY SHOW?</label>
+      <div class="option-grid" style="margin-top:9px">
+        <button class="choice" onclick="choose(this,'strength','resilience')">💪 Resilience</button>
+        <button class="choice" onclick="choose(this,'strength','leadership')">👑 Leadership</button>
+        <button class="choice" onclick="choose(this,'strength','curiosity')">🧠 Curiosity</button>
+        <button class="choice" onclick="choose(this,'strength','service')">❤️ Service</button>
+      </div>
 
-</div>
+      <label style="font-weight:850;font-size:13px;display:block;margin-top:20px">CHOOSE YOUR STORY TYPE</label>
+      <div class="option-grid" style="margin-top:9px">
+        <button class="choice" onclick="choose(this,'story','challenge')">A challenge I overcame</button>
+        <button class="choice" onclick="choose(this,'story','achievement')">An achievement</button>
+        <button class="choice" onclick="choose(this,'story','community')">Helping my community</button>
+        <button class="choice" onclick="choose(this,'story','future')">My future vision</button>
+      </div>
 
-</div>
+      <button class="btn btn-red" style="margin-top:18px" onclick="generateEssay()">
+        ✨ Generate My Essay Direction
+      </button>
 
-
-<div class="tools">
-
-
-<button
-  class="tool"
-  onclick="essay()"
->
-
-<div class="ico">✍️</div>
-
-<h3>
-Prompt Essay Writer
-</h3>
-
-<p>
-Paste the exact question and your real evidence
-to build a tailored response.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="brainstorm()"
->
-
-<div class="ico">💡</div>
-
-<h3>
-Essay Brainstormer
-</h3>
-
-<p>
-Find the strongest story before you start drafting.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="review()"
->
-
-<div class="ico">🔍</div>
-
-<h3>
-Application Review
-</h3>
-
-<p>
-Check your draft for specificity, evidence,
-structure and alignment.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="cv()"
->
-
-<div class="ico">📄</div>
-
-<h3>
-CV Builder
-</h3>
-
-<p>
-Turn education, activities and achievements
-into a clean outline.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="interview()"
->
-
-<div class="ico">🎤</div>
-
-<h3>
-Interview Coach
-</h3>
-
-<p>
-Practice common scholarship questions.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="eligibility()"
->
-
-<div class="ico">✅</div>
-
-<h3>
-Eligibility Checker
-</h3>
-
-<p>
-Screen degree-level fit against scholarship records.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="profile()"
->
-
-<div class="ico">🧠</div>
-
-<h3>
-Scholar Profile
-</h3>
-
-<p>
-Save your story once and reuse it across applications.
-</p>
-
-</button>
-
-
-<button
-  class="tool"
-  onclick="finder()"
->
-
-<div class="ico">🎯</div>
-
-<h3>
-Smart Finder
-</h3>
-
-<p>
-Use guided popup questions instead of complicated filters.
-</p>
-
-</button>
-
-</div>
-
+      <div class="essay-box" id="essayBox">
+        Choose the options above and Applyt will build a personalized essay direction here.
+      </div>
+    </div>
+  </div>
 </section>
 
-</main>
+<section class="section" id="assistant">
+  <div class="section-head">
+    <div>
+      <h2>Ask Applyt AI.</h2>
+      <p class="section-sub">
+        Ask questions about scholarships, applications, essays, deadlines,
+        documents and opportunities.
+      </p>
+    </div>
+  </div>
 
+  <div class="chat-wrap">
+    <div class="chat">
+      <div style="font-weight:900;font-size:20px">🤖 Applyt AI</div>
+      <div class="chat-messages" id="messages">
+        <div class="msg bot">
+          Hi! I'm Applyt AI. Ask me something like:
+          “What documents do I need?” or “How can I make my scholarship essay stronger?”
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input id="chatInput" placeholder="Ask Applyt anything..." onkeydown="if(event.key==='Enter')sendChat()">
+        <button class="btn btn-red" onclick="sendChat()">Send</button>
+      </div>
+    </div>
+
+    <div class="game" id="game">
+      <div class="game-info">
+        <div class="game-score">🏆 Application Dash — Score: <span id="gameScore">0</span></div>
+        <h2>Catch the opportunity!</h2>
+        <p>
+          Tap the 🎓 as quickly as you can. A tiny game while you search.
+        </p>
+        <button class="btn btn-orange" onclick="startGame()">Start Game</button>
+      </div>
+      <button class="game-target" id="target" style="display:none">🎓</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Made for ambitious people.</h2>
+      <p class="section-sub">
+        A simple experience that turns opportunity hunting into an organized process.
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <div class="quote">
+      <div style="font-size:28px">“</div>
+      <p>
+        I don't want another website that gives me hundreds of links.
+        I want to know which ones actually make sense for me.
+      </p>
+      <div class="person">
+        <img class="avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80">
+        <div><strong>Future Applicant</strong><small>Scholarship seeker</small></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <div style="font-size:28px">“</div>
+      <p>
+        The guided essay approach makes the scary blank page feel much easier.
+      </p>
+      <div class="person">
+        <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80">
+        <div><strong>Future Scholar</strong><small>University applicant</small></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <div style="font-size:28px">“</div>
+      <p>
+        One dashboard for scholarships, internships and other opportunities is exactly what students need.
+      </p>
+      <div class="person">
+        <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80">
+        <div><strong>Future Professional</strong><small>Opportunity seeker</small></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
-
-<div class="flogo">
-SCHKIT
-</div>
-
-<p>
-Find. Prepare. Apply.
-</p>
-
-<small>
-Scholarship information should always be verified
-on the official provider page before submission.
-</small>
-
+  <div class="footer-inner">
+    <div>
+      <div class="logo"><span class="logo-mark">A</span> Applyt</div>
+      <p>Find it. Apply better. Go further.</p>
+    </div>
+    <div>
+      <strong>Applyt</strong>
+      <p>Scholarships · Jobs · Internships<br>Fellowships · Grants · Competitions</p>
+    </div>
+  </div>
 </footer>
 
-
-<div
-  class="modal"
-  id="modal"
->
-
-<div class="box">
-
-<div class="modalhead">
-
-<div>
-
-<h2
-  id="modalTitle"
-  style="margin:0"
-></h2>
-
-<p
-  id="modalSub"
-  class="muted"
-  style="margin:5px 0"
-></p>
-
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
 </div>
 
-<button
-  class="close"
-  onclick="closeModal()"
->
-×
-</button>
-
-</div>
-
-<div id="modalBody"></div>
-
-</div>
-
-</div>
-
-
-<div
-  class="toast"
-  id="toast"
-></div>
-
+<div class="toast" id="toast"></div>
 
 <script>
-
-/* ================================
-   PAYSTACK
-================================ */
-
-const PAYMENT_URL =
-"https://paystack.shop/pay/t01kol5k31";
-
-
-/* ================================
-   SCHOLARSHIP DATABASE
-================================ */
-
-const scholarships = [
-
-{
-id:1,
-name:"Mastercard Foundation Scholars Program",
-org:"Mastercard Foundation",
-country:"Multiple",
-degree:["Bachelor's","Master's"],
-field:"All fields",
-funding:"Full / substantial funding",
-deadline:"Varies by partner",
-tags:["International","Leadership","Need-based"],
-match:94,
-url:"https://mastercardfdn.org/all/scholars/become-a-scholar/"
-},
-
-{
-id:2,
-name:"Chevening Scholarships",
-org:"UK Government",
-country:"United Kingdom",
-degree:["Master's"],
-field:"All fields",
-funding:"Fully funded",
-deadline:"Annual cycle",
-tags:["UK","Leadership","Fully funded"],
-match:91,
-url:"https://www.chevening.org/scholarships/"
-},
-
-{
-id:3,
-name:"Gates Cambridge Scholarship",
-org:"University of Cambridge",
-country:"United Kingdom",
-degree:["Master's","PhD"],
-field:"All fields",
-funding:"Full funding",
-deadline:"Varies by course",
-tags:["UK","Cambridge","Full funding"],
-match:88,
-url:"https://www.gatescambridge.org/apply/"
-},
-
-{
-id:4,
-name:"Fulbright Foreign Student Program",
-org:"U.S. Department of State",
-country:"United States",
-degree:["Master's","PhD"],
-field:"All fields",
-funding:"Funding varies",
-deadline:"Varies by country",
-tags:["USA","Graduate","International"],
-match:86,
-url:"https://foreign.fulbrightonline.org/"
-},
-
-{
-id:5,
-name:"Knight-Hennessy Scholars",
-org:"Stanford University",
-country:"United States",
-degree:["Master's","PhD"],
-field:"All fields",
-funding:"Funding package",
-deadline:"Annual cycle",
-tags:["USA","Stanford","Leadership"],
-match:84,
-url:"https://knight-hennessy.stanford.edu/"
-},
-
-{
-id:6,
-name:"DAAD Scholarships",
-org:"DAAD",
-country:"Germany",
-degree:["Master's","PhD"],
-field:"All fields",
-funding:"Varies by programme",
-deadline:"Varies by programme",
-tags:["Germany","Graduate","International"],
-match:82,
-url:"https://www.daad.de/en/studying-in-germany/scholarships/"
-},
-
-{
-id:7,
-name:"Lester B. Pearson International Scholarship",
-org:"University of Toronto",
-country:"Canada",
-degree:["Bachelor's"],
-field:"All fields",
-funding:"Full support",
-deadline:"Annual cycle",
-tags:["Canada","Undergraduate","Full funding"],
-match:90,
-url:"https://future.utoronto.ca/pearson/about/"
-},
-
-{
-id:8,
-name:"UWE Millennium Scholarship",
-org:"University of the West of England",
-country:"United Kingdom",
-degree:["Master's"],
-field:"All fields",
-funding:"Partial tuition",
-deadline:"Varies",
-tags:["UK","Partial funding"],
-match:75,
-url:"https://www.uwe.ac.uk/courses/funding/scholarships-and-bursaries"
-}
-
+const opportunities = [
+  {
+    type:"scholarship",
+    title:"Global Undergraduate Scholarship",
+    source:"Scholarship Aid",
+    description:"A sample scholarship profile showing how Applyt can organize funding opportunities for students.",
+    location:"International",
+    funding:"Fully funded",
+    deadline:"September 30",
+    match:"94%",
+    image:"https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85",
+    tags:["Undergraduate","International","Funding"]
+  },
+  {
+    type:"scholarship",
+    title:"Future Leaders Scholarship",
+    source:"Scholarship Aid",
+    description:"Designed around academic potential, leadership and community impact.",
+    location:"International",
+    funding:"Full / Partial",
+    deadline:"October 12",
+    match:"89%",
+    image:"https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=85",
+    tags:["Leadership","Students","Essay"]
+  },
+  {
+    type:"scholarship",
+    title:"STEM Excellence Award",
+    source:"Scholarship Aid",
+    description:"A STEM-focused opportunity profile with academic and achievement criteria.",
+    location:"International",
+    funding:"Fully funded",
+    deadline:"November 2",
+    match:"91%",
+    image:"https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85",
+    tags:["STEM","Science","Technology"]
+  },
+  {
+    type:"internship",
+    title:"Global Technology Internship",
+    source:"Applyt Opportunities",
+    description:"A technology internship profile for students and early-career applicants.",
+    location:"International",
+    funding:"Paid",
+    deadline:"October 8",
+    match:"86%",
+    image:"https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85",
+    tags:["Technology","Internship","Career"]
+  },
+  {
+    type:"job",
+    title:"Junior Digital Roles",
+    source:"Applyt Opportunities",
+    description:"Entry-level digital opportunities suitable for applicants developing professional experience.",
+    location:"Remote",
+    funding:"Paid",
+    deadline:"Rolling",
+    match:"82%",
+    image:"https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85",
+    tags:["Remote","Entry Level","Digital"]
+  },
+  {
+    type:"fellowship",
+    title:"Young Global Fellows",
+    source:"Applyt Opportunities",
+    description:"A fellowship-style opportunity focused on leadership, learning and international collaboration.",
+    location:"International",
+    funding:"Funded",
+    deadline:"October 25",
+    match:"88%",
+    image:"https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1000&q=85",
+    tags:["Leadership","Fellowship","Global"]
+  },
+  {
+    type:"competition",
+    title:"Global Innovation Challenge",
+    source:"Applyt Opportunities",
+    description:"An innovation competition where applicants can present ideas and projects.",
+    location:"International",
+    funding:"Prizes",
+    deadline:"November 18",
+    match:"80%",
+    image:"https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=85",
+    tags:["Innovation","Competition","Prize"]
+  },
+  {
+    type:"volunteering",
+    title:"International Volunteer Program",
+    source:"Applyt Opportunities",
+    description:"Volunteer experience profile focused on community service and international engagement.",
+    location:"International",
+    funding:"Varies",
+    deadline:"Rolling",
+    match:"84%",
+    image:"https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=85",
+    tags:["Service","Volunteer","Community"]
+  },
+  {
+    type:"grant",
+    title:"Youth Project Grant",
+    source:"Applyt Opportunities",
+    description:"A grant opportunity profile for young people developing useful community projects.",
+    location:"Africa",
+    funding:"Grant",
+    deadline:"December 1",
+    match:"87%",
+    image:"https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85",
+    tags:["Youth","Project","Grant"]
+  }
 ];
 
+let currentFilter="all";
 
-let saved =
-JSON.parse(
-localStorage.getItem("schkit_saved") || "[]"
-);
+function renderOpportunities(){
+  const grid=document.getElementById("opportunityGrid");
 
-let applications =
-JSON.parse(
-localStorage.getItem("schkit_apps") || "{}"
-);
+  const filtered=currentFilter==="all"
+    ? opportunities
+    : opportunities.filter(o=>o.type===currentFilter);
 
-let profileData =
-JSON.parse(
-localStorage.getItem("schkit_profile") || "{}"
-);
-
-let essayProjects =
-Number(
-localStorage.getItem("schkit_essays") || 0
-);
-
-
-/* ================================
-   HELPERS
-================================ */
-
-function esc(value){
-
-return String(value ?? "")
-.replace(/[&<>"']/g,function(c){
-
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[c];
-
-});
-
+  grid.innerHTML=filtered.map((o,i)=>`
+    <article class="card">
+      <img class="opp-image" src="${o.image}" alt="${o.title}">
+      <div class="card-body">
+        <span class="source">SOURCE: ${o.source}</span>
+        <h3>${o.title}</h3>
+        <p>${o.description}</p>
+        <div class="tags">
+          ${o.tags.map(t=>`<span class="tag">${t}</span>`).join("")}
+        </div>
+        <div class="card-footer">
+          <span class="deadline">⏰ ${o.deadline}</span>
+          <button class="btn btn-dark" style="padding:9px 12px;font-size:12px" onclick="openOpportunity(${opportunities.indexOf(o)})">
+            View →
+          </button>
+        </div>
+      </div>
+    </article>
+  `).join("");
 }
 
-
-function toast(message){
-
-const t =
-document.getElementById("toast");
-
-t.textContent=message;
-
-t.style.display="block";
-
-clearTimeout(window.toastTimer);
-
-window.toastTimer=setTimeout(
-()=>{
-t.style.display="none";
-},
-2400
-);
-
+function filterOpp(type,button){
+  currentFilter=type;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  button.classList.add("active");
+  renderOpportunities();
 }
 
+function openOpportunity(index){
+  const o=opportunities[index];
 
-function go(id){
+  document.getElementById("modalContent").innerHTML=`
+    <img class="detail-image" src="${o.image}" alt="${o.title}">
+    <span class="source" style="margin-top:18px">SOURCE: ${o.source}</span>
+    <h2 style="font-size:32px;margin-bottom:7px">${o.title}</h2>
+    <p style="color:#697386;line-height:1.7">${o.description}</p>
 
-document
-.getElementById(id)
-?.scrollIntoView({
-behavior:"smooth"
-});
+    <div class="tags">
+      <span class="tag">📍 ${o.location}</span>
+      <span class="tag">💰 ${o.funding}</span>
+      <span class="tag">⏰ ${o.deadline}</span>
+      <span class="tag">🎯 ${o.match} match</span>
+    </div>
 
+    <h3>What Applyt can help with</h3>
+    <div class="steps">
+      <div class="step"><span class="step-num">✓</span><div>Check your eligibility</div></div>
+      <div class="step"><span class="step-num">✓</span><div>Identify application requirements</div></div>
+      <div class="step"><span class="step-num">✓</span><div>Build your essay direction</div></div>
+      <div class="step"><span class="step-num">✓</span><div>Review your application</div></div>
+    </div>
+
+    <button class="btn btn-red" style="margin-top:18px" onclick="startApplication('${o.title.replace(/'/g,"\\'")}')">
+      🚀 Help Me Apply
+    </button>
+
+    <button class="btn btn-light" style="margin-top:18px" onclick="closeModal()">
+      Close
+    </button>
+  `;
+
+  document.getElementById("modal").classList.add("open");
 }
-
-
-/* ================================
-   PAYMENT
-================================ */
-
-function startPro(){
-
-window.location.href=PAYMENT_URL;
-
-}
-
-
-/* ================================
-   DARK MODE
-================================ */
-
-function toggleTheme(){
-
-document.body.classList.toggle("dark");
-
-const dark =
-document.body.classList.contains("dark");
-
-localStorage.setItem(
-"schkit_dark",
-dark
-);
-
-document.getElementById(
-"themeBtn"
-).textContent =
-dark ? "☀" : "☾";
-
-}
-
-
-if(
-localStorage.getItem("schkit_dark")
-==="true"
-){
-
-document.body.classList.add("dark");
-
-document.getElementById(
-"themeBtn"
-).textContent="☀";
-
-}
-
-
-/* ================================
-   MODAL
-================================ */
-
-function openModal(
-title,
-sub,
-body
-){
-
-document.getElementById(
-"modalTitle"
-).textContent=title;
-
-document.getElementById(
-"modalSub"
-).textContent=sub || "";
-
-document.getElementById(
-"modalBody"
-).innerHTML=body;
-
-document.getElementById(
-"modal"
-).classList.add("open");
-
-}
-
 
 function closeModal(){
-
-document
-.getElementById("modal")
-.classList.remove("open");
-
+  document.getElementById("modal").classList.remove("open");
 }
 
-
-document
-.getElementById("modal")
-.addEventListener(
-"click",
-function(e){
-
-if(
-e.target.id==="modal"
-){
-closeModal();
+function startApplication(title){
+  closeModal();
+  document.getElementById("application").scrollIntoView({behavior:"smooth"});
+  showToast("Application workspace opened for "+title);
 }
 
-}
-);
+function findOpportunity(){
+  const level=document.getElementById("level").value;
+  const field=document.getElementById("field").value;
+  const goal=document.getElementById("goal").value;
+  const location=document.getElementById("location").value;
+  const funding=document.getElementById("funding").value;
+  const experience=document.getElementById("experience").value;
 
+  let pool=opportunities.filter(o=>o.type===goal);
 
-/* ================================
-   RENDER
-================================ */
+  if(!pool.length) pool=opportunities;
 
-function render(){
+  let best=pool[0];
 
-document.getElementById(
-"results"
-).innerHTML =
+  if(goal==="scholarship"){
+    if(field==="technology" || field==="science" || field==="engineering") best=opportunities.find(o=>o.title.includes("STEM")) || best;
+    else if(experience==="strong") best=opportunities.find(o=>o.title.includes("Leaders")) || best;
+  }
 
-scholarships.map(
-s => `
+  let score=72;
 
-<article class="card">
+  if(level==="undergrad" && goal==="scholarship") score+=9;
+  if(level==="secondary" && goal==="scholarship") score+=6;
+  if(field==="technology" && best.tags.includes("Technology")) score+=8;
+  if(location==="international" && best.location==="International") score+=4;
+  if(funding==="fully" && best.funding.includes("Fully")) score+=5;
+  if(experience==="strong") score+=3;
 
-<span class="match">
-${s.match}% Match
-</span>
+  score=Math.min(score,98);
 
-<h3>
-${esc(s.name)}
-</h3>
+  const result=document.getElementById("finderResult");
 
-<div class="muted">
-${esc(s.org)}
-·
-${esc(s.country)}
-</div>
+  result.innerHTML=`
+    <div class="result-flex">
+      <img src="${best.image}" alt="${best.title}">
+      <div>
+        <span class="source">RECOMMENDED FOR YOU</span>
+        <h3 style="margin:8px 0 4px">${best.title}</h3>
+        <p style="margin:0;color:#697386">${best.description}</p>
+      </div>
+      <div class="score">${score}%</div>
+    </div>
 
-<div class="tags">
+    <hr style="border:0;border-top:1px solid #eee;margin:20px 0">
 
-${s.tags.map(
-t=>`
-<span class="tag">
-${esc(t)}
-</span>
-`
-).join("")}
+    <strong>Applyt's conclusion</strong>
+    <p style="color:#697386;line-height:1.6">
+      Based on your selected education level, field, goal, location,
+      funding preference and experience, this is currently one of the
+      strongest matches in the demo opportunity database.
+    </p>
 
-</div>
+    <strong>Why this match?</strong>
+    <div class="tags">
+      <span class="tag">✓ ${best.location}</span>
+      <span class="tag">✓ ${best.funding}</span>
+      <span class="tag">✓ ${best.tags[0]}</span>
+      <span class="tag">✓ ${best.tags[1]}</span>
+    </div>
 
-<b>
-${esc(s.funding)}
-</b>
+    <button class="btn btn-red" onclick="openOpportunity(${opportunities.indexOf(best)})">
+      See Scholarship & Application Help →
+    </button>
+  `;
 
-<div
-class="muted"
-style="font-size:13px;margin-top:5px"
->
-⏳ ${esc(s.deadline)}
-</div>
-
-<div class="cardActions">
-
-<button
-class="primary mini"
-onclick="openApplication(${s.id})"
->
-Build application
-</button>
-
-<button
-class="secondary mini"
-onclick="toggleSave(${s.id})"
->
-${saved.includes(s.id)?"★ Saved":"☆ Save"}
-</button>
-
-</div>
-
-</article>
-
-`
-).join("");
-
-
-document.getElementById(
-"savedCount"
-).textContent=saved.length;
-
-
-document.getElementById(
-"appCount"
-).textContent=
-Object.keys(applications).length;
-
-
-document.getElementById(
-"essayCount"
-).textContent=essayProjects;
-
-
-document.getElementById(
-"heroApps"
-).textContent=
-Object.keys(applications).length;
-
-
-document.getElementById(
-"heroEssays"
-).textContent=essayProjects;
-
-
-document.getElementById(
-"profileState"
-).textContent=
-Object.keys(profileData).length
-?"Ready"
-:"Build profile";
-
-
-renderTracker();
-
-updateReadiness();
-
+  result.classList.add("show");
+  result.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-
-/* ================================
-   READINESS
-================================ */
-
-function updateReadiness(){
-
-let n=
-Object.values(profileData)
-.filter(Boolean).length;
-
-let score=
-Math.min(
-98,
-70+n*7+Math.min(10,saved.length*2)
-);
-
-document.getElementById(
-"readiness"
-).textContent=score;
-
-document.getElementById(
-"readinessBar"
-).style.width=
-score+"%";
-
-}
-
-
-/* ================================
-   SAVE
-================================ */
-
-function toggleSave(id){
-
-if(
-saved.includes(id)
-){
-
-saved=saved.filter(
-x=>x!==id
-);
-
-toast(
-"Removed from saved"
-);
-
-}else{
-
-saved.push(id);
-
-toast(
-"Scholarship saved"
-);
-
-}
-
-localStorage.setItem(
-"schkit_saved",
-JSON.stringify(saved)
-);
-
-render();
-
-}
-
-
-/* ================================
-   TRACKER
-================================ */
-
-function renderTracker(){
-
-const ids=[
-...new Set([
-...saved,
-...Object.keys(applications)
-.map(Number)
-])
-];
-
-const el=
-document.getElementById("tracker");
-
-if(!ids.length){
-
-el.innerHTML=`
-
-<div class="card">
-
-<b>
-Your application tracker is empty.
-</b>
-
-<p class="muted">
-Save a scholarship or start an application
-to see it here.
-</p>
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-el.innerHTML=
-
-ids.map(
-id=>{
-
-const s=
-scholarships.find(
-x=>x.id===Number(id)
-);
-
-const a=
-applications[id] ||
-{
-status:"Interested",
-progress:15
+const choices={
+  motivation:null,
+  strength:null,
+  story:null
 };
 
-return `
+function choose(button,type,value){
+  choices[type]=value;
 
-<div class="track">
-
-<div>
-
-<b>
-${esc(s.name)}
-</b>
-
-<div
-class="muted"
-style="font-size:13px"
->
-${esc(s.org)}
-·
-${esc(s.deadline)}
-</div>
-
-</div>
-
-<div>
-
-<div class="progress">
-
-<i
-style="width:${a.progress}%"
-></i>
-
-</div>
-
-<small class="muted">
-${a.progress}% complete
-</small>
-
-</div>
-
-
-<select
-onchange="changeStatus(${s.id},this.value)"
-style="
-padding:9px;
-border:1px solid var(--line);
-border-radius:10px;
-background:var(--card);
-color:var(--ink)
-"
->
-
-${
-[
-"Interested",
-"Preparing",
-"Ready",
-"Applied",
-"Accepted",
-"Rejected"
-]
-.map(
-v=>
-`
-<option
-${a.status===v?"selected":""}
->
-${v}
-</option>
-`
-).join("")
+  const parent=button.parentElement;
+  parent.querySelectorAll(".choice").forEach(b=>b.classList.remove("selected"));
+  button.classList.add("selected");
 }
 
-</select>
-
-</div>
-
-`;
-
-}
-).join("");
-
-}
-
-
-function changeStatus(
-id,
-status
-){
-
-const progress={
-Interested:15,
-Preparing:40,
-Ready:80,
-Applied:100,
-Accepted:100,
-Rejected:100
-}[status];
-
-applications[id]={
-status,
-progress
-};
-
-localStorage.setItem(
-"schkit_apps",
-JSON.stringify(
-applications
-)
-);
-
-render();
-
-toast(
-"Application status updated"
-);
-
-}
-
-
-/* ================================
-   SMART FINDER
-================================ */
-
-function finder(){
-
-openModal(
-"🎯 Smart Scholarship Finder",
-"Answer a few questions and SCHKIT will surface matching records.",
-
-`
-
-<div class="two">
-
-<div class="field">
-
-<label>
-Citizenship
-</label>
-
-<input
-id="citizenship"
-placeholder="Ghana"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-Preferred destination
-</label>
-
-<select id="destination">
-
-<option>Anywhere</option>
-
-<option>
-United States
-</option>
-
-<option>
-United Kingdom
-</option>
-
-<option>
-Canada
-</option>
-
-<option>
-Germany
-</option>
-
-<option>
-Multiple
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<div class="two">
-
-<div class="field">
-
-<label>
-Degree level
-</label>
-
-<select id="degree">
-
-<option>
-Bachelor's
-</option>
-
-<option>
-Master's
-</option>
-
-<option>
-PhD
-</option>
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Funding preference
-</label>
-
-<select id="funding">
-
-<option>
-Any funding
-</option>
-
-<option>
-Fully funded
-</option>
-
-<option>
-Full support
-</option>
-
-<option>
-Partial tuition
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Field of study
-</label>
-
-<input
-id="field"
-placeholder="Computer Science, Nursing, Business..."
->
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="findMatches()"
->
-Find my matches
-</button>
-
-<div id="finderOutput"></div>
-
-`
-);
-
+function generateEssay(){
+  const motivation=choices.motivation;
+  const strength=choices.strength;
+  const story=choices.story;
+
+  if(!motivation || !strength || !story){
+    showToast("Choose one option from each section first.");
+    return;
+  }
+
+  const motivations={
+    education:"accessing stronger educational opportunities and using education to create a better future",
+    impact:"creating meaningful impact beyond personal achievement",
+    career:"building practical skills and a strong foundation for a future career",
+    community:"using new opportunities to contribute to the people and community around them"
+  };
+
+  const strengths={
+    resilience:"resilience and the ability to keep moving forward when circumstances become difficult",
+    leadership:"leadership, responsibility and the ability to bring people together",
+    curiosity:"curiosity, willingness to learn and the desire to understand difficult problems",
+    service:"a genuine commitment to service and helping other people"
+  };
+
+  const stories={
+    challenge:"a meaningful challenge that changed the way they think and act",
+    achievement:"an achievement that demonstrates growth rather than simply listing a success",
+    community:"a real example of contributing to a community or helping another person",
+    future:"a clear vision of what they hope to accomplish and why the opportunity matters"
+  };
+
+  document.getElementById("essayBox").innerHTML=`
+    <strong>✨ Your personalized essay direction</strong>
+    <p>
+      <strong>Opening:</strong> Start with ${stories[story]}.
+    </p>
+    <p>
+      <strong>Personal connection:</strong> Explain why you care about
+      ${motivations[motivation]}.
+    </p>
+    <p>
+      <strong>Evidence:</strong> Show ${strengths[strength]} through a
+      specific real experience.
+    </p>
+    <p>
+      <strong>Opportunity connection:</strong> Explain what you would do
+      with the opportunity and how it connects to your future goals.
+    </p>
+    <p>
+      <strong>Closing:</strong> Finish by connecting your past experience,
+      present motivation and future contribution.
+    </p>
+    <div style="background:#eafff6;padding:13px;border-radius:13px">
+      💡 Applyt reminder: use your real experiences. AI should help you
+      communicate your story, not invent one for you.
+    </div>
+  `;
 }
 
+function sendChat(){
+  const input=document.getElementById("chatInput");
+  const text=input.value.trim();
 
-function findMatches(){
+  if(!text)return;
 
-const d=
-document.getElementById(
-"destination"
-).value;
+  addMessage(text,"user");
+  input.value="";
 
-const g=
-document.getElementById(
-"degree"
-).value;
-
-const f=
-document.getElementById(
-"field"
-).value
-.toLowerCase();
-
-let list=
-scholarships.filter(
-s=>
-(d==="Anywhere" ||
-s.country===d ||
-s.country==="Multiple")
-&&
-s.degree.includes(g)
-&&
-(
-f==="" ||
-s.field==="All fields"
-)
-);
-
-
-if(!list.length){
-
-list=
-scholarships.filter(
-s=>
-(d==="Anywhere" ||
-s.country===d ||
-s.country==="Multiple")
-&&
-s.degree.includes(g)
-);
-
+  setTimeout(()=>{
+    const answer=getAIResponse(text.toLowerCase());
+    addMessage(answer,"bot");
+  },500);
 }
 
-
-document.getElementById(
-"finderOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-
-<b>
-${list.length}
-match${list.length===1?"":"es"} found.
-</b>
-
-<br><br>
-
-${
-list.map(
-s=>
-`
-<b>
-${s.match}%
-—
-${esc(s.name)}
-</b>
-
-<br>
-
-<span class="muted">
-${esc(s.funding)}
-·
-${esc(s.deadline)}
-</span>
-
-<br><br>
-`
-).join("")
+function addMessage(text,type){
+  const messages=document.getElementById("messages");
+  const div=document.createElement("div");
+  div.className="msg "+type;
+  div.textContent=text;
+  messages.appendChild(div);
+  messages.scrollTop=messages.scrollHeight;
 }
 
-</div>
+function getAIResponse(text){
+  if(text.includes("document") || text.includes("requirement")){
+    return "Start by checking the official opportunity requirements. Common documents include transcripts, certificates, identification, CVs, recommendation letters and essays. Applyt can organize them into a checklist.";
+  }
 
+  if(text.includes("essay")){
+    return "A strong essay should answer the exact prompt, use specific real experiences, show growth or impact, and clearly connect your story to the opportunity. Use the guided Essay Builder above if you don't know where to start.";
+  }
 
-<button
-class="primary"
-style="width:100%;margin-top:10px"
-onclick="closeModal();go('matches')"
->
-View matches
-</button>
+  if(text.includes("scholarship")){
+    return "Applyt can compare your selected education level, field, location, funding preference and experience against scholarship profiles. Always verify the final eligibility rules on the official scholarship website.";
+  }
 
-`;
+  if(text.includes("win") || text.includes("competitive")){
+    return "Strong applications usually demonstrate fit, clear goals, evidence of impact or potential, authenticity, strong communication and careful attention to every requirement.";
+  }
 
+  if(text.includes("deadline")){
+    return "Deadlines are one of the most important things to verify. Applyt can display deadlines and help prioritize opportunities that are closing soon.";
+  }
+
+  if(text.includes("apply")){
+    return "I'll help you prepare the application step by step. For real submissions, Applyt should take you to the official application page rather than pretending to submit an application without your authorization.";
+  }
+
+  return "I can help you understand eligibility, documents, essays, deadlines, application strategy, scholarships, internships, jobs, fellowships, competitions, volunteering and grants. Try asking a specific question.";
 }
 
+let gameTimer=null;
+let gameScore=0;
 
-/* ================================
-   APPLICATION WORKSPACE
-================================ */
+function startGame(){
+  clearInterval(gameTimer);
+  gameScore=0;
+  document.getElementById("gameScore").textContent=gameScore;
 
-function openApplication(id){
+  const target=document.getElementById("target");
+  target.style.display="block";
 
-const s=
-scholarships.find(
-x=>x.id===id
-);
+  moveTarget();
 
-applications[id]=
-applications[id] ||
-{
-status:"Preparing",
-progress:30
-};
+  gameTimer=setInterval(()=>{
+    moveTarget();
+  },900);
 
-localStorage.setItem(
-"schkit_apps",
-JSON.stringify(
-applications
-)
-);
-
-render();
-
-
-openModal(
-"🚀 Application Workspace",
-s.name,
-
-`
-
-<div class="notice">
-
-Your workspace keeps preparation
-and tracking together.
-
-The final submission button opens
-the provider's official application page.
-
-</div>
-
-
-<div
-class="two"
-style="margin-top:14px"
->
-
-<div class="card">
-
-<b>
-Match
-</b>
-
-<h2>
-${s.match}%
-</h2>
-
-<span class="muted">
-Profile fit
-</span>
-
-</div>
-
-
-<div class="card">
-
-<b>
-Funding
-</b>
-
-<h3>
-${esc(s.funding)}
-</h3>
-
-<span class="muted">
-Verify official terms
-</span>
-
-</div>
-
-</div>
-
-
-<div class="cardActions">
-
-<button
-class="primary"
-onclick="closeModal();essay(${s.id})"
->
-✍️ Write essay
-</button>
-
-<button
-class="secondary"
-onclick="profile()"
->
-🧠 Profile
-</button>
-
-<a
-class="primary"
-href="${s.url}"
-target="_blank"
-rel="noopener noreferrer"
->
-Open official application ↗
-</a>
-
-</div>
-
-`
-);
-
+  setTimeout(()=>{
+    clearInterval(gameTimer);
+    target.style.display="none";
+    showToast("Game over! Score: "+gameScore+" 🎉");
+  },15000);
 }
 
+function moveTarget(){
+  const game=document.getElementById("game");
+  const target=document.getElementById("target");
 
-/* ================================
-   ESSAY WRITER
-================================ */
+  const maxX=Math.max(30,game.clientWidth-75);
+  const maxY=Math.max(150,game.clientHeight-80);
 
-function essay(id){
-
-const s=
-id
-?scholarships.find(x=>x.id===id)
-:null;
-
-
-openModal(
-
-"✍️ Prompt-Specific Essay Writer",
-
-s
-?`For ${s.name}`
-:"Paste the exact scholarship question.",
-
-`
-
-<div class="notice">
-
-SCHKIT uses your real experiences as
-the source. Never add achievements or
-facts you did not provide.
-
-</div>
-
-
-<div class="field">
-
-<label>
-Exact question / prompt
-</label>
-
-<textarea
-id="essayPrompt"
-placeholder="Paste the scholarship question exactly..."
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Your real experiences, evidence and achievements
-</label>
-
-<textarea
-id="essayEvidence"
-placeholder="What happened? What did you do? What changed? What did you learn?"
-></textarea>
-
-</div>
-
-
-<div class="two">
-
-<div class="field">
-
-<label>
-Target word count
-</label>
-
-<input
-id="essayWords"
-value="500"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-Voice
-</label>
-
-<select id="essayTone">
-
-<option>
-Personal & authentic
-</option>
-
-<option>
-Confident
-</option>
-
-<option>
-Reflective
-</option>
-
-<option>
-Formal
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="generateEssayFramework()"
->
-Build my response
-</button>
-
-
-<div id="essayOutput"></div>
-
-`
-);
-
+  target.style.left=(Math.random()*maxX)+"px";
+  target.style.top=(110+Math.random()*(maxY-110))+"px";
 }
 
+document.getElementById("target").addEventListener("click",()=>{
+  gameScore++;
+  document.getElementById("gameScore").textContent=gameScore;
+  moveTarget();
+});
 
-function generateEssayFramework(){
+function showToast(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.classList.add("show");
 
-const q=
-document.getElementById(
-"essayPrompt"
-).value.trim();
-
-const e=
-document.getElementById(
-"essayEvidence"
-).value.trim();
-
-const w=
-document.getElementById(
-"essayWords"
-).value;
-
-const t=
-document.getElementById(
-"essayTone"
-).value;
-
-
-if(!q||!e){
-
-toast(
-"Add the exact prompt and your real evidence."
-);
-
-return;
-
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },2800);
 }
 
-
-const text=
-
-`
-
-EXACT PROMPT
-
-${q}
-
-
-YOUR EVIDENCE
-
-${e}
-
-
-TAILORED RESPONSE PLAN
-
-1. Hook
-Choose one concrete moment from your
-evidence that immediately relates to the prompt.
-
-2. Context
-Explain only what the reader needs to
-understand the situation.
-
-3. Action
-Show what YOU decided, changed, built,
-led or learned.
-
-4. Evidence
-Include specific results, people helped,
-numbers or observable change where truthful.
-
-5. Reflection
-Explain how the experience changed
-your thinking or character.
-
-6. Scholarship connection
-Connect that growth to your academic
-or career direction and the scholarship's mission.
-
-7. Closing
-Answer the prompt directly and leave
-the reader with a specific forward-looking idea.
-
-
-TARGET:
-${w} words
-
-VOICE:
-${t}
-
-
-FINAL TEST
-
-• Every claim is true.
-• Every paragraph serves the prompt.
-• Your actions are clearer than your circumstances.
-• The essay sounds like one real person.
-• No invented achievements, statistics or experiences.
-
-`;
-
-
-document.getElementById(
-"essayOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-${esc(text)}
-</div>
-
-<button
-class="secondary"
-style="width:100%;margin-top:9px"
-onclick='copyText(${JSON.stringify(text)})'
->
-Copy framework
-</button>
-
-`;
-
-
-essayProjects++;
-
-localStorage.setItem(
-"schkit_essays",
-essayProjects
-);
-
-render();
-
-}
-
-
-/* ================================
-   BRAINSTORM
-================================ */
-
-function brainstorm(){
-
-openModal(
-"💡 Essay Brainstormer",
-"Find the story with the strongest evidence.",
-
-`
-
-<div class="field">
-
-<label>
-Exact prompt
-</label>
-
-<textarea
-id="brainPrompt"
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-List your real experiences,
-challenges, projects, responsibilities
-or achievements
-</label>
-
-<textarea
-id="brainEvidence"
-></textarea>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="brainstormGo()"
->
-Find my strongest angle
-</button>
-
-
-<div id="brainOutput"></div>
-
-`
-);
-
-}
-
-
-function brainstormGo(){
-
-const q=
-document.getElementById(
-"brainPrompt"
-).value.trim();
-
-const e=
-document.getElementById(
-"brainEvidence"
-).value.trim();
-
-
-if(!q||!e){
-
-toast(
-"Complete both fields."
-);
-
-return;
-
-}
-
-
-document.getElementById(
-"brainOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-
-<b>
-Story selection test
-</b>
-
-
-<br><br>
-
-Choose the experience where
-you can prove the most of these:
-
-<br><br>
-
-✓ You personally took meaningful action.
-
-<br>
-
-✓ Something changed because of what you did.
-
-<br>
-
-✓ You faced a real decision,
-obstacle or responsibility.
-
-<br>
-
-✓ You can describe the moment specifically.
-
-<br>
-
-✓ You learned something that connects
-to the prompt.
-
-<br><br>
-
-<b>
-Prompt:
-</b>
-
-<br>
-
-${esc(q)}
-
-<br><br>
-
-<b>
-Evidence to mine:
-</b>
-
-<br>
-
-${esc(e)}
-
-</div>
-
-`;
-
-}
-
-
-/* ================================
-   REVIEW
-================================ */
-
-function review(){
-
-openModal(
-"🔍 Application Review",
-"Pre-submission quality check.",
-
-`
-
-<div class="field">
-
-<label>
-Paste your draft
-</label>
-
-<textarea
-id="reviewText"
-style="min-height:240px"
-></textarea>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="reviewGo()"
->
-Review my draft
-</button>
-
-
-<div id="reviewOutput"></div>
-
-`
-);
-
-}
-
-
-function reviewGo(){
-
-const t=
-document.getElementById(
-"reviewText"
-).value.trim();
-
-
-if(!t){
-
-toast(
-"Paste your draft."
-);
-
-return;
-
-}
-
-
-const words=
-t.split(/\s+/)
-.filter(Boolean)
-.length;
-
-
-document.getElementById(
-"reviewOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-
-<b>
-Draft snapshot
-</b>
-
-<br>
-
-${words} words approximately.
-
-<br><br>
-
-<b>
-Prompt alignment
-</b>
-
-<br>
-
-Does every paragraph answer the actual question?
-
-<br><br>
-
-<b>
-Evidence
-</b>
-
-<br>
-
-Can a reviewer point to concrete actions and outcomes?
-
-<br><br>
-
-<b>
-Reflection
-</b>
-
-<br>
-
-Do you explain what changed in you,
-not just what happened?
-
-<br><br>
-
-<b>
-Originality
-</b>
-
-<br>
-
-Are there specific details that could
-only belong to you?
-
-<br><br>
-
-<b>
-Clarity
-</b>
-
-<br>
-
-Remove generic openings, repetition
-and unsupported claims.
-
-<br><br>
-
-<b>
-Authenticity
-</b>
-
-<br>
-
-Keep the final language consistent
-with your natural voice.
-
-</div>
-
-`;
-
-}
-
-
-/* ================================
-   CV
-================================ */
-
-function cv(){
-
-openModal(
-"📄 CV Builder",
-"Build a scholarship-ready CV outline.",
-
-`
-
-<div class="two">
-
-<div class="field">
-
-<label>Name</label>
-
-<input id="cvName">
-
-</div>
-
-
-<div class="field">
-
-<label>Target field</label>
-
-<input id="cvField">
-
-</div>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Education
-</label>
-
-<textarea
-id="cvEducation"
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Leadership / activities
-</label>
-
-<textarea
-id="cvActivities"
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Achievements / awards / projects
-</label>
-
-<textarea
-id="cvAchievements"
-></textarea>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="buildCV()"
->
-Build CV outline
-</button>
-
-
-<div id="cvOutput"></div>
-
-`
-);
-
-}
-
-
-function buildCV(){
-
-const text=
-
-`
-
-${document.getElementById(
-"cvName"
-).value || "YOUR NAME"}
-
-
-${document.getElementById(
-"cvField"
-).value || "Target field"}
-
-
-EDUCATION
-
-${document.getElementById(
-"cvEducation"
-).value}
-
-
-LEADERSHIP & ACTIVITIES
-
-${document.getElementById(
-"cvActivities"
-).value}
-
-
-ACHIEVEMENTS / PROJECTS
-
-${document.getElementById(
-"cvAchievements"
-).value}
-
-
-Use concise action verbs and
-quantify impact where truthful.
-
-`;
-
-
-document.getElementById(
-"cvOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-${esc(text)}
-</div>
-
-<button
-class="secondary"
-style="width:100%;margin-top:9px"
-onclick='copyText(${JSON.stringify(text)})'
->
-Copy outline
-</button>
-
-`;
-
-}
-
-
-/* ================================
-   INTERVIEW
-================================ */
-
-function interview(){
-
-openModal(
-"🎤 Interview Coach",
-"Practice and self-review your scholarship answer.",
-
-`
-
-<div class="output">
-
-<b>
-Question:
-</b>
-
-<br>
-
-Tell us about a challenge you faced
-and what you learned from it.
-
-</div>
-
-
-<div class="field">
-
-<label>
-Your answer
-</label>
-
-<textarea
-id="interviewAnswer"
-></textarea>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="interviewGo()"
->
-Review answer
-</button>
-
-
-<div id="interviewOutput"></div>
-
-`
-);
-
-}
-
-
-function interviewGo(){
-
-const t=
-document.getElementById(
-"interviewAnswer"
-).value.trim();
-
-
-if(!t){
-
-toast(
-"Write an answer first."
-);
-
-return;
-
-}
-
-
-document.getElementById(
-"interviewOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-
-Check your answer for:
-
-✓ Clear challenge
-
-✓ Your specific actions
-
-✓ Result / impact
-
-✓ What you learned
-
-✓ How the lesson affects your future
-
-<br><br>
-
-Approx.
-${t.split(/\s+/).length}
-words.
-
-</div>
-
-`;
-
-}
-
-
-/* ================================
-   ELIGIBILITY
-================================ */
-
-function eligibility(){
-
-openModal(
-"✅ Eligibility Checker",
-"Fast screening against SCHKIT's current records.",
-
-`
-
-<div class="field">
-
-<label>
-Scholarship
-</label>
-
-<select id="eligScholarship">
-
-${scholarships.map(
-s=>
-`
-<option value="${s.id}">
-${esc(s.name)}
-</option>
-`
-).join("")}
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Degree
-</label>
-
-<select id="eligDegree">
-
-<option>
-Bachelor's
-</option>
-
-<option>
-Master's
-</option>
-
-<option>
-PhD
-</option>
-
-</select>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="checkEligibility()"
->
-Check profile
-</button>
-
-
-<div id="eligOutput"></div>
-
-`
-);
-
-}
-
-
-function checkEligibility(){
-
-const s=
-scholarships.find(
-x=>
-x.id ==
-document.getElementById(
-"eligScholarship"
-).value
-);
-
-const d=
-document.getElementById(
-"eligDegree"
-).value;
-
-const ok=
-s.degree.includes(d);
-
-
-document.getElementById(
-"eligOutput"
-).innerHTML=
-
-`
-
-<div class="output">
-
-<b>
-${ok
-?"Potential match"
-:"Degree mismatch"
-}
-</b>
-
-<br><br>
-
-${
-ok
-?
-"Your selected degree is listed for this opportunity. Verify citizenship, academic, programme and deadline rules on the official provider site."
-:
-"Your selected degree is not listed in SCHKIT's current record. Check the provider's official requirements before ruling it out."
-}
-
-</div>
-
-`;
-
-}
-
-
-/* ================================
-   PROFILE
-================================ */
-
-function profile(){
-
-openModal(
-"🧠 Scholar Profile",
-"Save your core information once.",
-
-`
-
-<div class="two">
-
-<div class="field">
-
-<label>
-Name
-</label>
-
-<input
-id="profileName"
-value="${esc(profileData.name||"")}"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-Degree
-</label>
-
-<select id="profileDegree">
-
-<option
-${profileData.degree==="Bachelor's"
-?"selected":""
-}
->
-Bachelor's
-</option>
-
-<option
-${profileData.degree==="Master's"
-?"selected":""
-}
->
-Master's
-</option>
-
-<option
-${profileData.degree==="PhD"
-?"selected":""
-}
->
-PhD
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Academic / career goals
-</label>
-
-<textarea
-id="profileGoals"
->${esc(profileData.goals||"")}</textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-Leadership / activities / achievements
-</label>
-
-<textarea
-id="profileActivities"
->${esc(profileData.activities||"")}</textarea>
-
-</div>
-
-
-<button
-class="primary"
-style="width:100%"
-onclick="saveProfile()"
->
-Save profile
-</button>
-
-`
-);
-
-}
-
-
-function saveProfile(){
-
-profileData={
-
-name:
-document.getElementById(
-"profileName"
-).value,
-
-degree:
-document.getElementById(
-"profileDegree"
-).value,
-
-goals:
-document.getElementById(
-"profileGoals"
-).value,
-
-activities:
-document.getElementById(
-"profileActivities"
-).value
-
-};
-
-
-localStorage.setItem(
-"schkit_profile",
-JSON.stringify(
-profileData
-)
-);
-
-closeModal();
-
-render();
-
-toast(
-"Profile saved"
-);
-
-}
-
-
-/* ================================
-   COPY
-================================ */
-
-function copyText(text){
-
-if(
-navigator.clipboard
-){
-
-navigator.clipboard.writeText(text);
-
-}
-
-toast(
-"Copied to clipboard"
-);
-
-}
-
-
-/* ================================
-   START
-================================ */
-
-render();
-
+document.getElementById("modal").addEventListener("click",function(e){
+  if(e.target===this)closeModal();
+});
+
+renderOpportunities();
 </script>
 
 </body>
