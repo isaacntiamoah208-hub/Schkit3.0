@@ -1,18 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="SCHKIT — Find scholarships, build applications and apply smarter.">
+
+<title>SCHKIT — Scholarship & University Application Platform</title>
+
+<style>
+:root{
+  --bg:#f6f7fb;
+  --surface:#ffffff;
+  --surface2:#f0f2f8;
+  --text:#111522;
+  --muted:#687083;
+  --border:#e3e6ee;
+  --primary:#6657ff;
+  --primary2:#8d63ff;
+  --gold:#f5b83d;
+  --green:#19a974;
+  --red:#e85b68;
+  --shadow:0 20px 60px rgba(20,25,45,.08);
+  --radius:22px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  transition:.25s;
+}
+
+body.dark{
+  --bg:#080b14;
+  --surface:#101522;
+  --surface2:#171c2a;
+  --text:#f5f7ff;
+  --muted:#9ca6ba;
+  --border:#252c3d;
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+/* ---------------- HEADER ---------------- */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+body.dark header{
+  background:rgba(8,11,20,.82);
+}
+
+.nav{
+  max-width:1250px;
+  margin:auto;
+  height:76px;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.logo-mark{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:white;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 8px 25px rgba(102,87,255,.3);
+}
+
+.pro-badge{
+  font-size:10px;
+  padding:4px 7px;
+  border-radius:8px;
+  background:linear-gradient(135deg,#f6c75c,#d99520);
+  color:#1c1506;
+  font-weight:900;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.nav-links button{
+  border:0;
+  background:none;
+  color:var(--muted);
+  padding:10px 13px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.nav-links button:hover{
+  color:var(--text);
+  background:var(--surface2);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  display:none;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+button{
+  font:inherit;
+}
+
+.primary{
+  border:0;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  padding:13px 19px;
+  border-radius:13px;
+  font-weight:800;
+  box-shadow:0 10px 25px rgba(102,87,255,.22);
+  transition:.2s;
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 15px 30px rgba(102,87,255,.3);
+}
+
+.secondary{
+  border:1px solid var(--border);
+  cursor:pointer;
+  color:var(--text);
+  background:var(--surface);
+  padding:13px 18px;
+  border-radius:13px;
+  font-weight:800;
+}
+
+.text-btn{
+  background:none;
+  border:0;
+  color:var(--primary);
+  cursor:pointer;
+  font-weight:800;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+  max-width:1250px;
+  margin:auto;
+  padding:75px 22px 45px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:45px;
+  align-items:center;
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:7px 11px;
+  border:1px solid #ddd8ff;
+  background:#f0edff;
+  color:#5b4ce7;
+  border-radius:100px;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:18px;
+}
+
+body.dark .hero-eyebrow{
+  background:#191735;
+  border-color:#302a62;
+}
+
+.hero h1{
+  font-size:clamp(43px,6vw,76px);
+  line-height:.98;
+  letter-spacing:-4px;
+  max-width:780px;
+}
+
+.gradient-text{
+  background:linear-gradient(135deg,#6657ff,#b35cff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  margin:23px 0;
+  color:var(--muted);
+  font-size:18px;
+  max-width:650px;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.hero-card{
+  position:relative;
+  background:linear-gradient(145deg,#11162a,#1d2140);
+  border-radius:30px;
+  padding:26px;
+  color:white;
+  box-shadow:0 30px 80px rgba(36,29,95,.25);
+  overflow:hidden;
+}
+
+.hero-card:before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:#735cff;
+  filter:blur(90px);
+  opacity:.35;
+  right:-100px;
+  top:-100px;
+}
+
+.hero-card > *{
+  position:relative;
+}
+
+.mini-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.mini-label{
+  font-size:12px;
+  color:#aab1c8;
+}
+
+.score{
+  font-size:29px;
+  font-weight:900;
+}
+
+.match-card{
+  padding:17px;
+  border-radius:17px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.1);
+  margin-bottom:12px;
+}
+
+.match-card strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+.progress{
+  height:7px;
+  border-radius:100px;
+  background:rgba(255,255,255,.12);
+  overflow:hidden;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  width:95%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#806eff,#b865ff);
+}
+
+/* ---------------- SECTION ---------------- */
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:60px 22px;
+}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:25px;
+}
+
+.section-heading h2{
+  font-size:34px;
+  letter-spacing:-1.5px;
+}
+
+.section-heading p{
+  color:var(--muted);
+}
+
+/* ---------------- DASHBOARD CARDS ---------------- */
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.tool{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:22px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.tool:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+
+.tool-icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:var(--surface2);
+  font-size:21px;
+  margin-bottom:17px;
+}
+
+.tool h3{
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.tool p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ---------------- FINDER ---------------- */
+
+.finder{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.finder-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:22px;
+}
+
+.finder-top h2{
+  font-size:28px;
+}
+
+.search-row{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr auto;
+  gap:10px;
+}
+
+input,select,textarea{
+  width:100%;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  padding:13px 14px;
+  border-radius:12px;
+  outline:none;
+  font:inherit;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(102,87,255,.1);
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.results-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:30px 0 15px;
+}
+
+.results-header span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.results{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.scholarship{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  transition:.2s;
+}
+
+.scholarship:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+
+.sch-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.scholarship h3{
+  font-size:18px;
+  line-height:1.25;
+}
+
+.organization{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:6px;
+}
+
+.funding{
+  white-space:nowrap;
+  height:max-content;
+  background:#e9fff5;
+  color:#13835c;
+  padding:6px 8px;
+  border-radius:8px;
+  font-size:10px;
+  font-weight:900;
+}
+
+body.dark .funding{
+  background:#102c22;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:17px 0;
+}
+
+.tag{
+  background:var(--surface2);
+  padding:5px 8px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.match{
+  margin:13px 0;
+  padding:10px 12px;
+  background:#f0edff;
+  color:#5a4ce5;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:900;
+}
+
+body.dark .match{
+  background:#1d1940;
+}
+
+.deadline{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card-actions{
+  display:flex;
+  gap:8px;
+  margin-top:18px;
+}
+
+.view-btn,.save-btn{
+  flex:1;
+  text-align:center;
+  padding:10px;
+  border-radius:11px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.view-btn{
+  background:var(--primary);
+  color:white;
+}
+
+.save-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+}
+
+/* ---------------- PRO ---------------- */
+
+.pro-section{
+  max-width:1250px;
+  margin:30px auto;
+  padding:0 22px;
+}
+
+.pro-box{
+  background:linear-gradient(135deg,#11152a,#24204b);
+  color:white;
+  border-radius:30px;
+  padding:42px;
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:35px;
+  overflow:hidden;
+  position:relative;
+}
+
+.pro-box:after{
+  content:"✦";
+  position:absolute;
+  font-size:260px;
+  opacity:.035;
+  right:30px;
+  top:-80px;
+}
+
+.pro-box h2{
+  font-size:42px;
+  letter-spacing:-2px;
+}
+
+.pro-box p{
+  color:#b4bad0;
+  margin:12px 0 20px;
+}
+
+.pro-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.pro-list div{
+  color:#e8eaff;
+  font-size:14px;
+}
+
+.price-card{
+  position:relative;
+  z-index:2;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:22px;
+  padding:25px;
+  text-align:center;
+}
+
+.price{
+  font-size:45px;
+  font-weight:900;
+}
+
+.price small{
+  font-size:14px;
+  color:#abb1c7;
+}
+
+/* ---------------- TRACKER ---------------- */
+
+.tracker{
+  display:grid;
+  gap:10px;
+}
+
+.tracker-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:17px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:center;
+}
+
+.tracker-item strong{
+  display:block;
+  font-size:14px;
+}
+
+.tracker-item small{
+  color:var(--muted);
+}
+
+/* ---------------- MODAL ---------------- */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(0,0,0,.58);
+  backdrop-filter:blur(8px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.modal-box{
+  width:min(700px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:var(--surface);
+  color:var(--text);
+  border-radius:25px;
+  border:1px solid var(--border);
+  box-shadow:0 30px 100px rgba(0,0,0,.3);
+  animation:modalIn .2s ease;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(15px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.modal-head{
+  padding:22px 25px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modal-head h2{
+  font-size:22px;
+}
+
+.close{
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:10px;
+  background:var(--surface2);
+  color:var(--text);
+  cursor:pointer;
+  font-size:20px;
+}
+
+.modal-body{
+  padding:25px;
+}
+
+.field{
+  margin-bottom:15px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:7px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.output{
+  margin-top:20px;
+  padding:18px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:16px;
+  white-space:pre-wrap;
+}
+
+.step{
+  display:none;
+}
+
+.step.active{
+  display:block;
+}
+
+.step-progress{
+  display:flex;
+  gap:5px;
+  margin-bottom:22px;
+}
+
+.step-progress span{
+  height:5px;
+  flex:1;
+  border-radius:100px;
+  background:var(--surface2);
+}
+
+.step-progress span.active{
+  background:var(--primary);
+}
+
+.popup-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:20px;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+  margin-top:60px;
+  padding:45px 22px;
+  background:#080b14;
+  color:white;
+}
+
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.footer-inner p{
+  color:#8d95aa;
+  font-size:13px;
+}
+
+/* ---------------- TOAST ---------------- */
+
+#toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
+  display:none;
+  padding:14px 17px;
+  border-radius:13px;
+  color:white;
+  background:#111522;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  font-size:14px;
+  font-weight:700;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:950px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .mobile-menu{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:50px;
+  }
+
+  .tool-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .search-row{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .search-row .search-main{
+    grid-column:1/-1;
+  }
+
+  .results{
+    grid-template-columns:1fr;
+  }
+
+  .pro-box{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .nav{
+    height:68px;
+  }
+
+  .hero{
+    padding-top:35px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .tool-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .search-row{
+    grid-template-columns:1fr;
+  }
+
+  .search-row .search-main{
+    grid-column:auto;
+  }
+
+  .finder{
+    padding:18px;
+  }
+
+  .pro-box{
+    padding:28px 22px;
+  }
+
+  .pro-box h2{
+    font-size:31px;
+  }
+
+  .pro-list{
+    grid-template-columns:1fr;
+  }
+
+  .sch-top{
+    flex-direction:column;
+  }
+
+  .funding{
+    width:max-content;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+  <nav class="nav">
+
+    <div class="logo">
+      <div class="logo-mark">S</div>
+      SCHKIT
+      <span class="pro-badge">PRO</span>
+    </div>
+
+    <div class="nav-links">
+      <button onclick="goHome()">Home</button>
+      <button onclick="goToFinder()">Scholarships</button>
+      <button onclick="goToApplications()">Applications</button>
+      <button onclick="goToTools()">AI Tools</button>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeButton" onclick="toggleTheme()">☾</button>
+      <button class="primary" onclick="startPro()">Get Pro</button>
+      <button class="icon-btn mobile-menu" onclick="openMobileMenu()">☰</button>
+    </div>
+
+  </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+  <div>
+
+    <div class="hero-eyebrow">
+      ✦ AI-POWERED APPLICATION PLATFORM
+    </div>
+
+    <h1>
+      Find your
+      <span class="gradient-text">scholarship.</span>
+      Build your application.
+    </h1>
+
+    <p>
+      SCHKIT helps students discover scholarships,
+      match opportunities to their profile, build essays,
+      organize applications and prepare to submit.
+    </p>
+
+    <div class="hero-actions">
+
+      <button class="primary" onclick="openScholarshipWizard()">
+        Find My Scholarships →
+      </button>
+
+      <button class="secondary" onclick="openEssay()">
+        ✍️ Try Essay Studio
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-card">
+
+    <div class="mini-top">
+      <div>
+        <div class="mini-label">YOUR SCHOLARSHIP MATCH</div>
+        <div class="score">95%</div>
+      </div>
+
+      <span>✦ PRO</span>
+    </div>
+
+    <div class="match-card">
+
+      <strong>
+        Mastercard Foundation Scholars Program
+      </strong>
+
+      <div class="mini-label">
+        Undergraduate · International
+      </div>
+
+      <br>
+
+      <div class="progress">
+        <span></span>
+      </div>
+
+    </div>
+
+    <div class="match-card">
+
+      <strong>
+        Application progress
+      </strong>
+
+      <div class="mini-label">
+        82% complete
+      </div>
+
+      <br>
+
+      <div class="progress">
+        <span style="width:82%"></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TOOLS ================= -->
+
+<section class="section" id="tools">
+
+  <div class="section-heading">
+    <div>
+      <h2>Your application toolkit</h2>
+      <p>Everything you need in one workspace.</p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+
+    <div class="tool" onclick="openScholarshipWizard()">
+      <div class="tool-icon">🎯</div>
+      <h3>Smart Scholarship Finder</h3>
+      <p>Answer a few questions and discover your best matches.</p>
+    </div>
+
+    <div class="tool" onclick="openEssay()">
+      <div class="tool-icon">✍️</div>
+      <h3>Essay Studio</h3>
+      <p>Turn your real experiences into application-ready essays.</p>
+    </div>
+
+    <div class="tool" onclick="openCV()">
+      <div class="tool-icon">📄</div>
+      <h3>CV Builder</h3>
+      <p>Create a clean academic CV.</p>
+    </div>
+
+    <div class="tool" onclick="openInterview()">
+      <div class="tool-icon">🎤</div>
+      <h3>Interview Coach</h3>
+      <p>Practice scholarship and university interviews.</p>
+    </div>
+
+    <div class="tool" onclick="openEligibility()">
+      <div class="tool-icon">✅</div>
+      <h3>Eligibility Checker</h3>
+      <p>Screen your profile against scholarship requirements.</p>
+    </div>
+
+    <div class="tool" onclick="openApplicationReview()">
+      <div class="tool-icon">🔎</div>
+      <h3>Application Review</h3>
+      <p>Check your application before submission.</p>
+    </div>
+
+    <div class="tool" onclick="goToApplications()">
+      <div class="tool-icon">📊</div>
+      <h3>Application Tracker</h3>
+      <p>Track every scholarship and application.</p>
+    </div>
+
+    <div class="tool" onclick="openDeadline()">
+      <div class="tool-icon">🔔</div>
+      <h3>Deadline Center</h3>
+      <p>Keep important deadlines in one place.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRO ================= -->
+
+<section class="pro-section">
+
+  <div class="pro-box">
+
+    <div>
+
+      <div class="pro-badge" style="display:inline-block;margin-bottom:15px">
+        SCHKIT PRO ✦
+      </div>
+
+      <h2>
+        Go from searching to applying.
+      </h2>
+
+      <p>
+        Unlock the complete SCHKIT application workflow.
+      </p>
+
+      <div class="pro-list">
+
+        <div>✓ Personalized scholarship matching</div>
+        <div>✓ Essay Studio</div>
+        <div>✓ Unlimited application tools</div>
+        <div>✓ CV Builder</div>
+        <div>✓ Interview Coach</div>
+        <div>✓ Application Review</div>
+        <div>✓ Deadline tracking</div>
+        <div>✓ Guided application workflow</div>
+
+      </div>
+
+    </div>
+
+    <div class="price-card">
+
+      <div style="color:#b4bad0;font-size:13px;font-weight:800">
+        SCHKIT PRO
+      </div>
+
+      <div class="price">
+        $9<small>/month</small>
+      </div>
+
+      <p style="margin:7px 0 18px;color:#aeb5ca">
+        Unlock your application workspace.
+      </p>
+
+      <button class="primary" style="width:100%" onclick="startPro()">
+        Upgrade to Pro →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SCHOLARSHIP FINDER ================= -->
+
+<section class="section" id="finder">
+
+  <div class="finder">
+
+    <div class="finder-top">
+
+      <div>
+        <h2>Scholarship Finder</h2>
+        <p style="color:var(--muted)">
+          Find opportunities based on your profile.
+        </p>
+      </div>
+
+      <button class="secondary" onclick="openScholarshipWizard()">
+        ✨ Smart Match
+      </button>
+
+    </div>
+
+    <div class="search-row">
+
+      <input
+        id="search"
+        class="search-main"
+        placeholder="Search scholarships..."
+      >
+
+      <select id="destination">
+        <option value="">Destination</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Germany</option>
+        <option>Multiple</option>
+      </select>
+
+      <select id="degree">
+        <option value="">Degree</option>
+        <option>Bachelor's</option>
+        <option>Master's</option>
+        <option>PhD</option>
+      </select>
+
+      <input
+        id="field"
+        placeholder="Field e.g. Medicine"
+      >
+
+      <button class="primary" onclick="findScholarships()">
+        Search
+      </button>
+
+    </div>
+
+    <div class="results-header">
+
+      <strong>Scholarship opportunities</strong>
+
+      <span id="resultCount">0 opportunities found</span>
+
+    </div>
+
+    <div class="results" id="results"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= APPLICATIONS ================= -->
+
+<section class="section" id="applications">
+
+  <div class="section-heading">
+
+    <div>
+      <h2>Application Center</h2>
+      <p>Keep every opportunity moving forward.</p>
+    </div>
+
+    <button class="primary" onclick="openApplicationReview()">
+      Review Application
+    </button>
+
+  </div>
+
+  <div class="tracker" id="trackerList"></div>
+
+</section>
+
+</main>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2 id="modalTitle">SCHKIT</h2>
+
+      <button class="close" onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="modal-body" id="modalBody"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast"></div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      <div class="logo">
+        <div class="logo-mark">S</div>
+        SCHKIT
+      </div>
+
+      <p style="margin-top:10px">
+        Scholarships. Applications. One workspace.
+      </p>
+    </div>
+
+    <p>
+      Always verify scholarship requirements
+      on the official provider's website.
+    </p>
+
+  </div>
+
+</footer>
+
+
 <script>
+
 /* =====================================================
-   SCHKIT PAYMENT
-   ONE-TIME PAYSTACK PAYMENT
+   PAYMENT
 ===================================================== */
 
 const PAYMENT_URL =
-  "https://paystack.shop/pay/egm-imld0p";
+"https://paystack.shop/pay/egm-imld0p";
 
+function startPro(){
 
-function startPro() {
   /*
-    This is a ONE-TIME payment.
-    We send the customer directly to your
-    working Paystack checkout.
+   Existing Paystack link retained from your
+   original project.
+
+   IMPORTANT:
+   This link must be replaced with a recurring
+   $9/month Paystack subscription checkout if
+   your Paystack product is configured for recurring billing.
   */
 
   window.location.href = PAYMENT_URL;
@@ -23,111 +1339,111 @@ function startPro() {
    SCHOLARSHIP DATABASE
 ===================================================== */
 
-const scholarships = [
+const scholarships=[
 
-  {
-    id: 1,
-    name: "Mastercard Foundation Scholars Program",
-    organization: "Mastercard Foundation",
-    country: "Multiple",
-    degree: ["Bachelor's", "Master's"],
-    field: "All fields",
-    funding: "Full / substantial funding",
-    deadline: "Varies by partner",
-    tags: ["International", "Leadership", "Need-based"],
-    link: "https://mastercardfdn.org/all/scholars/become-a-scholar/"
-  },
+{
+ id:1,
+ name:"Mastercard Foundation Scholars Program",
+ organization:"Mastercard Foundation",
+ country:"Multiple",
+ degree:["Bachelor's","Master's"],
+ field:"All fields",
+ funding:"Full / substantial funding",
+ deadline:"Varies by partner",
+ tags:["International","Leadership","Need-based"],
+ link:"https://mastercardfdn.org/all/scholars/become-a-scholar/"
+},
 
-  {
-    id: 2,
-    name: "Chevening Scholarships",
-    organization: "UK Government",
-    country: "United Kingdom",
-    degree: ["Master's"],
-    field: "All fields",
-    funding: "Fully funded",
-    deadline: "Annual cycle",
-    tags: ["UK", "Fully funded", "Leadership"],
-    link: "https://www.chevening.org/scholarships/"
-  },
+{
+ id:2,
+ name:"Chevening Scholarships",
+ organization:"UK Government",
+ country:"United Kingdom",
+ degree:["Master's"],
+ field:"All fields",
+ funding:"Fully funded",
+ deadline:"Annual cycle",
+ tags:["UK","Fully funded","Leadership"],
+ link:"https://www.chevening.org/scholarships/"
+},
 
-  {
-    id: 3,
-    name: "Gates Cambridge Scholarship",
-    organization: "University of Cambridge",
-    country: "United Kingdom",
-    degree: ["Master's", "PhD"],
-    field: "All fields",
-    funding: "Full funding",
-    deadline: "Varies by course",
-    tags: ["UK", "Cambridge", "Full funding"],
-    link: "https://www.gatescambridge.org/apply/"
-  },
+{
+ id:3,
+ name:"Gates Cambridge Scholarship",
+ organization:"University of Cambridge",
+ country:"United Kingdom",
+ degree:["Master's","PhD"],
+ field:"All fields",
+ funding:"Full funding",
+ deadline:"Varies by course",
+ tags:["UK","Cambridge","Full funding"],
+ link:"https://www.gatescambridge.org/apply/"
+},
 
-  {
-    id: 4,
-    name: "Fulbright Foreign Student Program",
-    organization: "U.S. Department of State",
-    country: "United States",
-    degree: ["Master's", "PhD"],
-    field: "All fields",
-    funding: "Funding varies",
-    deadline: "Varies by country",
-    tags: ["USA", "Graduate", "International"],
-    link: "https://foreign.fulbrightonline.org/"
-  },
+{
+ id:4,
+ name:"Fulbright Foreign Student Program",
+ organization:"U.S. Department of State",
+ country:"United States",
+ degree:["Master's","PhD"],
+ field:"All fields",
+ funding:"Funding varies",
+ deadline:"Varies by country",
+ tags:["USA","Graduate","International"],
+ link:"https://foreign.fulbrightonline.org/"
+},
 
-  {
-    id: 5,
-    name: "Knight-Hennessy Scholars",
-    organization: "Stanford University",
-    country: "United States",
-    degree: ["Master's", "PhD"],
-    field: "All fields",
-    funding: "Funding package",
-    deadline: "Annual cycle",
-    tags: ["USA", "Stanford", "Leadership"],
-    link: "https://knight-hennessy.stanford.edu/"
-  },
+{
+ id:5,
+ name:"Knight-Hennessy Scholars",
+ organization:"Stanford University",
+ country:"United States",
+ degree:["Master's","PhD"],
+ field:"All fields",
+ funding:"Funding package",
+ deadline:"Annual cycle",
+ tags:["USA","Stanford","Leadership"],
+ link:"https://knight-hennessy.stanford.edu/"
+},
 
-  {
-    id: 6,
-    name: "DAAD Scholarships",
-    organization: "DAAD",
-    country: "Germany",
-    degree: ["Master's", "PhD"],
-    field: "All fields",
-    funding: "Varies by programme",
-    deadline: "Varies by programme",
-    tags: ["Germany", "Graduate", "International"],
-    link: "https://www.daad.de/en/studying-in-germany/scholarships/"
-  },
+{
+ id:6,
+ name:"DAAD Scholarships",
+ organization:"DAAD",
+ country:"Germany",
+ degree:["Master's","PhD"],
+ field:"All fields",
+ funding:"Varies by programme",
+ deadline:"Varies by programme",
+ tags:["Germany","Graduate","International"],
+ link:"https://www.daad.de/en/studying-in-germany/scholarships/"
+},
 
-  {
-    id: 7,
-    name: "Lester B. Pearson International Scholarship",
-    organization: "University of Toronto",
-    country: "Canada",
-    degree: ["Bachelor's"],
-    field: "All fields",
-    funding: "Full support",
-    deadline: "Annual cycle",
-    tags: ["Canada", "Undergraduate", "Full funding"],
-    link: "https://future.utoronto.ca/pearson/about/"
-  },
+{
+ id:7,
+ name:"Lester B. Pearson International Scholarship",
+ organization:"University of Toronto",
+ country:"Canada",
+ degree:["Bachelor's"],
+ field:"All fields",
+ funding:"Full support",
+ deadline:"Annual cycle",
+ tags:["Canada","Undergraduate","Full funding"],
+ link:"https://future.utoronto.ca/pearson/about/"
+},
 
-  {
-    id: 8,
-    name: "UWE Millennium Scholarship",
-    organization: "University of the West of England",
-    country: "United Kingdom",
-    degree: ["Master's"],
-    field: "All fields",
-    funding: "Partial tuition",
-    deadline: "Varies",
-    tags: ["UK", "Partial funding"],
-    link: "https://www.uwe.ac.uk/courses/funding/scholarships-and-bursaries"
-  }
+{
+ id:8,
+ name:"UWE Millennium Scholarship",
+ organization:"University of the West of England",
+ country:"United Kingdom",
+ degree:["Master's"],
+ field:"All fields",
+ funding:"Partial tuition",
+ deadline:"Varies",
+ tags:["UK","Partial funding"],
+ link:"https://www.uwe.ac.uk/courses/funding/scholarships-and-bursaries"
+}
 
 ];
 
@@ -136,46 +1452,46 @@ const scholarships = [
    STORAGE
 ===================================================== */
 
-let saved = JSON.parse(
-  localStorage.getItem("schkitSaved") || "[]"
-);
+let saved=
+JSON.parse(localStorage.getItem("schkitSaved")||"[]");
 
-let statuses = JSON.parse(
-  localStorage.getItem("schkitStatuses") || "{}"
-);
+let statuses=
+JSON.parse(localStorage.getItem("schkitStatuses")||"{}");
+
+let profile=
+JSON.parse(localStorage.getItem("schkitProfile")||"{}");
 
 
 /* =====================================================
-   TOAST
+   UTILITIES
 ===================================================== */
 
-function showToast(message) {
+function escapeHTML(value){
 
-  const toast = document.getElementById("toast");
+ return String(value)
+ .replace(/&/g,"&amp;")
+ .replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;")
+ .replace(/"/g,"&quot;")
+ .replace(/'/g,"&#039;");
 
-  toast.textContent = message;
-  toast.style.display = "block";
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    toast.style.display = "none";
-  }, 2800);
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+function showToast(message){
 
-function escapeHTML(value) {
+ const toast=
+ document.getElementById("toast");
 
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+ toast.textContent=message;
+ toast.style.display="block";
+
+ clearTimeout(window.toastTimer);
+
+ window.toastTimer=setTimeout(()=>{
+   toast.style.display="none";
+ },2800);
+
 }
 
 
@@ -183,114 +1499,163 @@ function escapeHTML(value) {
    RENDER SCHOLARSHIPS
 ===================================================== */
 
-function renderScholarships(list) {
+function calculateMatch(s){
 
-  const container = document.getElementById("results");
+ let score=70;
 
-  document.getElementById("resultCount").textContent =
-    `${list.length} opportunit${list.length === 1 ? "y" : "ies"} found`;
+ if(profile.destination &&
+    (s.country===profile.destination ||
+     s.country==="Multiple")) score+=10;
 
-  if (!list.length) {
+ if(profile.degree &&
+    s.degree.includes(profile.degree)) score+=10;
 
-    container.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        background:white;
-        border:1px solid var(--border);
-        padding:30px;
-        border-radius:16px;
-        text-align:center;
-      ">
-        <h3>No matches yet</h3>
+ if(profile.field &&
+    (s.field==="All fields" ||
+     s.field.toLowerCase().includes(
+       String(profile.field).toLowerCase()
+     ))) score+=5;
 
-        <p style="
-          color:var(--muted);
-          margin:8px 0 18px;
-        ">
-          Try changing your destination,
-          degree or search term.
-        </p>
+ if(profile.citizenship) score+=5;
 
-        <button
-          class="primary"
-          onclick="clearFilters()"
-        >
-          Clear filters
-        </button>
-      </div>
-    `;
+ return Math.min(score,99);
 
-    return;
-  }
-
-  container.innerHTML =
-    list.map(s => scholarshipHTML(s)).join("");
 }
 
 
-/* =====================================================
-   SCHOLARSHIP CARD
-===================================================== */
+function renderScholarships(list){
 
-function scholarshipHTML(s) {
+ const container=
+ document.getElementById("results");
 
-  const isSaved = saved.includes(s.id);
+ document.getElementById("resultCount").textContent=
+ `${list.length} opportunit${list.length===1?"y":"ies"} found`;
 
-  return `
-    <article class="scholarship">
+ if(!list.length){
 
-      <div class="sch-top">
+   container.innerHTML=`
 
-        <div>
-          <h3>${escapeHTML(s.name)}</h3>
+   <div style="
+     grid-column:1/-1;
+     background:var(--surface);
+     border:1px solid var(--border);
+     padding:30px;
+     border-radius:18px;
+     text-align:center;
+   ">
 
-          <div class="organization">
-            ${escapeHTML(s.organization)}
-            ·
-            ${escapeHTML(s.country)}
-          </div>
-        </div>
+     <h3>No matches yet</h3>
 
-        <span class="funding">
-          ${escapeHTML(s.funding)}
-        </span>
+     <p style="color:var(--muted);margin:8px 0 18px">
+       Try changing your preferences or run Smart Match.
+     </p>
 
-      </div>
+     <button class="primary"
+       onclick="openScholarshipWizard()">
+       Find My Matches
+     </button>
 
-      <div class="tags">
-        ${s.tags.map(tag => `
-          <span class="tag">
-            ${escapeHTML(tag)}
-          </span>
-        `).join("")}
-      </div>
+   </div>
 
-      <div class="deadline">
-        ⏳ Deadline: ${escapeHTML(s.deadline)}
-      </div>
+   `;
 
-      <div class="card-actions">
+   return;
+ }
 
-        <a
-          class="view-btn"
-          href="${s.link}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Official site ↗
-        </a>
+ container.innerHTML=
+ list
+ .sort((a,b)=>calculateMatch(b)-calculateMatch(a))
+ .map(s=>scholarshipHTML(s))
+ .join("");
 
-        <button
-          class="save-btn"
-          onclick="toggleSave(${s.id})"
-        >
-          ${isSaved ? "★ Saved" : "☆ Save"}
-        </button>
+}
 
-      </div>
 
-    </article>
-  `;
+function scholarshipHTML(s){
+
+ const isSaved=saved.includes(s.id);
+
+ const match=calculateMatch(s);
+
+ return `
+
+ <article class="scholarship">
+
+   <div class="sch-top">
+
+     <div>
+
+       <h3>${escapeHTML(s.name)}</h3>
+
+       <div class="organization">
+         ${escapeHTML(s.organization)}
+         ·
+         ${escapeHTML(s.country)}
+       </div>
+
+     </div>
+
+     <span class="funding">
+       ${escapeHTML(s.funding)}
+     </span>
+
+   </div>
+
+   <div class="match">
+     ✦ ${match}% PROFILE MATCH
+   </div>
+
+   <div class="tags">
+
+     ${s.tags.map(tag=>`
+       <span class="tag">
+         ${escapeHTML(tag)}
+       </span>
+     `).join("")}
+
+   </div>
+
+   <div class="deadline">
+     ⏳ Deadline: ${escapeHTML(s.deadline)}
+   </div>
+
+   <div class="card-actions">
+
+     <a
+       class="view-btn"
+       href="${s.link}"
+       target="_blank"
+       rel="noopener noreferrer">
+       View Official Site ↗
+     </a>
+
+     <button
+       class="save-btn"
+       onclick="toggleSave(${s.id})">
+
+       ${isSaved?"★ Saved":"☆ Save"}
+
+     </button>
+
+   </div>
+
+   <div style="margin-top:9px">
+
+     <button
+       class="primary"
+       style="width:100%;padding:10px"
+       onclick="startApplication(${s.id})">
+
+       Apply with SCHKIT →
+
+     </button>
+
+   </div>
+
+ </article>
+
+ `;
+
 }
 
 
@@ -298,67 +1663,66 @@ function scholarshipHTML(s) {
    SEARCH
 ===================================================== */
 
-function findScholarships() {
+function findScholarships(){
 
-  const destination =
-    document.getElementById("destination").value;
+ const destination=
+ document.getElementById("destination").value;
 
-  const degree =
-    document.getElementById("degree").value;
+ const degree=
+ document.getElementById("degree").value;
 
-  const field =
-    document.getElementById("field").value
-      .toLowerCase()
-      .trim();
+ const field=
+ document.getElementById("field").value
+ .toLowerCase()
+ .trim();
 
-  const search =
-    document.getElementById("search").value
-      .toLowerCase()
-      .trim();
+ const search=
+ document.getElementById("search").value
+ .toLowerCase()
+ .trim();
 
-  const results = scholarships.filter(s => {
+ const results=scholarships.filter(s=>{
 
-    const destinationMatch =
-      !destination ||
-      s.country === destination ||
-      s.country === "Multiple";
+   const destinationMatch=
+     !destination ||
+     s.country===destination ||
+     s.country==="Multiple";
 
-    const degreeMatch =
-      !degree ||
-      s.degree.includes(degree);
+   const degreeMatch=
+     !degree ||
+     s.degree.includes(degree);
 
-    const fieldMatch =
-      !field ||
-      s.field.toLowerCase().includes(field) ||
-      s.field === "All fields";
+   const fieldMatch=
+     !field ||
+     s.field.toLowerCase().includes(field) ||
+     s.field==="All fields";
 
-    const searchMatch =
-      !search ||
-      (
-        s.name +
-        s.organization +
-        s.country +
-        s.tags.join(" ")
-      )
-      .toLowerCase()
-      .includes(search);
+   const searchMatch=
+     !search ||
+     (
+       s.name+
+       s.organization+
+       s.country+
+       s.tags.join(" ")
+     )
+     .toLowerCase()
+     .includes(search);
 
-    return (
-      destinationMatch &&
-      degreeMatch &&
-      fieldMatch &&
-      searchMatch
-    );
-  });
+   return destinationMatch &&
+          degreeMatch &&
+          fieldMatch &&
+          searchMatch;
 
-  renderScholarships(results);
+ });
 
-  document
-    .getElementById("results")
-    .scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
+ renderScholarships(results);
+
+ document.getElementById("results")
+ .scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+ });
+
 }
 
 
@@ -366,184 +1730,30 @@ function findScholarships() {
    SAVE
 ===================================================== */
 
-function toggleSave(id) {
+function toggleSave(id){
 
-  if (saved.includes(id)) {
+ if(saved.includes(id)){
 
-    saved = saved.filter(
-      item => item !== id
-    );
+   saved=saved.filter(x=>x!==id);
 
-    showToast(
-      "Removed from saved scholarships."
-    );
+   showToast("Removed from saved scholarships.");
 
-  } else {
+ }else{
 
-    saved.push(id);
+   saved.push(id);
 
-    showToast(
-      "Scholarship saved."
-    );
-  }
+   showToast("Scholarship saved.");
 
-  localStorage.setItem(
-    "schkitSaved",
-    JSON.stringify(saved)
-  );
+ }
 
-  renderScholarships(scholarships);
-  renderTracker();
-}
+ localStorage.setItem(
+   "schkitSaved",
+   JSON.stringify(saved)
+ );
 
+ renderScholarships(scholarships);
+ renderTracker();
 
-/* =====================================================
-   SAVED
-===================================================== */
-
-function showSaved() {
-
-  const list =
-    scholarships.filter(
-      s => saved.includes(s.id)
-    );
-
-  renderScholarships(list);
-
-  document
-    .getElementById("results")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
-}
-
-
-/* =====================================================
-   TRACKER
-===================================================== */
-
-function renderTracker() {
-
-  const tracker =
-    document.getElementById("trackerList");
-
-  const list =
-    scholarships.filter(
-      s => saved.includes(s.id)
-    );
-
-  if (!list.length) {
-
-    tracker.innerHTML = `
-      <div class="tracker-item">
-
-        <div>
-          <strong>
-            Your tracker is empty.
-          </strong>
-
-          <small>
-            Save a scholarship and it will appear here.
-          </small>
-        </div>
-
-      </div>
-    `;
-
-    return;
-  }
-
-  tracker.innerHTML =
-    list.map(s => `
-
-      <div class="tracker-item">
-
-        <div>
-
-          <strong>
-            ${escapeHTML(s.name)}
-          </strong>
-
-          <small>
-            ${escapeHTML(s.organization)}
-            ·
-            ${escapeHTML(s.deadline)}
-          </small>
-
-        </div>
-
-        <select
-          onchange="changeStatus(${s.id},this.value)"
-        >
-
-          <option
-            ${statuses[s.id] === "Interested" ? "selected" : ""}
-          >
-            Interested
-          </option>
-
-          <option
-            ${statuses[s.id] === "Preparing" ? "selected" : ""}
-          >
-            Preparing
-          </option>
-
-          <option
-            ${statuses[s.id] === "Applied" ? "selected" : ""}
-          >
-            Applied
-          </option>
-
-          <option
-            ${statuses[s.id] === "Accepted" ? "selected" : ""}
-          >
-            Accepted
-          </option>
-
-          <option
-            ${statuses[s.id] === "Rejected" ? "selected" : ""}
-          >
-            Rejected
-          </option>
-
-        </select>
-
-      </div>
-
-    `).join("");
-}
-
-
-function changeStatus(id, status) {
-
-  statuses[id] = status;
-
-  localStorage.setItem(
-    "schkitStatuses",
-    JSON.stringify(statuses)
-  );
-
-  showToast(
-    "Application status updated."
-  );
-}
-
-
-/* =====================================================
-   CLEAR FILTERS
-===================================================== */
-
-function clearFilters() {
-
-  document.getElementById("destination").value = "";
-  document.getElementById("degree").value = "";
-  document.getElementById("field").value = "";
-  document.getElementById("search").value = "";
-  document.getElementById("citizenship").value = "";
-  document.getElementById("intake").value = "";
-  document.getElementById("grades").value = "";
-
-  renderScholarships(scholarships);
 }
 
 
@@ -551,151 +1761,918 @@ function clearFilters() {
    MODAL
 ===================================================== */
 
-function openModal(title, content) {
+function openModal(title,content){
 
-  document.getElementById(
-    "modalTitle"
-  ).textContent = title;
+ document.getElementById("modalTitle").textContent=title;
+ document.getElementById("modalBody").innerHTML=content;
+ document.getElementById("modal").style.display="flex";
 
-  document.getElementById(
-    "modalBody"
-  ).innerHTML = content;
-
-  document.getElementById(
-    "modal"
-  ).style.display = "flex";
 }
 
 
-function closeModal() {
+function closeModal(){
 
-  document.getElementById(
-    "modal"
-  ).style.display = "none";
+ document.getElementById("modal").style.display="none";
+
 }
 
 
 /* =====================================================
-   ESSAY BUILDER
+   SCHOLARSHIP WIZARD
 ===================================================== */
 
-function openEssay() {
+function openScholarshipWizard(){
 
-  openModal(
-    "✍️ Essay Builder",
+ profile={};
 
-    `
-      <p style="color:var(--muted)">
-        Give SCHKIT the actual scholarship question
-        and your real experiences.
-      </p>
+ openModal(
+ "🎯 Find Your Scholarships",
 
-      <div class="field" style="margin-top:15px">
+ `
 
-        <label>
-          Scholarship question
-        </label>
+ <div class="step-progress">
+   <span id="p1" class="active"></span>
+   <span id="p2"></span>
+   <span id="p3"></span>
+   <span id="p4"></span>
+ </div>
 
-        <textarea
-          id="essayPrompt"
-          placeholder="Why should you receive this scholarship?"
-        ></textarea>
+ <div class="step active" id="step1">
 
-      </div>
+   <h3>What degree are you looking for?</h3>
 
-      <div class="field">
+   <p style="color:var(--muted);margin:6px 0 18px">
+     Choose the level you're applying for.
+   </p>
 
-        <label>
-          Your real experiences
-        </label>
+   <div class="field">
+     <select id="wizardDegree">
+       <option value="">Select degree</option>
+       <option>Bachelor's</option>
+       <option>Master's</option>
+       <option>PhD</option>
+     </select>
+   </div>
 
-        <textarea
-          id="essayExperience"
-          placeholder="Leadership, volunteering, projects, challenges, achievements..."
-        ></textarea>
+   <button class="primary"
+     onclick="wizardNext(1)">
+     Continue →
+   </button>
 
-      </div>
+ </div>
 
-      <button
-        class="primary"
-        onclick="buildEssay()"
-      >
-        Build essay structure
-      </button>
 
-      <div id="toolOutput"></div>
-    `
-  );
+ <div class="step" id="step2">
+
+   <h3>Where do you want to study?</h3>
+
+   <p style="color:var(--muted);margin:6px 0 18px">
+     You can choose multiple destinations later.
+   </p>
+
+   <div class="field">
+     <select id="wizardDestination">
+       <option value="">Select destination</option>
+       <option>United States</option>
+       <option>United Kingdom</option>
+       <option>Canada</option>
+       <option>Germany</option>
+       <option>Multiple</option>
+     </select>
+   </div>
+
+   <div class="popup-actions">
+
+     <button class="secondary"
+       onclick="wizardBack(2)">
+       Back
+     </button>
+
+     <button class="primary"
+       onclick="wizardNext(2)">
+       Continue →
+     </button>
+
+   </div>
+
+ </div>
+
+
+ <div class="step" id="step3">
+
+   <h3>What's your field?</h3>
+
+   <p style="color:var(--muted);margin:6px 0 18px">
+     This helps SCHKIT prioritize relevant opportunities.
+   </p>
+
+   <div class="field">
+     <input
+       id="wizardField"
+       placeholder="e.g. Medicine, Engineering, Computer Science">
+   </div>
+
+   <div class="popup-actions">
+
+     <button class="secondary"
+       onclick="wizardBack(3)">
+       Back
+     </button>
+
+     <button class="primary"
+       onclick="wizardNext(3)">
+       Continue →
+     </button>
+
+   </div>
+
+ </div>
+
+
+ <div class="step" id="step4">
+
+   <h3>Tell us a little about yourself</h3>
+
+   <p style="color:var(--muted);margin:6px 0 18px">
+     This helps improve your matching.
+   </p>
+
+   <div class="field">
+
+     <label>Citizenship</label>
+
+     <input
+       id="wizardCitizenship"
+       placeholder="e.g. Ghana">
+
+   </div>
+
+   <div class="field">
+
+     <label>Academic results</label>
+
+     <input
+       id="wizardGrades"
+       placeholder="e.g. WASSCE results, GPA, A-levels">
+
+   </div>
+
+   <div class="popup-actions">
+
+     <button class="secondary"
+       onclick="wizardBack(4)">
+       Back
+     </button>
+
+     <button class="primary"
+       onclick="finishWizard()">
+       ✨ Find My Matches
+     </button>
+
+   </div>
+
+ </div>
+
+ `
+ );
+
 }
 
 
-function buildEssay() {
+function wizardNext(current){
 
-  const prompt =
-    document.getElementById("essayPrompt")
-      .value.trim();
+ let valid=true;
 
-  const experience =
-    document.getElementById("essayExperience")
-      .value.trim();
+ if(current===1){
 
-  if (!prompt || !experience) {
+   const value=
+   document.getElementById("wizardDegree").value;
 
-    showToast(
-      "Enter the prompt and your real experiences."
-    );
+   if(!value){
 
-    return;
-  }
+     showToast("Choose your degree first.");
+     return;
 
-  document.getElementById("toolOutput")
-    .innerHTML = `
+   }
 
-      <div class="output">
+ }
 
-        <strong>
-          Suggested essay structure
-        </strong>
+ if(current===2){
 
-        <br><br>
+   const value=
+   document.getElementById("wizardDestination").value;
 
-        <strong>1. Opening</strong><br>
-        Start with one specific moment from your
-        experience that connects naturally to the prompt.
+   if(!value){
 
-        <br><br>
+     showToast("Choose a destination.");
+     return;
 
-        <strong>2. Challenge or context</strong><br>
-        Explain what happened and why it mattered.
+   }
 
-        <br><br>
+ }
 
-        <strong>3. Your actions</strong><br>
-        Focus on what YOU did.
+ if(current===3){
 
-        <br><br>
+   const value=
+   document.getElementById("wizardField").value.trim();
 
-        <strong>4. Impact</strong><br>
-        Explain the result, lesson or change.
+   if(!value){
 
-        <br><br>
+     showToast("Enter your field.");
+     return;
 
-        <strong>5. Future connection</strong><br>
-        Connect the experience to your academic goals,
-        career plans and why this scholarship matters.
+   }
 
-        <br><br>
+ }
 
-        <strong>Prompt:</strong><br>
-        ${escapeHTML(prompt)}
+ if(!valid)return;
 
-        <br><br>
+ document.getElementById("step"+current)
+ .classList.remove("active");
 
-        <strong>Your evidence:</strong><br>
-        ${escapeHTML(experience)}
+ document.getElementById("step"+(current+1))
+ .classList.add("active");
 
-      </div>
-    `;
+ document.getElementById("p"+current)
+ .classList.remove("active");
+
+ document.getElementById("p"+(current+1))
+ .classList.add("active");
+
+}
+
+
+function wizardBack(current){
+
+ document.getElementById("step"+current)
+ .classList.remove("active");
+
+ document.getElementById("step"+(current-1))
+ .classList.add("active");
+
+ document.getElementById("p"+current)
+ .classList.remove("active");
+
+ document.getElementById("p"+(current-1))
+ .classList.add("active");
+
+}
+
+
+function finishWizard(){
+
+ profile={
+   degree:document.getElementById("wizardDegree").value,
+   destination:document.getElementById("wizardDestination").value,
+   field:document.getElementById("wizardField").value,
+   citizenship:document.getElementById("wizardCitizenship").value,
+   grades:document.getElementById("wizardGrades").value
+ };
+
+ localStorage.setItem(
+   "schkitProfile",
+   JSON.stringify(profile)
+ );
+
+ closeModal();
+
+ document.getElementById("degree").value=profile.degree;
+ document.getElementById("destination").value=profile.destination;
+ document.getElementById("field").value=profile.field;
+
+ renderScholarships(scholarships);
+
+ showToast("Your personalized matches are ready.");
+
+ setTimeout(()=>{
+   goToFinder();
+ },300);
+
+}
+
+
+/* =====================================================
+   ESSAY STUDIO
+===================================================== */
+
+function openEssay(){
+
+ openModal(
+ "✍️ Essay Studio",
+ `
+
+ <div class="step-progress">
+   <span class="active"></span>
+   <span class="active"></span>
+   <span class="active"></span>
+ </div>
+
+ <p style="color:var(--muted);margin-bottom:20px">
+   Choose the exact question and give SCHKIT your real
+   experiences. Your answers become the foundation of
+   your application essay.
+ </p>
+
+ <div class="field">
+
+   <label>Application / scholarship</label>
+
+   <input
+     id="essayApplication"
+     placeholder="e.g. University of Toronto">
+
+ </div>
+
+ <div class="field">
+
+   <label>Exact essay question</label>
+
+   <textarea
+     id="essayPrompt"
+     placeholder="Paste the exact question here..."
+   ></textarea>
+
+ </div>
+
+ <div class="field">
+
+   <label>What experience should the essay focus on?</label>
+
+   <textarea
+     id="essayExperience"
+     placeholder="Tell SCHKIT what actually happened, what you did, what you learned and how it changed you..."
+   ></textarea>
+
+ </div>
+
+ <div class="field">
+
+   <label>Target word count</label>
+
+   <input
+     id="essayWords"
+     type="number"
+     value="650"
+     min="100"
+     max="5000">
+
+ </div>
+
+ <button class="primary"
+   onclick="generateEssay()">
+   ✨ Generate My Essay
+ </button>
+
+ <div id="essayOutput"></div>
+
+ `
+ );
+
+}
+
+
+function generateEssay(){
+
+ const application=
+ document.getElementById("essayApplication")
+ .value.trim();
+
+ const prompt=
+ document.getElementById("essayPrompt")
+ .value.trim();
+
+ const experience=
+ document.getElementById("essayExperience")
+ .value.trim();
+
+ const words=
+ Number(document.getElementById("essayWords").value)||650;
+
+ if(!prompt||!experience){
+
+   showToast(
+     "Enter the exact question and your real experience."
+   );
+
+   return;
+
+ }
+
+ /*
+  This is the working local MVP generator.
+
+  For production, replace this function's
+  generation section with a secure backend AI call.
+ */
+
+ const essay=buildLocalEssay(
+   application,
+   prompt,
+   experience,
+   words
+ );
+
+ document.getElementById("essayOutput")
+ .innerHTML=`
+
+ <div class="output">
+
+   <div style="
+     display:flex;
+     justify-content:space-between;
+     gap:10px;
+     align-items:center;
+     margin-bottom:12px;
+   ">
+
+     <strong>Application-ready draft</strong>
+
+     <span style="
+       font-size:11px;
+       color:var(--muted);
+     ">
+       ${essay.split(/\s+/).filter(Boolean).length} words
+     </span>
+
+   </div>
+
+   <textarea
+     id="generatedEssay"
+     style="min-height:360px"
+   >${escapeHTML(essay)}</textarea>
+
+   <div class="popup-actions">
+
+     <button class="secondary"
+       onclick="copyEssay()">
+       Copy Essay
+     </button>
+
+     <button class="primary"
+       onclick="applyEssay()">
+       Apply to Application →
+     </button>
+
+   </div>
+
+ </div>
+
+ `;
+
+}
+
+
+function buildLocalEssay(application,prompt,experience,words){
+
+ const cleaned=experience.trim();
+
+ const paragraphs=[
+ `One experience that has significantly shaped my perspective and goals began with ${cleaned}.`,
+
+ `At the time, I understood that the situation required more than simply recognizing the challenge. I had to take responsibility for what I could control, make thoughtful decisions and remain committed even when the outcome was uncertain. Through this experience, I learned to approach difficult situations with persistence, curiosity and a willingness to learn.`,
+
+ `The experience also changed the way I understand leadership and personal growth. Rather than measuring success only by the immediate result, I began to pay greater attention to the process: listening to others, identifying practical solutions and taking action when an opportunity to contribute appeared.`,
+
+ `Most importantly, the experience helped me clarify the kind of student and future professional I want to become. I want to use my education not only to develop technical knowledge, but also to solve meaningful problems and create opportunities for people around me.`,
+
+ `This is why the question of ${prompt.toLowerCase()} matters to me. My experience has taught me that challenges can become turning points when they are met with determination, reflection and action. I would bring that same mindset to ${application||"my university and scholarship community"}, while continuing to learn, contribute and grow.`
+
+ ];
+
+ let result=paragraphs.join("\n\n");
+
+ const target=Math.max(100,words);
+
+ while(
+   result.split(/\s+/).length<target*.75
+ ){
+
+   result +=
+   " I also recognize that growth comes from listening, adapting and using every opportunity to become more capable of serving others.";
+
+   if(result.length>9000)break;
+
+ }
+
+ return result;
+
+}
+
+
+function copyEssay(){
+
+ const text=
+ document.getElementById("generatedEssay").value;
+
+ navigator.clipboard.writeText(text)
+ .then(()=>{
+   showToast("Essay copied.");
+ })
+ .catch(()=>{
+   showToast("Select the essay and copy it.");
+ });
+
+}
+
+
+function applyEssay(){
+
+ localStorage.setItem(
+   "schkitCurrentEssay",
+   document.getElementById("generatedEssay").value
+ );
+
+ showToast(
+   "Essay added to your SCHKIT application workspace."
+ );
+
+ setTimeout(()=>{
+   openApplicationReview();
+ },500);
+
+}
+
+
+/* =====================================================
+   APPLICATION
+===================================================== */
+
+function startApplication(id){
+
+ const scholarship=
+ scholarships.find(s=>s.id===id);
+
+ if(!scholarship)return;
+
+ if(!saved.includes(id)){
+
+   saved.push(id);
+
+   localStorage.setItem(
+     "schkitSaved",
+     JSON.stringify(saved)
+   );
+
+ }
+
+ statuses[id]="Preparing";
+
+ localStorage.setItem(
+   "schkitStatuses",
+   JSON.stringify(statuses)
+ );
+
+ openModal(
+   "🚀 Application Workspace",
+
+   `
+
+   <h3>
+     ${escapeHTML(scholarship.name)}
+   </h3>
+
+   <p style="color:var(--muted);margin:6px 0 20px">
+     SCHKIT will guide you through the application.
+   </p>
+
+   <div class="tracker-item">
+
+     <div>
+       <strong>Personal information</strong>
+       <small>Basic applicant details</small>
+     </div>
+
+     <span>✓</span>
+
+   </div>
+
+   <br>
+
+   <div class="tracker-item">
+
+     <div>
+       <strong>Academic information</strong>
+       <small>Education and results</small>
+     </div>
+
+     <span>✓</span>
+
+   </div>
+
+   <br>
+
+   <div class="tracker-item">
+
+     <div>
+       <strong>Essay</strong>
+       <small>Build your application response</small>
+     </div>
+
+     <button class="text-btn"
+       onclick="openEssay()">
+       Open Essay Studio
+     </button>
+
+   </div>
+
+   <br>
+
+   <div class="tracker-item">
+
+     <div>
+       <strong>Documents</strong>
+       <small>CV, transcripts and supporting documents</small>
+     </div>
+
+     <span>○</span>
+
+   </div>
+
+   <br>
+
+   <button
+     class="primary"
+     style="width:100%"
+     onclick="openApplicationReview()">
+
+     Review Application →
+
+   </button>
+
+   `
+ );
+
+ renderTracker();
+
+}
+
+
+function openApplicationReview(){
+
+ const essay=
+ localStorage.getItem("schkitCurrentEssay");
+
+ openModal(
+ "🔎 Final Application Review",
+
+ `
+
+ <div class="match">
+
+   ✓ SCHKIT preliminary check complete
+
+ </div>
+
+ <div class="tracker-item">
+   <div>
+     <strong>Applicant information</strong>
+     <small>Ready for review</small>
+   </div>
+   <span>✓</span>
+ </div>
+
+ <br>
+
+ <div class="tracker-item">
+   <div>
+     <strong>Academic information</strong>
+     <small>Ready for review</small>
+   </div>
+   <span>✓</span>
+ </div>
+
+ <br>
+
+ <div class="tracker-item">
+   <div>
+     <strong>Essay</strong>
+     <small>
+       ${essay?"Essay attached":"Essay not added yet"}
+     </small>
+   </div>
+   <span>${essay?"✓":"!"}</span>
+ </div>
+
+ <br>
+
+ <div class="output">
+
+   <strong>Before submitting</strong>
+
+   <br><br>
+
+   Review every answer, document and essay carefully.
+   SCHKIT should never submit an application without
+   your explicit confirmation.
+
+ </div>
+
+ <div class="popup-actions">
+
+   <button class="secondary"
+     onclick="openEssay()">
+     Edit Essay
+   </button>
+
+   <button class="primary"
+     onclick="confirmSubmission()">
+     Submit Application
+   </button>
+
+ </div>
+
+ `
+ );
+
+}
+
+
+function confirmSubmission(){
+
+ openModal(
+ "⚠️ Confirm Submission",
+
+ `
+
+ <div class="output">
+
+   <strong>
+     Are you ready to submit?
+   </strong>
+
+   <br><br>
+
+   Please make sure that all information,
+   documents and essays are correct.
+
+   <br><br>
+
+   <strong>
+     SCHKIT will only proceed after your confirmation.
+   </strong>
+
+ </div>
+
+ <div class="popup-actions">
+
+   <button class="secondary"
+     onclick="closeModal()">
+     Go Back
+   </button>
+
+   <button class="primary"
+     onclick="submitApplication()">
+     Yes, Submit
+   </button>
+
+ </div>
+
+ `
+ );
+
+}
+
+
+function submitApplication(){
+
+ /*
+  A real third-party submission requires an
+  approved integration/API or supported automation.
+  This MVP does NOT falsely claim that an external
+  application was submitted.
+ */
+
+ openModal(
+ "🚀 Ready to Submit",
+
+ `
+
+ <div class="output">
+
+   <strong>
+     Your application package is ready.
+   </strong>
+
+   <br><br>
+
+   SCHKIT has prepared your application workflow.
+
+   <br><br>
+
+   For external university/application portals,
+   the final submission must be completed through
+   the supported official application system unless
+   SCHKIT has an authorized integration.
+
+ </div>
+
+ <br>
+
+ <button class="primary"
+   style="width:100%"
+   onclick="closeModal()">
+
+   Continue to Application Portal →
+
+ </button>
+
+ `
+ );
+
+}
+
+
+/* =====================================================
+   CV BUILDER
+===================================================== */
+
+function openCV(){
+
+ openModal(
+ "📄 CV Builder",
+
+ `
+
+ <p style="color:var(--muted)">
+   Create the information SCHKIT will use to build
+   your academic CV.
+ </p>
+
+ <div class="field" style="margin-top:15px">
+   <label>Full name</label>
+   <input id="cvName" placeholder="Your name">
+ </div>
+
+ <div class="field">
+   <label>Education</label>
+   <textarea id="cvEducation"
+     placeholder="School, programme, graduation year..."></textarea>
+ </div>
+
+ <div class="field">
+   <label>Achievements & activities</label>
+   <textarea id="cvAchievements"
+     placeholder="Leadership, awards, volunteering, projects..."></textarea>
+ </div>
+
+ <button class="primary"
+   onclick="generateCV()">
+   Build CV
+ </button>
+
+ <div id="cvOutput"></div>
+
+ `
+ );
+
+}
+
+
+function generateCV(){
+
+ const name=
+ document.getElementById("cvName").value.trim();
+
+ const education=
+ document.getElementById("cvEducation").value.trim();
+
+ const achievements=
+ document.getElementById("cvAchievements").value.trim();
+
+ if(!name){
+
+   showToast("Enter your name.");
+   return;
+
+ }
+
+ document.getElementById("cvOutput")
+ .innerHTML=`
+
+ <div class="output">
+
+   <h2>${escapeHTML(name)}</h2>
+
+   <br>
+
+   <strong>EDUCATION</strong>
+
+   <br>
+   ${escapeHTML(education||"Add your education.")}
+
+   <br><br>
+
+   <strong>ACHIEVEMENTS & ACTIVITIES</strong>
+
+   <br>
+   ${escapeHTML(
+     achievements||"Add your achievements and activities."
+   )}
+
+ </div>
+
+ `;
+
 }
 
 
@@ -703,103 +2680,100 @@ function buildEssay() {
    INTERVIEW
 ===================================================== */
 
-function openInterview() {
+function openInterview(){
 
-  openModal(
-    "🎤 Interview Coach",
+ openModal(
+ "🎤 Interview Coach",
 
-    `
-      <p style="color:var(--muted)">
-        Practice answering this scholarship interview question.
-      </p>
+ `
 
-      <div class="output">
+ <p style="color:var(--muted)">
+   Practice answering scholarship interview questions.
+ </p>
 
-        <strong>
-          Tell us about a challenge you faced
-          and what you learned from it.
-        </strong>
+ <div class="output">
 
-      </div>
+   <strong>
+     Tell us about a challenge you faced and what
+     you learned from it.
+   </strong>
 
-      <div class="field" style="margin-top:15px">
+ </div>
 
-        <label>Your answer</label>
+ <div class="field" style="margin-top:15px">
 
-        <textarea
-          id="interviewAnswer"
-          placeholder="Write your answer..."
-        ></textarea>
+   <label>Your answer</label>
 
-      </div>
+   <textarea id="interviewAnswer"
+     placeholder="Write your answer..."></textarea>
 
-      <button
-        class="primary"
-        onclick="reviewInterview()"
-      >
-        Review my answer
-      </button>
+ </div>
 
-      <div id="toolOutput"></div>
-    `
-  );
+ <button class="primary"
+   onclick="reviewInterview()">
+   Review My Answer
+ </button>
+
+ <div id="toolOutput"></div>
+
+ `
+ );
+
 }
 
 
-function reviewInterview() {
+function reviewInterview(){
 
-  const answer =
-    document.getElementById("interviewAnswer")
-      .value.trim();
+ const answer=
+ document.getElementById("interviewAnswer")
+ .value.trim();
 
-  if (!answer) {
+ if(!answer){
 
-    showToast(
-      "Write your answer first."
-    );
+   showToast("Write your answer first.");
+   return;
 
-    return;
-  }
+ }
 
-  document.getElementById("toolOutput")
-    .innerHTML = `
+ document.getElementById("toolOutput")
+ .innerHTML=`
 
-      <div class="output">
+ <div class="output">
 
-        <strong>
-          Interview checklist
-        </strong>
+   <strong>Interview feedback</strong>
 
-        <br><br>
+   <br><br>
 
-        ✓ Did you clearly explain the challenge?
+   ✓ Did you clearly explain the challenge?
 
-        <br><br>
+   <br><br>
 
-        ✓ Did you explain YOUR actions?
+   ✓ Did you explain what YOU did?
 
-        <br><br>
+   <br><br>
 
-        ✓ Did you show the impact?
+   ✓ Did you show a measurable result?
 
-        <br><br>
+   <br><br>
 
-        ✓ Did you explain what you learned?
+   ✓ Did you explain what you learned?
 
-        <br><br>
+   <br><br>
 
-        ✓ Did you connect the lesson to your future?
+   ✓ Did you connect the experience to your future?
 
-        <br><br>
+   <br><br>
 
-        <strong>Your answer:</strong>
+   <strong>Your answer</strong>
 
-        <br><br>
+   <br><br>
 
-        ${escapeHTML(answer)}
+   ${escapeHTML(answer)}
 
-      </div>
-    `;
+ </div>
+
+ `;
+
 }
 
 
@@ -807,105 +2781,260 @@ function reviewInterview() {
    ELIGIBILITY
 ===================================================== */
 
-function openEligibility() {
+function openEligibility(){
 
-  openModal(
-    "✅ Eligibility Checker",
+ openModal(
+ "✅ Eligibility Checker",
 
-    `
-      <p style="color:var(--muted)">
-        This is a quick screening tool. Always verify
-        the complete requirements on the official scholarship page.
-      </p>
+ `
 
-      <div class="field" style="margin-top:15px">
+ <p style="color:var(--muted)">
+   This is a screening tool. Always verify the complete
+   official requirements.
+ </p>
 
-        <label>Scholarship</label>
+ <div class="field" style="margin-top:15px">
 
-        <select id="eligibilityScholarship">
+   <label>Scholarship</label>
 
-          ${scholarships.map(
-            s => `
-              <option value="${s.id}">
-                ${escapeHTML(s.name)}
-              </option>
-            `
-          ).join("")}
+   <select id="eligibilityScholarship">
 
-        </select>
+     ${scholarships.map(s=>`
 
-      </div>
+       <option value="${s.id}">
+         ${escapeHTML(s.name)}
+       </option>
 
-      <div class="field" style="margin-top:12px">
+     `).join("")}
 
-        <label>Your degree</label>
+   </select>
 
-        <select id="eligibilityDegree">
-          <option>Bachelor's</option>
-          <option>Master's</option>
-          <option>PhD</option>
-        </select>
+ </div>
 
-      </div>
+ <div class="field">
 
-      <button
-        class="primary"
-        style="margin-top:15px"
-        onclick="checkEligibility()"
-      >
-        Check profile
-      </button>
+   <label>Your degree</label>
 
-      <div id="toolOutput"></div>
-    `
-  );
+   <select id="eligibilityDegree">
+
+     <option>Bachelor's</option>
+     <option>Master's</option>
+     <option>PhD</option>
+
+   </select>
+
+ </div>
+
+ <button class="primary"
+   onclick="checkEligibility()">
+   Check Profile
+ </button>
+
+ <div id="toolOutput"></div>
+
+ `
+ );
+
 }
 
 
-function checkEligibility() {
+function checkEligibility(){
 
-  const id =
-    Number(
-      document.getElementById(
-        "eligibilityScholarship"
-      ).value
-    );
+ const id=
+ Number(
+   document.getElementById(
+     "eligibilityScholarship"
+   ).value
+ );
 
-  const degree =
-    document.getElementById(
-      "eligibilityDegree"
-    ).value;
+ const degree=
+ document.getElementById(
+   "eligibilityDegree"
+ ).value;
 
-  const scholarship =
-    scholarships.find(
-      s => s.id === id
-    );
+ const scholarship=
+ scholarships.find(s=>s.id===id);
 
-  const match =
-    scholarship.degree.includes(degree);
+ const match=
+ scholarship.degree.includes(degree);
 
-  document.getElementById("toolOutput")
-    .innerHTML = `
+ document.getElementById("toolOutput")
+ .innerHTML=`
 
-      <div class="output">
+ <div class="output">
 
-        <strong>
-          ${match
-            ? "Potential match"
-            : "Degree mismatch"
-          }
-        </strong>
+   <strong>
+     ${match?"Potential Match":"Degree Mismatch"}
+   </strong>
 
-        <br><br>
+   <br><br>
 
-        ${
-          match
-            ? "The listed degree category matches your selection. You still need to verify citizenship, academic, programme-specific and deadline requirements on the official website."
-            : "This scholarship's listed degree categories do not include your selected degree. Check the official requirements before applying."
-        }
+   ${
+     match
+     ?"The listed degree category matches your selection. Verify citizenship, academic, programme-specific and deadline requirements on the official page."
+     :"This scholarship's listed degree categories do not include your selected degree."
+   }
 
-      </div>
-    `;
+ </div>
+
+ `;
+
+}
+
+
+/* =====================================================
+   TRACKER
+===================================================== */
+
+function renderTracker(){
+
+ const tracker=
+ document.getElementById("trackerList");
+
+ const list=
+ scholarships.filter(
+   s=>saved.includes(s.id)
+ );
+
+ if(!list.length){
+
+   tracker.innerHTML=`
+
+   <div class="tracker-item">
+
+     <div>
+
+       <strong>
+         Your tracker is empty.
+       </strong>
+
+       <small>
+         Save a scholarship and it will appear here.
+       </small>
+
+     </div>
+
+   </div>
+
+   `;
+
+   return;
+
+ }
+
+ tracker.innerHTML=
+ list.map(s=>`
+
+ <div class="tracker-item">
+
+   <div>
+
+     <strong>
+       ${escapeHTML(s.name)}
+     </strong>
+
+     <small>
+       ${escapeHTML(s.organization)}
+       ·
+       ${escapeHTML(s.deadline)}
+     </small>
+
+   </div>
+
+   <select onchange="changeStatus(${s.id},this.value)">
+
+     ${[
+       "Interested",
+       "Preparing",
+       "Applied",
+       "Accepted",
+       "Rejected"
+     ].map(status=>`
+
+       <option
+         ${statuses[s.id]===status?"selected":""}>
+         ${status}
+       </option>
+
+     `).join("")}
+
+   </select>
+
+ </div>
+
+ `).join("");
+
+}
+
+
+function changeStatus(id,status){
+
+ statuses[id]=status;
+
+ localStorage.setItem(
+   "schkitStatuses",
+   JSON.stringify(statuses)
+ );
+
+ showToast("Application status updated.");
+
+}
+
+
+/* =====================================================
+   DEADLINES
+===================================================== */
+
+function openDeadline(){
+
+ openModal(
+ "🔔 Deadline Center",
+
+ `
+
+ <p style="color:var(--muted)">
+   Your saved scholarship deadlines.
+ </p>
+
+ <div style="margin-top:18px">
+
+ ${scholarships
+   .filter(s=>saved.includes(s.id))
+   .map(s=>`
+
+     <div class="tracker-item"
+       style="margin-bottom:9px">
+
+       <div>
+         <strong>
+           ${escapeHTML(s.name)}
+         </strong>
+
+         <small>
+           ${escapeHTML(s.deadline)}
+         </small>
+       </div>
+
+       <span>🔔</span>
+
+     </div>
+
+   `).join("")
+ }
+
+ </div>
+
+ ${saved.length===0?`
+
+   <div class="output">
+     Save scholarships to see their deadlines here.
+   </div>
+
+ `:""}
+
+ `
+ );
+
 }
 
 
@@ -913,23 +3042,80 @@ function checkEligibility() {
    NAVIGATION
 ===================================================== */
 
-function goToFinder() {
+function goHome(){
 
-  document.getElementById(
-    "finder"
-  ).scrollIntoView({
-    behavior: "smooth"
-  });
+ document.getElementById("home")
+ .scrollIntoView({
+   behavior:"smooth"
+ });
+
 }
 
 
-function goToTools() {
+function goToFinder(){
 
-  document.getElementById(
-    "tools"
-  ).scrollIntoView({
-    behavior: "smooth"
-  });
+ document.getElementById("finder")
+ .scrollIntoView({
+   behavior:"smooth"
+ });
+
+}
+
+
+function goToTools(){
+
+ document.getElementById("tools")
+ .scrollIntoView({
+   behavior:"smooth"
+ });
+
+}
+
+
+function goToApplications(){
+
+ document.getElementById("applications")
+ .scrollIntoView({
+   behavior:"smooth"
+ });
+
+}
+
+
+function openMobileMenu(){
+
+ openModal(
+ "SCHKIT Menu",
+
+ `
+
+ <button class="primary"
+   style="width:100%;margin-bottom:10px"
+   onclick="closeModal();goHome()">
+   Home
+ </button>
+
+ <button class="secondary"
+   style="width:100%;margin-bottom:10px"
+   onclick="closeModal();goToFinder()">
+   Scholarships
+ </button>
+
+ <button class="secondary"
+   style="width:100%;margin-bottom:10px"
+   onclick="closeModal();goToApplications()">
+   Applications
+ </button>
+
+ <button class="secondary"
+   style="width:100%"
+   onclick="closeModal();goToTools()">
+   AI Tools
+ </button>
+
+ `
+ );
+
 }
 
 
@@ -937,81 +3123,69 @@ function goToTools() {
    DARK MODE
 ===================================================== */
 
-function toggleTheme() {
+function toggleTheme(){
 
-  document.body.classList.toggle("dark");
+ document.body.classList.toggle("dark");
 
-  const dark =
-    document.body.classList.contains("dark");
+ const dark=
+ document.body.classList.contains("dark");
 
-  localStorage.setItem(
-    "schkitDark",
-    dark
-  );
+ localStorage.setItem(
+   "schkitDark",
+   dark
+ );
 
-  document.getElementById(
-    "themeButton"
-  ).textContent =
-    dark ? "☀" : "☾";
+ document.getElementById("themeButton")
+ .textContent=
+ dark?"☀":"☾";
+
 }
 
 
-if (
-  localStorage.getItem("schkitDark") === "true"
-) {
+if(
+ localStorage.getItem("schkitDark")==="true"
+){
 
-  document.body.classList.add("dark");
+ document.body.classList.add("dark");
 
-  document.getElementById(
-    "themeButton"
-  ).textContent = "☀";
+ document.getElementById("themeButton")
+ .textContent="☀";
+
 }
+
+
+/* =====================================================
+   MODAL EVENTS
+===================================================== */
+
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+ if(e.target===this){
+   closeModal();
+ }
+
+});
+
+
+document.getElementById("search")
+.addEventListener("keydown",function(e){
+
+ if(e.key==="Enter"){
+   findScholarships();
+ }
+
+});
 
 
 /* =====================================================
    INITIALIZE
 ===================================================== */
 
-renderScholarships(
-  scholarships
-);
-
+renderScholarships(scholarships);
 renderTracker();
 
-
-/* =====================================================
-   MODAL CLOSE
-===================================================== */
-
-document
-  .getElementById("modal")
-  .addEventListener(
-    "click",
-    function(e) {
-
-      if (e.target === this) {
-        closeModal();
-      }
-
-    }
-  );
-
-
-/* =====================================================
-   SEARCH ENTER KEY
-===================================================== */
-
-document
-  .getElementById("search")
-  .addEventListener(
-    "keydown",
-    function(e) {
-
-      if (e.key === "Enter") {
-        findScholarships();
-      }
-
-    }
-  );
-
 </script>
+
+</body>
+</html>
